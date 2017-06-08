@@ -11,59 +11,59 @@
 \thispagestyle{fancy}
 
 %-----------------------------------------------------------------
-În acest capitol este prezentată partea structurală a modulului cât și unitățile software din care acesta este format.
+În acest capitol este prezentată partea structurală a modulului cât şi unităţile software din care acesta este format.
 
 \section{Unitatea software PNavServiceImpl} 
-Unitatea PNavServiceImpl implementează interfața sincronă și asincronă, și îi oferă totodată dezvoltatorului posibilitatea de a alege ce interfață dorește să folosească.
+Unitatea PNavServiceImpl implementează interfaţa sincronă şi asincronă, şi îi oferă totodată dezvoltatorului posibilitatea de a alege ce interfaţă doreşte să folosească.
 \vspace{6pt}
-\\Cea asincronă are avantajul de a decupla firele de execuție și de a permite rularea activităților în paralel, însă are și dezavantajul necesitații de implementare unui mecanism de sincronizare în codul aplicației în care va fi folosit modulul.
+\\Cea asincronă are avantajul de a decupla firele de execuţie şi de a permite rularea activităţilor în paralel, însă are şi dezavantajul necesităţii de implementare unui mecanism de sincronizare în codul aplicaţiei în care va fi folosit modulul.
 
 
 \section{Unitatea software PNavImpl} 
-Deși funcționalitățile de bază precum precum învățarea și predicția sunt realizare de catre unitatea PNavRecorder respectiv PNavPredictor, unitatea PNavImpl realizează funcționalități suplimentare cum ar fi multiple profile de utilizatori, ștergerea bazelor de date.
+Deşi funcţionalităţile de bază precum precum învăţarea şi predicţia sunt realizare de către unitatea PNavRecorder respectiv PNavPredictor, unitatea PNavImpl realizează funcţionalităţi suplimentare cum ar fi multiple profile de utilizatori, ştergerea bazelor de date.
 \vspace{6pt}
-\\Funcționalitatea multiplelor profile de utilizatori permite gestionarea mai multor baze de date, ce pot fi selectate pe baza unui ID de profil.
-Acest ID poate cuprinde valori în intervalul 0-255. Pentru fiecare profil este creat un nou fișier în care vor fi stocate datele de utilizator. Unitatea PNavImpl implementează de asemenea și funcționalități de întreținere a profilelor de utilizator precum ștergerea undividuală, ștergerea totală, copierea, schimbarea între profile.
+\\Funcţionalitatea multiplelor profile de utilizatori permite gestionarea mai multor baze de date, ce pot fi selectate pe baza unui ID de profil.
+Acest ID poate cuprinde valori în intervalul 0-255. Pentru fiecare profil este creat un nou fişier în care vor fi stocate datele de utilizator. Unitatea PNavImpl implementează de asemenea şi funcţionalităţi de întreţinere a profilelor de utilizator precum ştergerea individuală, ştergerea totală, copierea, schimbarea între profile.
 
 \section{Unitatea software PNavRecorder} 
-NavRecorder-ul este unitate în care întreg procesul de învățare are loc. 
+NavRecorder-ul este unitate în care întreg procesul de învăţare are loc. 
 \vspace{6pt}
-\\Unitatea primește datele de geolocație și de timp (oră - zi/lună/an) și învață rutele parcurse de către dezvoltator într-un mod inteligent.
-Acest lucru înseamnă că waypoint-urile (punctele prin care a trecut utilizatorul în timpul rutei sale) sunt stocate numai când autovehiculul și-a schimbat 
-orientarea semnificativ (valoare standard: > 15$^{\circ}$) sau distanța dintre waypoint-uri nu este prea scurtă (valoare standard: > 200m). Valori pot fi configurate înaintea procesului de compilare.
+\\Unitatea primeşte datele de geolocație şi de timp (oră - zi/lună/an) şi învaţă rutele parcurse de către dezvoltator într-un mod inteligent.
+Acest lucru înseamnă că waypoint-urile (punctele prin care a trecut utilizatorul în timpul rutei sale) sunt stocate numai când autovehiculul şi-a schimbat 
+orientarea semnificativ (valoare standard: > 15$^{\circ}$) sau distanţa dintre waypoint-uri nu este prea scurtă (valoare standard: > 200m). Valori pot fi configurate înaintea procesului de compilare.
 \vspace{6pt}
 \\Când sesiunea de înregistrare este finalizată, waypoint-urile sunt trimise către unitatea software PNavDataManager pentru a fi scrise în baza de date.
-Totodată, unitatea are implementate funcționalități de oprire-pornire, lucru ce-i acordă dezvoltatorului dreptul de opri și porni oricând sesiunea de înregistrare.
+Totodată, unitatea are implementate funcţionalităţi de oprire-pornire, lucru ce-i acordă dezvoltatorului dreptul de opri şi porni oricând sesiunea de înregistrare.
 
 
 \section{Unitatea software PNavPredictor} 
-Rolul unității PNavPredictor este acela de a calcula predicțiile. 
+Rolul unităţii PNavPredictor este acela de a calcula predicţiile. 
 \vspace{6pt}
-\\Primul pas constă în încărcarea datelor prin unitatea PNavDataManager, care sunt mai departe prioritizate în funcție de criterii specifice (descrise în tabela ~\ref{table:tabel_predictii}, ``Criterii de prioritizare pentru predicția bazată pe rute''). Datele pot fi de asemenea filtrate be baza acelorași criterii, rezultând astfel o cantitate mai mică de date și un timp mai scurt de încărcare a acestora. 
+\\Primul pas constă în încărcarea datelor prin unitatea PNavDataManager, care sunt mai departe prioritizate în funcţie de criterii specifice (descrise în tabela ~\ref{table:tabel_predictii}, ``Criterii de prioritizare pentru predicţia bazată pe rute''). Datele pot fi de asemenea filtrate pe baza aceloraşi criterii, rezultând astfel o cantitate mai mică de date şi un timp mai scurt de încărcare a acestora. 
 \vspace{6pt}
-\\Prioritizarea datelor este bazată atât pe datele de geolocație cât și cele de timp, astfel încât o rută va avea o probabilitate mult mai mare de utilizare într-o anumită zi din săptămână sau la o anumită oră din zi.
+\\Prioritizarea datelor este bazată atât pe datele de geolocație cât şi cele de timp, astfel încât o rută va avea o probabilitate mult mai mare de utilizare într-o anumită zi din săptămână sau la o anumită oră din zi.
 \vspace{6pt}
-\\Ca și unitatea PNavRecorder, unitatea PNavPredictor are implementate funcționalități de oprire-pornire.
+\\Ca şi unitatea PNavRecorder, unitatea PNavPredictor are implementate funcţionalităţi de oprire-pornire.
 
 
 \section{Unitatea software PNavConfiguration} 
-Unitatea PNavConfiguration configurează unitatea NavPredictor, prin intermediul unor funcții ce folosesc criteriile definite în unitatea PNavCriteria.
+Unitatea PNavConfiguration configurează unitatea NavPredictor, prin intermediul unor funcţii ce folosesc criteriile definite în unitatea PNavCriteria.
 
 
 \section{Unitatea software PNavCriteria} 
-Unitatea PNavCriteria conține toate tipurile de criterii ce pot fi folosite la filtrarea sau prioritizarea datelor.
+Unitatea PNavCriteria conţine toate tipurile de criterii ce pot fi folosite la filtrarea sau prioritizarea datelor.
 \vspace{6pt}
 \\Fiecare criteriu în parte este folosit la procesarea datelor de către unitatea PNavPredictor.
 După procesarea tuturor criteriilor cea mai probabilă rută este creată.
 
 
 \section{Unitatea software PNavDataManager} 
-Unitatea PNavDataManager implementează logica necesară pentru a realiza comunicarea între unitatea PNavDataStorage și restul unităților.
+Unitatea PNavDataManager implementează logica necesară pentru a realiza comunicarea între unitatea PNavDataStorage şi restul unităţilor.
 \vspace{6pt}
-\\În general, obiectele sunt stocate separat (e.g. rutele sunt stocate separat față de destinațiilor lor). Cum însă pentru predicția unei rute este nevoie de toate informațiile, unitatea PNavDataManager le comasează. Aceasta oferă de asemenea și alte funcționalități precum adăugarea, gruparea, căutarea sau ștergerea de obiecte.
+\\În general, obiectele sunt stocate separat (e.g. rutele sunt stocate separat faţă de destinaţiilor lor). Cum însă pentru predicţia unei rute este nevoie de toate informaţiile, unitatea PNavDataManager le comasează. Aceasta oferă de asemenea şi alte funcţionalităţi precum adăugarea, gruparea, căutarea sau ştergerea de obiecte.
 
 
 \section{Unitatea software PNavDataStorage} 
 Unitatea PNavDataStorage este dezvoltată pe baza structurii bazei de date.
 \vspace{6pt}
-\\În afară de funcționalitatea principală de a stoca sau încărca date, aceasta asigură și accesarea selectivă a obiectelor. Pentru realizarea acestor funcționalități se execută interogări prin intermediul SQLite.
+\\În afară de funcţionalitatea principală de a stoca sau încărca date, aceasta asigură şi accesarea selectivă a obiectelor. Pentru realizarea acestor funcţionalităţi se execută interogări prin intermediul SQLite.

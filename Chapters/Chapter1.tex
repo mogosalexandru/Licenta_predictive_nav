@@ -11,42 +11,42 @@
 \thispagestyle{fancy}
 
 %-----------------------------------------------------------------
-În acest capitol sunt prezentate cele mai importante decizii de design luate în cadrul dezvoltarii componentei software.
+În acest capitol sunt prezentate cele mai importante decizii de design luate în cadrul dezvoltării componentei software.
 
 \section{Deciderea asupra modului de stocare a datelor} 
 
 	\subsection{Subiectul problemei} 
-	Nevoia modulului de a stoca și de a accesa date stocate anterior.
+	Nevoia modulului de a stoca şi de a accesa date stocate anterior.
 
 	\subsection{Factori de decizie} 
 	\begin{itemize}
 	 \setlength\itemsep{0em}
-		\item Consistența datelor stocate
+		\item Consistenţa datelor stocate
 		\item Utilizarea RAM-ului
-		\item Timp de accesare la pornirea aplicației
-		\item Timp de accesare în cadrul aplicației
-		\item Spațiul ocupat pe disc
+		\item Timp de accesare la pornirea aplicaţiei
+		\item Timp de accesare în cadrul aplicaţiei
+		\item Spaţiul ocupat pe disc
 		\item Compatibilitate cu versiunile anterioare
 	\end{itemize}
 
-	\subsection{Soluții propuse}
-	În următorul tabel, se presupune ca pentru fișierele binare, XML și JSON este necesară încărcarea datelor la pornirea aplicației. SQLite oferă însă soluții de căutare inteligente, nefiind necesară încărcarea tuturor datelor la pornirea aplicației.
+	\subsection{Soluţii propuse}
+	În următorul tabel, se presupune ca pentru fişierele binare, XML şi JSON este necesară încărcarea datelor la pornirea aplicaţiei. SQLite oferă însă soluţii de căutare inteligente, nefiind necesară încărcarea tuturor datelor la pornirea aplicaţiei.
 
 	\begin{table}
-	\caption{Compararea principalelor metode de stocare a datelor pe baza factorilor de influențare}
+	\caption{Compararea principalelor metode de stocare a datelor pe baza factorilor de influenţare}
 	\resizebox{\textwidth}{!}{\begin{tabular}{ | c | c | c | c | c |}
 	\hline
 		& \textbf{Binar} & \textbf{XML sau JSON} & \textbf{SQLite} & \textbf{Memorare în Cloud} \\ 
 	\hline
-	 Consistența datelor stocate & Nu & Nu & Da & Da \\
+	 Consistenţa datelor stocate & Nu & Nu & Da & Da \\
 	\hline
 	 Utilizarea RAM-ului & Ridicat & Scăzut & Mediu & Mediu \\
 	\hline
-	 Timp de accesare la pornirea aplicației & Mediu & Ridicat & Scăzut & Scăzut \\
+	 Timp de accesare la pornirea aplicaţiei & Mediu & Ridicat & Scăzut & Scăzut \\
 	\hline
-	 Timp de accesare în cadrul aplicației & Scăzut & Scăzut & Mediu & Ridicat \\
+	 Timp de accesare în cadrul aplicaţiei & Scăzut & Scăzut & Mediu & Ridicat \\
 	\hline
-	 Spațiul ocupat pe disc & Scăzut & Ridicat & Scăzut & Foarte scăzut \\
+	 Spaţiul ocupat pe disc & Scăzut & Ridicat & Scăzut & Foarte scăzut \\
 	\hline
 	 Compatibilitate cu versiunile anterioare & Nu & Da & Da & Nu \\
 	\hline
@@ -59,27 +59,27 @@
 \section{Deciderea asupra comportamentului sincron/asincron} 
 
 	\subsection{Subiectul problemei} 
-	Există operații care ar putea necesita mai mult timp (>100ms) și nu este vizibil direct faptul că acestea au fost declanșate de către o cerere (exemplu: o  nouă poziție este trimisă).
-	O cerere poate declanșată din fire de execuție diferite.
-	Există posibiliatea ca acest lucru sa fie realizat sincron, în afara modului, între cereri și răspunsuri, fapt ce poate duce la deadlock.
+	Există operaţii care ar putea necesita mai mult timp (>100ms) şi nu este vizibil direct faptul că acestea au fost declanşate de către o cerere (exemplu: o  nouă poziţie este trimisă).
+	O cerere poate declanşată din fire de execuţie diferite.
+	Există posibilitatea ca acest lucru sa fie realizat sincron, în afara modului, între cereri şi răspunsuri, fapt ce poate duce la deadlock.
 
 	\subsection{Factori de decizie} 
 	\begin{itemize}
 	 \setlength\itemsep{0em}
-		\item Timpul în care firul de execuție este blocat de cerere
-		\item Sincronizarea între operații
+		\item Timpul în care firul de execuţie este blocat de cerere
+		\item Sincronizarea între operaţii
 	\end{itemize}
 
-	\subsection{Soluții propuse}
+	\subsection{Soluţii propuse}
 	\begin{itemize}
 	 \setlength\itemsep{0em}
-		\item Procesul se va executa asincron folosind un fir de execuție de lucru
-		\item	Procesul se va sincron, în interiorul cererilor
+		\item Procesul se va executa asincron folosind un fir de execuţie de lucru
+		\item	Procesul se va executa sincron, în interiorul cererilor
 	\end{itemize}
 
 
 	\subsection{Decizia}
-	Se vor furniza două interfețe diferite. Funcționalitatea va fi oferită printr-o interfață sincronă, ce va fi utilizată în cadrul operațiilor ce au loc pe un singur fir de execuție. O alta interfață va decupla firele de execuție și procesele într-o buclă de lucru.
-	Acest fapt ne oferă libertatea utilizării principiului de multithread-ing (execuția mai multor thread-uri în același pipeline, fiecare având propria secțiune de timp în care este menit să lucreze).
+	Se vor furniza două interfeţe diferite. Funcţionalitatea va fi oferită printr-o interfaţă sincronă, ce va fi utilizată în cadrul operaţiilor ce au loc pe un singur fir de execuţie. O alta interfaţă va decupla firele de execuţie şi procesele într-o buclă de lucru.
+	Acest fapt ne oferă libertatea utilizării principiului de multithread-ing (execuţia mai multor thread-uri în acelaşi pipeline, fiecare având propria secţiune de timp în care este menit să lucreze).
 
 

@@ -12,33 +12,33 @@
 
 %-----------------------------------------------------------------
 
-\section{Învățarea rutelor} 
-Rutele sunt învățate printr-un mecanism inteligent. Acest lucru are avantajul de a reduce semnificativ baza de date și de a accelera încărcarea datelor.
+\section{Învăţarea rutelor} 
+Rutele sunt învăţate printr-un mecanism inteligent. Acest lucru are avantajul de a reduce semnificativ baza de date şi de a accelera încărcarea datelor.
 
 	\subsection{Reducerea waypoint-urilor} 
 	Criteriile pentru excluderea waypoint-urilor sunt:
 	\begin{enumerate}
 	 \setlength\itemsep{0em}
-		\item Vehiculul nu și-a schimbat orientarea semnificativ (valoare standard: > 15$^{\circ}$)
-		\item Pozițiile sunt apropiate una de cealaltă (valoare standard: > 200m)
+		\item Vehiculul nu şi-a schimbat orientarea semnificativ (valoare standard: > 15$^{\circ}$)
+		\item Poziţiile sunt apropiate una de cealaltă (valoare standard: > 200m)
 	\end{enumerate}
 	
 	Valorile standard pot fi configurate  înaintea procesului de compilare.
 	
 	
 	\subsection{Verificarea rutelor duble} 
-	În cazul în care ruta curentă are o secțiune similară cu o rută deja invățată, unitatea software PNavDataManager va detecta secțiune respectivă și va stoca numai waypoint-urile situate după aceasta. În schimb, toate destinațiile sunt memorate. Criteriile pentru a detecta o astfel de rută sunt:
+	În cazul în care ruta curentă are o secţiune similară cu o rută deja învăţată, unitatea software PNavDataManager va detecta secţiune respectivă şi va stoca numai waypoint-urile situate după aceasta. În schimb, toate destinaţiile sunt memorate. Criteriile pentru a detecta o astfel de rută sunt:
 	
 		\begin{enumerate}
 	 \setlength\itemsep{0em}
-		\item Destinația noii rute trebuie să fie situată într-o rază de 1km față de locația vechii destinații
-		\item Punctul de start al noii rute trebuie să fie situată într-o rază de 1km față de punctul de plecare vechii destinații
+		\item Destinaţia noii rute trebuie să fie situată într-o rază de 1km faţă de locaţia vechii destinaţii
+		\item Punctul de start al noii rute trebuie să fie situată într-o rază de 1km faţă de punctul de plecare vechii destinaţii
 		\item Toate waypoint-urile noii rute trebuie:
 				\begin{enumerate}
 				 \setlength\itemsep{0em}
-					\item Să fie situat într-o anumită rază față de punctul de start al vechii rute
-					\item Sau să fie situat într-o anumită rază față de destinația vechii rute
-					\item Sau să fie situat într-o anumită rază față de un waypoint al vechii rute
+					\item Să fie situat într-o anumită rază faţă de punctul de start al vechii rute
+					\item Sau să fie situat într-o anumită rază faţă de destinaţia vechii rute
+					\item Sau să fie situat într-o anumită rază faţă de un waypoint al vechii rute
 				\end{enumerate}
 	\end{enumerate}
 
@@ -46,103 +46,103 @@ Pragurile pot fi configurate înaintea procesului de compilare.
 
 
 	\subsection{Filtrarea rutelor inutile}
-	În timpul învățării, rutele prea scurte (< 2km) nu vor fi stocate deoarece acest lucru ar însemna faptul că utilizatorul este destul de aproape de destinație.
+	În timpul învăţării, rutele prea scurte (< 2km) nu vor fi stocate deoarece acest lucru ar însemna faptul că utilizatorul este destul de aproape de destinaţie.
 	\vspace{6pt}
-  \\Totodata, rutele foarte lungi (> 200km) vor fi de asemenea exclude din stocare deoarece ele nu reprezintă rute uzuale.
+  \\Totodată, rutele foarte lungi (> 200km) vor fi de asemenea exclude din stocare deoarece ele nu reprezintă rute uzuale.
 	\vspace{6pt}
   \\Pragurile pot fi configurate înaintea procesului de compilare.
 	
-\section{Eliberarea de spațiu} 
-Dacă pragul setat inițial pentru dimensiunea maximă a bazei de date este atins, se va activa funcția de eliberare a spațiului. Aceasta va șterge obiectele cele mai vechi pentru a crea loc pentru obiectele noi.
+\section{Eliberarea de spaţiu} 
+Dacă pragul setat iniţial pentru dimensiunea maximă a bazei de date este atins, se va activa funcţia de eliberare a spaţiului. Aceasta va şterge obiectele cele mai vechi pentru a crea loc pentru obiectele noi.
 
-\section{Furnizarea predicțiilor} 
-Pentru ca predicțiile să fie disponibile sunt necesari doi pași.
+\section{Furnizarea predicţiilor} 
+Pentru ca predicţiile să fie disponibile sunt necesari doi paşi.
 \vspace{6pt}
-\\Primul pas reprezintă încărcarea datelor revelante, în timp de al doilea constă în prioritizarea lor.
+\\Primul pas reprezintă încărcarea datelor relevante, în timp de al doilea constă în prioritizarea lor.
 
 	\subsection{Filtrarea datelor}
-	Pentru o încărcare selectivă și mai rapidă a datelor din unitatea PNavDataStorage, sunt create interogări. Sunt definiți trei pași în filtrare, unde pasul următor se excută doar în cazul în care cel curent nu a returnat destule rezultate:
+	Pentru o încărcare selectivă şi mai rapidă a datelor din unitatea PNavDataStorage, sunt create interogări. Sunt definiţi trei paşi în filtrare, unde pasul următor se excută doar în cazul în care cel curent nu a returnat destule rezultate:
 		\begin{enumerate}
 				 \setlength\itemsep{0em}
-					\item Filtrarea rutei în funcție de distanța de la poziția curentă la waypoint-urile rutelor
-					\item Filtrarea rutei în funcție de distanța de la poziția curentă la punctele de start ale rutelor
-					\item Filtrarea rutelor în funcție de timpul scurs până la ajungerea la destinație
+					\item Filtrarea rutei în funcţie de distanţa de la poziţia curentă la waypoint-urile rutelor
+					\item Filtrarea rutei în funcţie de distanţa de la poziţia curentă la punctele de start ale rutelor
+					\item Filtrarea rutelor în funcţie de timpul scurs până la ajungerea la destinaţie
 		\end{enumerate}
 
-	Toate rutele ce duc la o destinație situată la o distanță mai mică de 1km față de poziția actuală sunt ignorate deoarece utilizatorul aproape a ajuns la eventuala destinație.
+	Toate rutele ce duc la o destinaţie situată la o distanţă mai mică de 1km faţă de poziţia actuală sunt ignorate deoarece utilizatorul aproape a ajuns la eventuala destinaţie.
 	\vspace{6pt}
-	\\În cazul predicțiilor baza pe timp, modulul furnizează o predicție fără a cunoaște ruta, ci doar destinația sa. Un astfel de caz ar fi cel în care utilizatorul a condus pe o rută în intervalul luni-miercuri, însă in ziua de joi a pornit de la o altă locație. Astfel, bazat pe timp, modulul prezice destinația fără a ști ruta corespunzătoare acesteia.
+	\\În cazul predicţiilor baza pe timp, modulul furnizează o predicţie fără a cunoaşte ruta, ci doar destinaţia sa. Un astfel de caz ar fi cel în care utilizatorul a condus pe o rută în intervalul luni-miercuri, însă in ziua de joi a pornit de la o altă locaţie. Astfel, bazat pe timp, modulul prezice destinaţia fără a şti ruta corespunzătoare acesteia.
 	
 	
-		\subsection{Frecvența predicției de rute}
-		De obicei, waypoint-urile furnizate de modul de predicție sunt transformate într-o rută ce folosește drumuri din hartă, fapt ce durează câteva secunde.
-		Pentru a nu supraîncărca sistemul de navigație cu prea multe predicții, dezolvatorul poate seta timpul minim dintre două predicții. Acestă setare se poate efectua chiar în timpul rulării.
+		\subsection{Frecvenţa predicţiei de rute}
+		De obicei, waypoint-urile furnizate de modul de predicţie sunt transformate într-o rută ce foloseşte drumuri din hartă, fapt ce durează câteva secunde.
+		Pentru a nu supraîncărca sistemul de navigaţie cu prea multe predicţii, dezvoltatorul poate seta timpul minim dintre două predicţii. Acestă setare se poate efectua chiar în timpul rulării.
 		
-		\subsection{Numărul maxim de predicții}
-		Pentru a putea suporta multiple platforme, modulul permite setarea numărului maxim de rute prezise ce apar deoadată. Acestă setare se poate efectua chiar în timpul rulării.
+		\subsection{Numărul maxim de predicţii}
+		Pentru a putea suporta multiple platforme, modulul permite setarea numărului maxim de rute prezise ce apar deodată. Acestă setare se poate efectua chiar în timpul rulării.
 		
-		\subsection{Prioritizarea predicțiilor}
+		\subsection{Prioritizarea predicţiilor}
 		Există mai multe criterii pentru a stabili prioritatea unei rute. 
 		
 		\begin{table}[!h]
-		\caption{Criterii de prioritizare pentru predicția bazată pe rute}
+		\caption{Criterii de prioritizare pentru predicţia bazată pe rute}
 		\centering
 		\begin{tabular}{ | m{2,7cm} | m{3,6cm} | m{3,22cm} | m{3,22cm} | m{1,4cm} | }
 		\hline
 		\textbf{Criteriu} & \textbf{Descriere} & \textbf{Min (0\% probabilitate)} & \textbf{Max (100\% probabilitate)} & \textbf{Pondere} \\ 
 		\hline
-		 Frecvența rutei & Numărul de utilizări al unei rute & Niciodată & Folosită de mai mult de 10 ori & 4 \\
+		 Frecvenţa rutei & Numărul de utilizări al unei rute & Niciodată & Folosită de mai mult de 10 ori & 4 \\
 		\hline
-		 Frecvența rutei într-un anumit interval de timp & Numărul de utilizări al unei rute într-un anumit interval de timp (de la -1 oră la +2 ore) față de ora curentă & Niciodată & Folosită de mai mult de 10 ori & 1 \\
+		 Frecvenţa rutei într-un anumit interval de timp & Numărul de utilizări al unei rute într-un anumit interval de timp (de la -1 oră la +2 ore) faţă de ora curentă & Niciodată & Folosită de mai mult de 10 ori & 1 \\
 		\hline
-		 Frecvența rutei într-o anumită zi & Numărul de utilizări al unei rute în ziua curentă din săptămână & Niciodată & Folosită de mai mult de 10 ori & 1 \\
+		 Frecvenţa rutei într-o anumită zi & Numărul de utilizări al unei rute în ziua curentă din săptămână & Niciodată & Folosită de mai mult de 10 ori & 1 \\
 		\hline
-		 Frecvența rutei într-un anumit grup de zile & Numărul de utilizări al unei rute într-un anumit grup de zile (e.g. luni-vineri)& Niciodată &  Folosită de mai mult de 10 ori  & 1 \\
+		 Frecvenţa rutei într-un anumit grup de zile & Numărul de utilizări al unei rute într-un anumit grup de zile (e.g. luni-vineri)& Niciodată &  Folosită de mai mult de 10 ori  & 1 \\
 		\hline
-		 Ultima utilizare a unei rute & Diferența dintre ultima utilizare a rutei și ora/data curentă & >4 săptămâni & <2zile & 3 \\
+		 Ultima utilizare a unei rute & Diferenţa dintre ultima utilizare a rutei şi ora/data curentă & >4 săptămâni & <2zile & 3 \\
 		\hline
-		 Distanța până la destinație & Distanța dintre poziția actuală și destinație & >100km & 0km & 1 \\
+		 Distanţa până la destinaţie & Distanţa dintre poziţia actuală şi destinaţie & >100km & 0km & 1 \\
 		\hline
 		\end{tabular}
 		\label{table:tabel_predictii}
 		\end{table}
 		
 		
-		\subsection{Predicții bazate pe filtrarea rutei în funcție de distanța de la poziția curentă la waypoint-urile rutelor}
-		Criteriile definite în tabela ~\ref{table:tabel_predictii}, ``Criterii de prioritizare pentru predicția bazată pe rute'' sunt extinse prin adăugarea următoarelor criterii:
+		\subsection{Predicţii bazate pe filtrarea rutei în funcţie de distanţa de la poziţia curentă la waypoint-urile rutelor}
+		Criteriile definite în tabela ~\ref{table:tabel_predictii}, ``Criterii de prioritizare pentru predicţia bazată pe rute'' sunt extinse prin adăugarea următoarelor criterii:
 		
 		\begin{table}[!h]
-		\caption{Criterii de prioritizare pentru predicția bazată pe rutele din jurul unei poziții}
+		\caption{Criterii de prioritizare pentru predicţia bazată pe rutele din jurul unei poziţii}
 		\centering
 		\begin{tabular}{ | m{2,7cm} | m{3,6cm} | m{3,22cm} | m{3,22cm} | m{1,4cm} | }
 		\hline
 		\textbf{Criteriu} & \textbf{Descriere} & \textbf{Min (0\% probabilitate)} & \textbf{Max (100\% probabilitate)} & \textbf{Pondere} \\ 
 		\hline
-		 Distanța până la rută & Distanța dintre poziția actuală și waypoint-urile rutei &> 1km & 0km & 1 \\
+		 Distanţa până la rută & Distanţa dintre poziţia actuală şi waypoint-urile rutei &> 1km & 0km & 1 \\
 		\hline
-		 Direcția către rută & Diferența dintre orientarea waypoint-urilor și direcția de navigare & 180$^{\circ}$ & 0$^{\circ}$ & 1 \\
+		 Direcţia către rută & Diferenţa dintre orientarea waypoint-urilor şi direcţia de navigare & 180$^{\circ}$ & 0$^{\circ}$ & 1 \\
 		\hline
 		\end{tabular}
 		\end{table}
 		
 		
-		\subsection{Predicții bazate pe filtrarea rutei în funcție de distanța de la poziția curentă la punctele de start ale rutelor}
-		Criteriile definite în tabela ~\ref{table:tabel_predictii}, ``Criterii de prioritizare pentru predicția bazată pe rute'' sunt extinse prin adăugarea următoarelor criterii:
+		\subsection{Predicţii bazate pe filtrarea rutei în funcţie de distanţa de la poziţia curentă la punctele de start ale rutelor}
+		Criteriile definite în tabela ~\ref{table:tabel_predictii}, ``Criterii de prioritizare pentru predicţia bazată pe rute'' sunt extinse prin adăugarea următoarelor criterii:
 		
 		\begin{table}[!h]
-		\caption{Criterii de prioritizare pentru predicția bazată pe filtrarea rutele în funcție de distanța până la punctul de start al rutei}
+		\caption{Criterii de prioritizare pentru predicţia bazată pe filtrarea rutele în funcţie de distanţa până la punctul de start al rutei}
 		\centering
 		\begin{tabular}{ | m{2,7cm} | m{3,6cm} | m{3,22cm} | m{3,22cm} | m{1,4cm} | }
 		\hline
 		\textbf{Criteriu} & \textbf{Descriere} & \textbf{Min (0\% probabilitate)} & \textbf{Max (100\% probabilitate)} & \textbf{Pondere} \\ 
 		\hline
-		 Distanța până la punctul de start al rutei & Distanța până la cel mai apropiat punct de start al rutei &> 3km & 0km & 1 \\
+		 Distanţa până la punctul de start al rutei & Distanţa până la cel mai apropiat punct de start al rutei &> 3km & 0km & 1 \\
 		\hline
 		\end{tabular}
 		\end{table}
 		
-		\subsection{Predicții bazate pe filtrarea rutei în funcție de timpul scurs până la ajungerea la destinație}
-		Pentru acest caz sunt folosite criteriile definite în tabela ~\ref{table:tabel_predictii}, ``Criterii de prioritizare pentru predicția bazată pe rute''.
+		\subsection{Predicţii bazate pe filtrarea rutei în funcţie de timpul scurs până la ajungerea la destinaţie}
+		Pentru acest caz sunt folosite criteriile definite în tabela ~\ref{table:tabel_predictii}, ``Criterii de prioritizare pentru predicţia bazată pe rute''.
 		
 		
 		
