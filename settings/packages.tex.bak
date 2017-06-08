@@ -1,0 +1,111 @@
+%packages
+
+%counter
+\newcounter{cap}
+
+\newcounter{ref}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{times}
+\usepackage[romanian]{babel}
+\usepackage{combelow}
+\usepackage{newunicodechar}
+\usepackage{amsmath}
+\usepackage{sidecap}
+\usepackage{titlesec}
+
+\hypersetup{linkcolor = black}
+
+\usepackage[T1]{fontenc}
+\usepackage{pgfplots}
+\usepackage{leftidx}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[math]{blindtext}
+
+\newunicodechar{Ș}{\cb{S}}
+\newunicodechar{ș}{\cb{s}}
+\newunicodechar{Ț}{\cb{T}}
+\newunicodechar{ț}{\cb{t}}
+\usepackage{hyperref}
+
+\usepackage{hhline}
+\usepackage{booktabs}
+
+\usepackage{graphicx}
+
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+
+
+
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{multicol}
+
+\usepackage{scrextend}
+
+\usepackage{lipsum}
+\usepackage{titlesec}
+\usepackage{titletoc}
+%settings
+\usepackage{fancyhdr} 
+\fancyhead{}%clear all headers
+\fancyhf{}
+\chead{}
+\rhead{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\cfoot{\thepage}
+\pagestyle{fancy} 
+\pagenumbering{gobble}
+\setlength{\parskip}{0.5mm}
+
+\usepackage{titlesec}
+%\usepackage{lipsum}
+\usepackage{listings}
+
+
+
+\newcommand*{\SkipTocEntry}{\addtocontents{toc}{\gobblefour}}
+%\usepackage{polyglossia}
+%\usepackage{tocvsec2}
+
+\newcommand*{\justifyheading}{\raggedleft}
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\justifyheading}{}{10em}{\Huge}
+  
+\titleformat{\section}
+  {\normalfont\sffamily\Large\bfseries}
+  {\thesection}{0.2em}{}
+ 
+ %commands
+\newcommand{\mychapter}[2]{
+    \setcounter{chapter}{#1}
+    \setcounter{section}{0}
+    \chapter*{#2}
+    \addcontentsline{toc}{chapter}{#2}
+}
+
+%\renewcommand{\listfigurename}{List of plots}
+%\usepackage{blindtext} 
+%\renewcaptionname{romanian}{\contentsname}{cuu} 
+  
+%%\addtolength{\oddsidemargin}{-.875in}
+%%\addtolength{\evensidemargin}{-.875in}
+%%\addtolength{\textwidth}{1.75in}
+%
+%\addtolength{\topmargin}{25mm}
+%\addtolength{\}{25mm}
+%%\addtolength{\textheight}{1.75in}
+
+%\usepackage[top=0.95in, bottom=0.95in]{geometry}
+
+

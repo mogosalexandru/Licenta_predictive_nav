@@ -1,0 +1,96 @@
+% Chapter 1
+\stepcounter{cap}
+%\chapter{cap1}
+\label{cap1}
+
+\mychapter{1}{\arabic{cap}. Introducere}
+%\chapter{\arabic{cap}.Introducere} % Main chapter title
+
+\label{Chapter1} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+%\lhead{\emph\bfseries \textcolor{black!100}{Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor  \\Departamentul Automatică şi Tehnologia Informaţiei\\Programul de studii Automatică şi Informatică Aplicată}}
+
+
+%\rhead{\emph\bfseries \textcolor{black!100}{Departamentul Automatică \\și Tehnologia Informației }}
+
+\fancyhead[L]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Universitatea \textit{Transilvania} din Braşov \\Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor}}
+
+\fancyhead[R]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Automatică şi \\ Informatică Aplicată}}
+
+\noindent\rule{14.7cm}{0.4pt}\\
+\-\hspace{1cm}Actualitatea și necesitatea temei\\
+\-\hspace{1cm}Problema propusă\\
+\-\hspace{1cm}Obiectivele lucrării\\
+\-\hspace{1cm}Structura lucrării\\
+\noindent\rule{14.7cm}{0.4pt}
+
+%-----------------------------------------------------------------
+\section{Actualitatea și necesitatea temei} 
+\-\hspace{1cm}Studiile privind orientarea corpurilor au reprezentat și reprezintă o atracție pentru o serie de domenii precum navigație \cite{humm5}, industria aerospațială \cite{ahrs2}, \cite{quatro}, industria animațiilor \cite{humm2}, jocurile video, ergonomie, sport \cite{humm3} sau medicină \cite{humm4}. Aceste studii sau bazat pe captarea datelor inerțiale ale corpului și implementarea acestora în algoritmi matematici ce determină orientarea acestuia.
+
+\-\hspace{1cm}Un domeniu în care sunt folosite intens aceste studii este industria aerospațială, unde dispozitivele inerțiale (IMU-Inertial Measurements Unit) sunt principalele componente ale sistemului de navigație și orientare. Prelucrarea măsurătorilor captate de acestea determinând viteza, orientarea și forțele gravitaționale ce acționează asupra aeronavei. Un dispozitiv IMU este compus dintr-un accelerometru ce realizează măsurători ale accelerației pe axele spațiale, un giroscop ce determină rotațiile în jurul celor trei axe și un magnetometru ce este folosit la calibrare si la filtrarea erorilor \cite{quatro}.
+
+\-\hspace{1cm}Alte proiecte în care se folosesc intens studiile de determinare a orientării în spațiul tri-dimensional, sunt proiectele în care sunt analizate mișcările corpului uman in cadrul mersului. În cadrul acestor proiecte sa folosit un pachet de senzori (IMU) precum cei folosiți în industria aerospațială, ce generează date ce au ca scop urmărirea poziției corpului in cadrul deplasării \cite{human}, \cite{Htrack}.
+
+\section{Problema propusă}
+\-\hspace{1cm}Analizând aplicațiile realizate pe baza orientării se observă că majoritatea aplicațiilor folosesc un pachet de senzori IMU (Inertial Measurements Unit). Acest dispozitiv hardware are la bază un senzor de giroscop tri-axial și un senzor de accelerometru tri-axial și mai nou s-a implementat și un senzor de magnetometru tri-axial. Această îmbunătățire adusă acestei structuri hardware conduce la o structură hibridă numită MARG (Magnetic, Angualr Rate, Gravity), ce are performanțe mult mai bune. Având în vedere că bazele studiilor bazate pe senzorii inerțiali au fost puse folosind senzorul IMU, în literatura de specialitate ambii senzori poartă această denumire.
+
+\-\hspace{1cm}Pentru o imagine mai clară a determinării orientării, pe baza parametriilor determinați de un senzor inerțial se poate realiza o detaliere a parametriilor măsurați de fiecare componentă a acestuia.
+Accelerometrul măsoară, precum îi spune și numele, accelerația incluzând și componenta gravitațională ce influențează măsurătorile accelerometrului \cite{ahrs4}. Giroscopul realizează detectarea vitezei ungiulare realizate de corp, viteza unghiulară fiind asociată în acest caz cu rotația corpului în jurul unei axe de coordonate. Cea mai recentă componentă a senzorilor IMU, magnetometrul realizează măsurători asupra intensității și direcției câmpului magnetic, în special ale câmpului magnetic exercitat de Pământ asupra senzorului \cite{humm4}.
+
+\-\hspace{1cm}Pentru a determina orientarea în spațiul tri-dimensional este nevoie ca senzorul inerțial să realizeze o măsurare pentru fiecare axă spațială. Astfel pentru o integrare eficientă atât hardware cât și din punct de vedere al implementării software se folosesc senzori ce realizează măsurători pe toate cele trei axe spațiale \cite{inc}. 
+
+\-\hspace{1cm}Accelerometrul tri-axial este un traducător 3D ce e compus din trei traducătoare dispuse conform dispunerii sistemului de coordonate spațial. Din punct de vedere electronic este un dispozitiv ce convertește accelerația într-un semnal electric, putând măsura atât accelerația statică cât și accelerația dinamică, menționând faptul că accelerația dinamică este afectată și de alte forțe fizice, nu doar de gravitație precum e afectată accelerația statică. În cadrul măsurătorilor accelerometrului intervine un factor perturbator foarte important generat de influența gravitației asupra accelerației, aceasta influențând în principal accelerația pe axa $z$. Datele furnizate de accelerometru sunt organizate sunt sub forma unui vector cu trei elemente \eqref{1}, \cite{humm3}.
+\begin{equation}\label{1}
+{\mathsf{\textit{a}} = 
+\begin{bmatrix}
+a_x & a_y & a_z\\
+\end{bmatrix}}
+\end{equation}
+
+\-\hspace{1cm}Giroscopul tri-axial determină vitezele unghiulare în jurul celor trei axe spațiale, dar măsurătorile sale sunt afectate de erori ce vor trebui compensate pentru determinarea unei orientări corecte. Vectorul ieșirilor giroscopului este notat astfel \eqref{2}, \cite{humm5}.
+\begin{equation}\label{2}
+{\mathsf{\textit{$S_w$}} = 
+\begin{bmatrix}
+ w_{x} & w_{y} & w_{z}\\
+\end{bmatrix}} 
+\end{equation}
+
+\-\hspace{1cm}Magnetometrul tri-axial realizează detectarea direcției și intensității câmpului magnetic, parametri returnați de acesta fiind de forma expresiei \eqref{3}. În cazul magnetometrului trebuie specificat că generează erori prin bruiajul realizat de componentele magnetice din vecinătatea sa \cite{hum6}, \cite{magi1}. 
+\begin{equation}\label{3}
+{\mathsf{\textit{$m$}} = 
+\begin{bmatrix}
+ m_{x} & m_y & m_{z}\\
+\end{bmatrix}} 
+\end{equation}
+
+\section{Obiectivele lucrării} \label{cap1_3}
+\-\hspace{1cm}Există multe metode ce descriu orientarea unui obiect  pe baza parametrilor citiți de un senzor IMU și raportat la sistemul de referință terestru. În acest proiect sunt folosite metoda unghiurilor lui Euler și cuaternionii relativi la orizontală și la câmpul magnetic \cite{quatTut}, determinarea direcției prin matricea cosinusului (DCM), calcularea orientării pe baza filtrării Kalman sau metoda filtrului AHRS (Altittude and Heading Reference System) \cite{ahrs2}, \cite{quatro}.
+
+\-\hspace{1cm}Având în vedere existența unui număr mare de algoritmi matematici trebuie făcută o evaluare în vederea alegerii celui mai eficient. Încă din etapa de documentare se observă că referințele metodei matricei DCM \cite{DCM} prezintă performanțe slabe, dar această metodă împreună cu metoda unghiurilor lui Euler \cite{hum7} returnează performanțe satisfăcătoare cu un timp de răspuns foarte  bun. Cele mai bune referințe sunt asupra metodei filtrului Kalman \cite{Kalma1} aplicat asupra cuaternionilor relativi la orizontală și la câmpul magnetic \cite{Htrack}, dar prezintă un volum de calcul ridicat ce face o implementare dificilă și un timp de răspuns ridicat. Referințe bune există și asupra modelului AHRS  \cite{Mad}, \cite{ahrs1} ce a fost implementat cu scces în aplicații cu un timp de răspuns scurt, generând performanțe asemănătoare filtrării Kalman.
+
+\section{Structura lucrării} 
+
+\textbf{1. Introducere}\\
+\-\hspace{1cm}În acest capitol se realizează o introducere în domneniul orientării 3D. Expunându-se domeniile în care este folosit acest principiu, tipurile de proiecte și actualitatea lor în aplicațiile curente. Este prezentată structura senzorilor ce captează parametrii ce determină orientarea și algoritmii matematici ce rezolvă problema expusă.
+
+\textbf{2. Arhitectura hardware}\\
+\-\hspace{1cm}Acest capitol expune structura hardware folosită în scopul măsurării parametrillor de accelerometru, giroscop și magnetometru. Structura hardware este alcătuită dintr-o placă de dezvoltare Arduino Uno detaliată în acest capitol, la care se conectează un pachet de senzori inerțiali IMU.
+
+\textbf{3. Arhitectura software}\\
+\-\hspace{1cm}Capitolul 3 descrie componentele software ce se doresc a fi folosite în scopul realizării unui algoritm ce calculează orientarea pe baza parametriilor inerțiali, orienatre implementată într-o aplicație 3D.
+
+\textbf{4. Convențiile orientării}\\
+\-\hspace{1cm}Acest capitol face o introducere în cadrul principilor orientării punându-se accent pe metoda de descriere a spațiului tri-dimensional sub forma unghiurilor lui Euler, respectiv sub forma cuaternionilor.
+
+\textbf{5. Filtrarea datelor}\\
+\-\hspace{1cm}Capitolul 5 descrie modalitățile de filtare a datelor provenite de la senzor, cu scopul filtrării perturbațiilor și compensării erorilor, pentru determinarea unei orientări precise.
+
+\textbf{6. Determinarea orientării pe baza filtrului AHRS}\\
+\-\hspace{1cm}Acest capitol detaliază un model de filtru derivat din filtrul Kalman expus în capitolul anterior, pe baza căruia se face o orientare precisă și mai rapidă decât filtrarea Kalman.
+
+\textbf{7. Rezultate experimentale}\\
+\-\hspace{1cm}Utilitatea acestui capitol este de a observa rezultatele  acțiunilor produse de implemenatre a algoritmilor software de citire și analiză a datelor inerțiale, procesarea acestora și expunerea modelului orientrării.
+
+\textbf{8. Concluzii și dezvoltări ulterioare}\\
+\-\hspace{1cm}Capitolul final al proiectului face o concluzionare a studiilor și rezultatelor obținute în cadrul proiectului, observându-se o vedere generală a soluției de rezolvare a problemei. Pe baza cunoștințelor dobândite și analizării necesităților și tendințelor actuale se face o expunere a viitoarelor dezvoltări ale proiectului. 

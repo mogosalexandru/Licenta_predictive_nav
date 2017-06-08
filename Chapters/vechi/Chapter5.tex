@@ -1,0 +1,456 @@
+% Chapter 5
+\stepcounter{cap}
+
+%\arabic(cap)
+%-\hspace{8cm}
+\mychapter{5}{\arabic{cap}. Filtrarea datelor}
+%\chapter{\arabic{cap}.Filtrarea datelor} % Main chapter title
+\noindent\rule{14.7cm}{0.4pt}\\
+\-\hspace{1cm}Filtrul Kalman\\
+\-\hspace{1cm}Dezavantajele folosirii filtrului Kalman liniar\\
+\-\hspace{1cm}Filtrul Kalman extins\\
+\noindent\rule{14.7cm}{0.4pt}
+\label{Chapter5} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+%
+%\lhead{\emph\bfseries \textcolor{black!100}{Universitatea \textit{Transilvania} din Braşov \\Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor}}
+%
+%\rhead{\emph\bfseries \textcolor{black!100}{Departamentul Automatică \\și Tehnologia Informației }}
+
+\fancyhead[L]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Universitatea \textit{Transilvania} din Braşov \\Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor}}
+
+\fancyhead[R]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Automatică şi \\ Informatică Aplicată}}
+
+%----------------------------------------------------------------------------------------
+
+\section{Filtrul Kalman}
+
+\-\hspace{1cm}Filtrul Kalman e un filtru linear și recursiv ce e folosit pentru urmărirea unui proces cu funcție de probabilitate Gaussiană \cite{quatro}.
+
+\subsection{Predicția}
+\-\hspace{1cm}Predicția inferă starea din cadrul $i$, din informațiile din cadrul anterior $i-1$ şi din modelul dinamic. Modelul dinamic liniar este aplicat estimării anterioare, şi se obține valoarea prezisă pentru vectorul de stare curent. Adițional, valori ale unor mărimi cunoscute pot forma un vector de intrare ui care poate contribui la predicție. \\
+\-\hspace{1cm}Pe lângă modelul dinamic, exprimat de transformarea liniară $F_i$ , şi de modelul intrării pe care îl exprimăm ca transformarea liniară $B_i$ , există o incertitudine $w_i$. Această incertitudine (zgomot) exprimă devierea unui sistem real față de modelul dinamic şi de intrare, care nu pot ține cont de orice evoluție. Acest zgomot are media zero, deci nu va influența predicția, care este exprimată de următoarea ecuație \cite{Htrack}:
+
+\begin{equation}
+\bar{X_i}=F_iX_{i-1}+B_iu_i
+\end{equation}
+
+\-\hspace{1cm}Pentru a obține matricea de covarianță pentru predicție, vom aplica transformările modelului
+dinamic matricei de covarianță a stării anterioare, modelul de transformare a intrării pe
+matricea de covarianță a intrării, si vom adăuga matricea de covarianță a incertitudinii.
+\-\hspace{1cm}Notăm cu $T_i$ matricea de covarianță a intrării, si cu $Q_i$ matricea de covarianță a incertitudinii
+tranziției. Atunci covarianța predicției este:
+\begin{equation}
+\bar{P_i}=F_iP_{i-1}X_iF_i^T+B_iT_iB_i^T+Q_i
+\end{equation}
+
+\subsection{Măsurarea}
+\-\hspace{1cm}Proces extern filtrului Kalman, mãsurãtoarea are ca rezultat unul sau mai mulți vectori de
+mãsurã $Y_i^k$ fiecare cu o matrice de covarianțã $R_i^k$ care codificã eroarea de mãsurare estimatã
+(imprecizia senzorului). Relația dintre vectorul de stare si vectorul de mãsurã este modelul de
+mãsurare, iar dacã acesta este o transformare liniarã aceasta este descrisã de matricea $H_i$.
+Folosind acest model, obținem predicția mãsurãtorii, $\bar{Y_i}$ \cite{kalman1}.
+
+\begin{equation}
+\bar{Y_i}=H_i\bar{X_i}
+\end{equation}
+
+\-\hspace{1cm}Matricea de covarianță pe care o vom asocia lui $\bar{Y_i}$ va fi notată $S_i$.
+\begin{equation}
+S_i=H_iP_iH_i^T+R_i
+\end{equation}
+
+\-\hspace{1cm}Matricea $S_i$ nu este matricea de covarianțã a mãsurãtorii prezise, ci matricea de covarianțã a
+diferenței dintre mãsurãtoarea prezisã si o posibilã mãsurãtoare realã (matricea de covarianțã
+a $inovarii$, sau a $rezidualului$) – adicã exact matricea necesarã pentru a definii o zonã de
+cãutare în jurul mãsurãtorii prezise  $\bar{Y_i}$.
+
+\subsection{Asocierea datelor}
+\-\hspace{1cm}Filtrul Kalman este foarte vulnerabil la asocierea datelor (asocierea mãsurãtorilor), din cauza naturii unimodale a funcției de probabilitate în fiecare din fazele de
+lucru ale filtrului. Acest lucru înseamnã cã vectorul de stare, odatã deplasat spre un indiciu
+fals, va deveni criteriul de selecție pentru mãsurãtorile viitoare, asta însemnând mai multe
+date greșite incluse în estimare, pânã la devierea totalã de la țintã.
+
+Singura măsură obiectivă a utilității măsurătorii $Y_i$ este verosimilitatea ei, dându-se starea
+unui obiect urmărit. Această verosimilitate este dată de funcția de probabilitate Gaussiană,
+centrată în predicția măsurătorii $\bar{Y_i}$ , si având matricea de covarianță $S_i$ \cite{kalman1}.
+
+\begin{equation}
+p(Y_i^k)=\frac{1}{ \sqrt{(2\pi)^n|S_i|}}e^-\frac{{(Y_i^k-\bar{Y_i})}^TS_i^{-1}(Y_i^k-\bar{Y_i})}{2}
+\end{equation}
+
+\subsection{Corecție}
+\-\hspace{1cm}În acest moment toate datele necesare sunt disponibile, și se va calcula noul vector de stare
+$X_i$ si matricea sa de covarianță $P_i$.\\
+\-\hspace{1cm}Prima dată se calculează matricea de amplificare Kalman, $K_i$, \cite{kalman1}:
+\begin{equation}
+K_i=\bar{P_i}H_i^T{(H_i\bar{P_i}H_i^T+R_i)}^{-1}
+\end{equation}
+
+\-\hspace{1cm}Ecuația este echivalentă cu 
+\begin{equation}
+K_i=\bar{P_i}H_i^TS_i^{-1}
+\end{equation}
+
+\-\hspace{1cm}Pasul final este calcularea matricei de covarianțã $P_i$. Majoritatea documentațiilor disponibile
+dau ecuația următoare pentru calculul $P_i$.
+
+\begin{equation}
+P_i={(I-K_iH_I)}\bar{P_i}
+\end{equation}
+
+\subsection{Vectorul de stare}
+\-\hspace{1cm}Acest filtru este folosit pentru estimarea rotației în jurul axei $Y(pitch)$ și a rotației în jurul axei $X(roll)$, luând în considerare și erorile de măsurare ale giroscopului pe aceste axe, $w_{xb}$ și $w_{yb}$:
+\begin{equation}
+{\mathsf{\textit{x}} = 
+\begin{bmatrix}
+pitch\\
+roll\\
+w_{xb}\\
+w_{yb}\\
+\end{bmatrix}}_i
+\end{equation}
+
+\subsection{Predicția modelului și măsurătorile modelului orientării }
+\-\hspace{1cm}Expresiile \textit{modelului predicție} și \textit{modelului măsurătorilor} pot fi exprimate prin ecuațiile matriceale \cite{Mad}, \cite{quatro}:
+
+\begin{equation} 
+\begin{bmatrix}
+pitch\\
+roll\\
+w_{xb}\\
+w_{yb}\\
+\end{bmatrix}_i
+=
+\begin{bmatrix}
+1 & 0 & -dt & 0 \\
+0 & 1 & 0 & -dt \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{bmatrix}_i
+\cdot
+\begin{bmatrix}
+pitch\\
+roll\\
+w_{xb}\\
+w_{yb}\\
+\end{bmatrix}_{i-1}
++
+\begin{bmatrix}
+dt & 0 & 0 & 0 \\
+0 & dt & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\end{bmatrix}_i
+\cdot
+\begin{bmatrix}
+w_x\\
+w_y\\
+0\\
+0\\
+\end{bmatrix}_i
+\end{equation}
+
+%----------------------------------------------------------------------------------------
+
+\section{Dezavantajele folosirii filtrului Kalman liniar}
+\-\hspace{1cm}Implementarea unui filtru Kalman linear are o serie de dezavantaje. Primul dezavantaj se întâlnește în momentul rotirii unei axe iar concomitent altă axă este deviată de la orizontală, unghiul trigonometric estimat de accelerometru și corespondenta viteză unghiulară măsurată de giroscop nu vor mai fi în același plan. Acest aspect nu reprezintă un defect în momentul în care se operează foarte aproape de orizontală, dar în momentul în care se operează o distanță mare față de orizontală rezultă o sursă importantă de erori.
+
+\-\hspace{1cm}Pentru a rezolva aceste dezavantaje se folosește implementarea cuaternionilor pe baza comportării modelului orientării. Acest lucru impune folosirea predicției neliniarități modelului măsurat. Acest lucru poate fi făcut prin implementarea unui filtru Kalman extins \cite{quatro}.
+
+
+%----------------------------------------------------------------------------------------
+\section{Filtrul Kalman extins}
+\-\hspace{1cm}Filtrul Kalman extins este versiunea neliniară a filtrului Kalman regulat. Această variantă de filtru Kalman folosește matricea Jacobian pentru predicție, iar funcțiile măsurătorilor pentru a liniariza estimarea stării curente și a covarianței. Această implentare permite unui nou set de predicți și de măsurători, pentru a fi folosite în cadrul estimării.
+
+\subsection{Vectorul de stare}
+\-\hspace{1cm}Vectorul de stare reprezintă reprezintă variabilele ce se doresc a fi estimate recursiv cu ajutorul filtrului. În acest proiect vectorul de stare e compus dintr-un cuaternion ce determiă orintarea și erorile vitezelor unghiulare măsurate de giroscop \cite{kalman1}.
+\begin{equation}
+{\mathsf{\textit{x}} = 
+\begin{bmatrix}
+q_0 & q_1 & q_2 & q_3 & q_3 & w_{xb} & w_{yb} & w_{zb}\\
+\end{bmatrix}}^T
+\end{equation}
+
+\-\hspace{1cm}La momentul inițial vectorul de stare este compus din poziția ințială  $q=$[ 1 0 0 0] și din eroarea viteze unghiulare care este necunoscută inițial.
+
+\begin{equation}
+{\mathsf{\textit{x}} = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+\end{bmatrix}}^T
+\end{equation}
+
+\subsection{Formularea modelului predicției}
+\-\hspace{1cm}În această aplicație filtrul Kalman extins folosește un model al predicție ce este reprezentat printr-o funcție ce descrie următoarea orientare estimată pe baza precedentei estimări și a vectorului vitezei unghiulare măsurate de giroscop. 
+\begin{equation}
+q_k=q_{k-1}+dt*\dot{q}_k
+\end{equation}
+ unde: 
+ \begin{equation}
+\mathsf{\dot{q}_\textit{w}(\textit{q},\textit{w})} =
+\frac{1}{2}
+\begin{bmatrix}
+ -q_1 & -q_2 & -q_3\\
+ q_0 & -q_3 & q_2\\
+ q_3 & q_0 & -q_1\\
+ q_2 & -q_1 & q_0\\
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+w_x-w_{xb}\\
+w_y-w_{yb}\\
+w_z-w_{zb}\\
+\end{bmatrix}
+\end{equation}
+
+\-\hspace{1cm}Astfel următoarea predicție poate fi definită, pornind de la expresia predicției filtrului Kalman liniar $\bar{x_i}=F_ix_{i-1}+B_iu_i$, printr-o funcție $f(x_{i-1},u_i)$ ce va arăta astfel:
+
+
+\begin{equation}
+{\mathsf{\textit{$x_i=f(x_{i-1},u_i)$}} = 
+\begin{bmatrix}
+q_0+\frac{dt}{2}\cdot(-q_1(w_x-w_{xb})-q_2(w_y-w_{yb})-q_3(w_z-w_{zb}))\\
+q_1+\frac{dt}{2}\cdot(q_0(w_x-w_{xb})+q_3(w_y-w_{yb})-q_2(w_z-w_{zb}))\\
+q_2+\frac{dt}{2}\cdot(-q_3(w_x-w_{xb})+q_0(w_y-w_{yb})+q_1(w_z-w_{zb}))\\
+q_3+\frac{dt}{2}\cdot(q_2(w_x-w_{xb})-q_1(w_y-w_{yb})+q_0(w_z-w_{zb}))\\
+w_{xb}\\
+w_{yb}\\
+w_{zb}\\
+\end{bmatrix}}
+\end{equation}
+
+\-\hspace{1cm}Expresia Jacobianului poate fi calculată prin derivarea funcției $f$ în funcție de poziție, rezultând matricea $F$
+
+\begin{equation}
+\scalemath{0.7}{\frac{\partial f}{\partial x}=F=}
+\scalemath{0.8}{
+\begin{bmatrix}
+1 & -\frac{dt}{2}(w_x-w_{xb}) & -\frac{dt}{2}(w_y-w_{yb}) & -\frac{dt}{2}(w_z-w_{zb}) & \frac{dt}{2}q_1 & \frac{dt}{2}q_2 & \frac{dt}{2}q_3 \\
+
+\frac{dt}{2}(w_x-w_{xb}) & 1  & -\frac{dt}{2}(w_z-w_{zb}) & \frac{dt}{2}(w_y-w_{yb}) & -\frac{dt}{2}q_0 & -\frac{dt}{2}q_3 & \frac{dt}{2}q_2 \\
+
+\frac{dt}{2}(w_y-w_{yb})& \frac{dt}{2}(w_z-w_{zb}) & 1 & -\frac{dt}{2}(w_x-w_{xb}) & \frac{dt}{2}q_3 & -\frac{dt}{2}q_0 & -\frac{dt}{2}q_1 \\
+
+\frac{dt}{2}(w_z-w_{zb}) & -\frac{dt}{2}(w_y-w_{yb})& \frac{dt}{2}(w_x-w_{xb} & 1 &  -\frac{dt}{2}q_2 &\frac{dt}{2}q_1 & -\frac{dt}{2}q_0 \\
+
+0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 1\\
+
+\end{bmatrix}
+}
+\end{equation}
+
+\subsection{Formularea modelului măsurătorilor}
+\-\hspace{1cm}Modelul măsurătorilor definit în cadrul filtrului Kalman extins ca $y_i=H_ix_i$, putând fi exprimat ca o funcție de orientarea estimată, astfel $h(x_k)$. Această funcție poate fi folosită pentru a mapa starea estimată pe vectorul măsurătorilor $z$, practic se realizează o comparare a predicție cu măsurătorile reale. În acest caz măsurătorile realizate ce implică parametrii accelerometrului și ai magnetometrului ce vor fi folosiți pentru predicția curentă. Vectorul măsurătorilor poate fi definit astfel \cite{Htrack}:
+\begin{equation}
+{\mathsf{\textit{z}} = 
+\begin{bmatrix}
+a_x & a_y & a_z & m_x & m_y & m_z \\
+\end{bmatrix}}^T
+\end{equation}
+
+\subsubsection{Maparea parametrilor accelerometrului}
+\-\hspace{1cm}Vectorul gravitației din sistemul fixat este rotit în cadrul sistemului de coordonate al corpului, fapt reprezentat prin cuaternionul $q$,mapat in cadrul vectorului accelerometrului. Această aplicație ține cont doar de direcția vectorului gravitației și nu de cea a câmpului magnetic, vectorul este normalizat înnainte de operarea asupra acestuia.
+\begin{equation}
+\begin{bmatrix}
+a_x \\  
+a_y \\ 
+a_z \\
+\end{bmatrix}
+=(h(x_i))=R(q)* \overrightarrow{g}=
+R(q) \cdot
+\begin{bmatrix}
+0 \\  
+0\\ 
+-1 \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+-2(q_1q_3-q_0q_2) \\  
+-2(q_2q_3-q_0q_1)\\ 
+-q_0^2+q_1^2+q_2^2-q_3^2
+\end{bmatrix}
+\end{equation}
+
+\subsubsection{Maparea parametrilor magnetometrului}
+\-\hspace{1cm}Maparea componentelor câmpului magnetic se face similar cu maparea accelerației, rotațile vectorului magnetometrului fiind reprezentate de cuaternionul determinat.
+\begin{equation}
+\scalemath{0.85}{
+\begin{bmatrix}
+m_x \\  
+m_y \\ 
+m_z \\
+\end{bmatrix}
+=(h(x_i))=R(\overrightarrow{q})
+ \cdot
+\begin{bmatrix}
+b_x \\  
+b_y\\ 
+b_z\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+b_x(q_0^2+q_1^2-q_2^2-q_3^2)+2b_y(q_1q_2+q_0q_3)+b_z(q_1q_3-q_0q_2) \\
+  
+2b_x(q_1q_2+q_0q_3)+b_y(q_0^2-q_1^2+q_2^2-q_3^2)+b_z(q_2q_3-q_0q_1)\\
+
+2b_x(q_1q_3+q_0q_2)+b_y(q_2q_3-q_0q_1)+b_z(q_0^2-q_1^2-q_2^2+q_3^2)
+\end{bmatrix}}
+\end{equation}
+\-\hspace{1cm}Folosirea acestui model de citire a valorilor magnetometrului influențează estimările expresilor rotațiilor în jurul axelor $x(roll)$ și $y(pitch)$ determinând erori ale orientării. De asemenea este nevoie de specificarea direcției câmpului magnetic al pământului, care variază considerabil în jurul pământului. Acastă problemă a fost rezolvată folosind soluția prezentată de S.Madgwick \cite{Mad}, unde direcția câmpului magnetic este calculată pe baza aceiași înclinări asupra câmpului măsurat.\\
+\-\hspace{1cm}Acest procedeu este facut prin rotirea vectorului câmpului magnetic măsurat al sistemului de coordonate al corpului în raport cu sisteul de coordonate fix, asfel rezultând expresia $m'$ \cite{quatro}
+\begin{equation}
+\scalemath{0.9}{
+\begin{bmatrix}
+m'_x \\  
+m'_y \\ 
+m'_z \\
+\end{bmatrix}
+=R^*(\overrightarrow{q})
+ \cdot
+\begin{bmatrix}
+m_x \\  
+m_y\\ 
+m_z\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+m_x(q_0^2+q_1^2-q_2^2-q_3^2)+2m_y(q_1q_2+q_0q_3)+m_z(q_1q_3-q_0q_2) \\
+  
+2m_x(q_1q_2+q_0q_3)+m_y(q_0^2-q_1^2+q_2^2-q_3^2)+m_z(q_2q_3-q_0q_1)\\
+
+2m_x(q_1q_3+q_0q_2)+m_y(q_2q_3-q_0q_1)+m_z(q_0^2-q_1^2-q_2^2+q_3^2)
+\end{bmatrix}}
+\end{equation}
+
+\-\hspace{1cm}Noul câmp de referință e calculat în scopul obținerii aceiași înclinări în cadrul vectorului măsurătorilor.
+\begin{equation}
+{\mathsf{\textit{b}} = 
+\begin{bmatrix}
+b_x \\  
+b_y\\ 
+b_z\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\sqrt{{m'_x}^2+{m'_y}^2} \\  
+0\\ 
+m'_z\\
+\end{bmatrix}}
+\end{equation}
+
+\-\hspace{1cm}Această nouă valoare de referință este substituită în maparea originală, unde termenul $b_y=0$ 
+\begin{equation}
+\begin{bmatrix}
+m_x \\  
+m_y \\ 
+m_z \\
+\end{bmatrix}
+=(h(x_i))=R(\overrightarrow{q})
+ \cdot
+\begin{bmatrix}
+b_x \\  
+b_y\\ 
+b_z\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+b_x(q_0^2+q_1^2-q_2^2-q_3^2)+b_z(q_1q_3-q_0q_2) \\
+  
+2b_x(q_1q_2+q_0q_3)+b_z(q_2q_3-q_0q_1)\\
+
+2b_x(q_1q_3+q_0q_2)+b_z(q_0^2-q_1^2-q_2^2+q_3^2)
+\end{bmatrix}
+\end{equation}
+
+\-\hspace{1cm}Aceste două mapări pot fi combinate într-o funcție extinsă a măsurătorilor $h$ și a expresiei Jacobianului $H$
+\begin{equation}
+{\mathsf{\textit{$h(x_i)$}} = 
+\begin{bmatrix}
+-2(q_1q_2-q_0q_2)\\  
+-2(q_2q_3-q_0q_1)\\ 
+-q_0^2+q_1^2+q_2^2-q_3^2\\
+b_x(q_0^2+q_1^2-q_2^2-q_3^2)+b_z(q_1q_3-q_0q_2) \\
+2b_x(q_1q_2+q_0q_3)+b_z(q_2q_3-q_0q_1)\\
+2b_x(q_1q_3+q_0q_2)+b_z(q_0^2-q_1^2-q_2^2+q_3^2)\\
+\end{bmatrix}}
+\end{equation}
+
+\begin{equation}
+\scalemath{0.9}{
+{\mathsf{\textit{$H=\frac{\partial h}{\partial x}$}} = 
+\begin{bmatrix}
+2q_2 & -2q_3 & 2q_0 & -2q_1 & 0 & 0 & 0\\  
+-2q_1 & -2q_0 & -2q_3 & -2q_2 & 0 & 0 & 0\\  
+-2q_0 & 2q_1 & -2q_2 & -2q_3 & 0 & 0 & 0\\  
+-2q_0 & 2q_1 & -2q_2 & -2q_3 & 0 & 0 & 0\\ 
+
+2(q_0b_x-q_2b_z) & 2(q_1b_x+q_3b_z) & 2(-q_2b_x-q_0b_z) & 2(-q_3b_x+q_1b_z) & 0 & 0 & 0\\ 
+
+2(-q_3b_x+q_1b_z) & 2(q_2b_x+q_0b_z) & 2(q_1b_x+q_3b_z) & 2(-q_0b_x+q_2b_z) & 0 & 0 & 0\\ 
+
+2(q_2b_x+q_0b_z) & 2(q_3b_x-q_1b_z) & 2(q_0b_x-q_2b_z) & 2(q_1b_x+q_3b_z) & 0 & 0 & 0\\ 
+\end{bmatrix}}}
+\end{equation}
+
+\subsection{Matricele de covarianță}
+\-\hspace{1cm}Rezultatele filtrului Kalman estins sunt afectate și de specificațiile matrielor de covarianță $Q$ și $R$. Acestea sunt matrice diagonală reprezentând variația așteptată a zgomotului în faza predicției și în vectorul măsurătorilor$z$. În această aplicație matricele de covarianță au fost alese astfel:
+\begin{equation}
+{\mathsf{\textit{Q}} = 
+\begin{bmatrix}
+0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0\\
+
+0 & 0 & 0 & 0 & 0.2 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0.2 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0.2\\
+
+\end{bmatrix}}
+\end{equation}
+
+\begin{equation}
+{\mathsf{\textit{R}} = 
+\begin{bmatrix}
+1\cdot e6 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 1\cdot e6 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 1\cdot e6 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 1\cdot e6 & 0 & 0 & 0\\
+
+0 & 0 & 0 & 0 & 1\cdot e6 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 1\cdot e6 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 1\cdot e6\\
+
+\end{bmatrix}}
+\end{equation}
+
+\subsection{Ecuațiile filtrului Kalman extins}
+\-\hspace{1cm}Ecuațiile filtrului Kalman extins se pot clasifica în două secțiuni specifice etapelor filtrării.\\
+\textbf{Ecuațiile predicției}\\
+Predicția orinetări:   $x_i=f(x_{i-1},u_i)$\\
+Covarianța predicției: $P=FPF'+Q$\\
+\textbf{Ecuațiile corecției}\\
+Predicția măsurătorii:  $y=z-h(x_i)$\\
+Covarianța măsurătorii:  $S=HPH'+R$\\
+Matricea de amplificare Kalman: $K=PH'S^{-1}$\\
+Corecția orinetării prezise:$x_i=x_i+Ky$\\
+Corecția covarianței prezise:$P=(I-KH)P$\\
+Cu $F=\frac{\partial f}{\partial x}$ și $H=\frac{\partial h}{\partial x}$.$I$ reprezintă matricea unitate.\\
+
+\-\hspace{1cm}Expresia cuaternionului rezultat poate fi convertită în expresia sub forma unghiurilor lui Euler \cite{quatro}.
+\begin{equation}
+\begin{bmatrix}
+pitch \\  
+roll \\ 
+yaw \\
+\end{bmatrix}
+(q)=
+\begin{bmatrix}
+atan2(2(q_0q_1+q_2q_3),1-2(q_1^2+q_2^2)) \\  
+asin(2\cdot(q_0q_2+q_3q_1))\\ 
+atan2(2\cdot(q_0q_3+q_1q_2),1-2\cdot(q_2^2+q_3^2))\\
+\end{bmatrix}
+\end{equation}
+

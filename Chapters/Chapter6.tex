@@ -1,0 +1,46 @@
+% Chapter 1
+\stepcounter{cap}
+%\chapter{cap1}
+\label{cap6}
+
+\mychapter{6}{Capitolul \arabic{cap} \\ MANAGEMENTUL ERORILOR}
+%\chapter{\arabic{cap}.Introducere} % Main chapter title
+
+\label{Chapter6} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+\thispagestyle{fancy}
+
+%-----------------------------------------------------------------
+
+\section{Tipuri de erori} 
+\begin{itemize}
+ \setlength\itemsep{0em}
+	\item Erori de secveță
+	\item Erori apărute la accesarea bazei de date
+	\item Bază de date coruptă
+\end{itemize}
+
+
+\section{Detectarea erorilor}
+Erorile sunt raportate pentru fiecare apel către și dinspre interfata modului de predicție. Toate funcțiile returnează un număr ce corespunde unui tip de eroare.
+
+	\subsection{Erori de secvență}
+	O mașină de stare va verifica încălcarea ordinii secvețelor.
+	
+	\subsection{Erori la accesarea bazei de date}
+	Trebuie evaluate rezultatele funcțiilor native de accesare ale bazei de date.
+
+	\subsection{Bază de date coruptă}
+	Trebuie evaluate rezultatele funcțiilor native de accesare ale bazei de date.
+	
+	
+\section{Tratarea erorilor}
+În funcție de tipul de eroare, aceasta poate fi prevenită pe viitor sau nu de către dezvoltator.
+\vspace{6pt}
+\\Există erori de secvență precum ``Înainte de apelarea funcției X este necesară pornirea unității software PNavPredictor''. Se poate întâmpla de asemenea ca atunci când dezvoltatorul pornește procesul de predicție de două ori consecutiv sa fie întampinat de eroarea ``Procesul de predicție se află deja în curs de rulare''.
+În astfel de cazuri este clar cum se pot preveni erorile.
+\vspace{6pt}
+\\Mai sunt însă și cazuri ce nu pot fi tratate de către dezvoltator. Astfel de erori sunt cele precum ``Baza de date este coruptă'', ce pot să apară în cazul în care fișierul de sistem folosit pentru stocarea datelor este corupt. În aceste situații datele stocate anterior nu mai pot fi recuperate, toate informațiile referitoare la rute fiind definitiv piedute.
+
+
+

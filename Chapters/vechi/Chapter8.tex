@@ -1,0 +1,47 @@
+\stepcounter{cap}
+
+\mychapter{8}{\arabic{cap}. Concluzii și dezvoltări ulterioare}
+
+%\chapter{\arabic{cap}.Determinarea orientării pe baza filtrului AHRS} % Main chapter title
+
+\label{Chapter8} % For referencing the chapter elsewhere, use \ref{Chapter1}
+\noindent\rule{14.7cm}{0.4pt}\\
+\-\hspace{1cm} Concluziile proiectului\\
+\-\hspace{1cm} Direcții de dezvoltare ulterioară\\
+\noindent\rule{14.7cm}{0.4pt}
+
+%\lhead{\emph\bfseries \textcolor{black!100}{Universitatea \textit{Transilvania} din Braşov }}
+%
+%\rhead{\emph\bfseries \textcolor{black!100}{Departamentul Automatică \\și Tehnologia Informației }}
+
+\fancyhead[L]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Universitatea \textit{Transilvania} din Braşov \\Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor}}
+
+\fancyhead[R]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Automatică şi \\ Informatică Aplicată}}
+
+%----------------------------------------------------------------------------------------
+\section{Concluziile proiectului}
+\-\hspace{1cm}Acest proiect a constituit o introducere în domeniul determinării orientării în spațiul tri-dimensional și a raportării corpurilor, aflate în mișcare, la condițile impuse de forțele terestre. Astfel accelerația gravitațională și componenta câmpului magnetic reprezentând un factor important în cadrul orientării corpurilor.
+
+\-\hspace{1cm}Demersurile făcute în cadrul acestui proiect au dus la identificarea unui model de structură hardware ce poate capta parametrii de accelerometru, giroscop și magnetometru. Această structură este disponibilă tuturor doritorilor, la prețuri reduse. Placa de dezvoltare Arduino reprezintă o structură hardware robustă, complexă , rapidă și foarte fiabilă, fiind bine documentată de producător, astfel este foarte ușor de învățat structura hardware și facilitățile acesteia. Analizând facilitățile pachetului de senzori inerțiali AltIMU-10, se poate spune că este un pachet de senzori foarte complex, cu performanțe foarte bune, având componente ce pot măsura date la o fregvență ridicată, facilitate ce este foarte folosiroare în aplicațiile în timp real.  
+
+\-\hspace{1cm}Elaborând concluzii asupra structurii software, s-a observat că există foarte multe limbaje de programare ce pot fi folosite în combinație cu placa de dezvoltare Arduino, facilitățile comunicației seriale fiind foarte folositoare, astfel putem spune că programarea software se poate realiza întru-un limbaj de nivel înalt, transferul codului și interpretarea lui în limbaj C/C++ putând fi făcută cu ajutorul unor librării specifice. Această facilitate aduce structurii hardware o flexibilitate importantă, iar structurii software o aplicabilitate complexă.
+
+\-\hspace{1cm}Cea mai provocatoare parte a acestui proiect a fost reprezentată de determinarea algoritmilor pentru determinarea orientării. Această secțiune a dus la studii amănunțite a algoritmilor folosiți și dezvoltați în domeniile aplicabile orientării. Astfel primul algoritm studiat a fost algoritmul unghiurilor lui Euler, principiu ce face baza orientării în spațiul 3D și care are performanțe bune vizibiele prin experimentele folosite, fiind implementabil în aplicațiile în timp real, datorită timpului de răspuns foarte rapid și timpului scurt de stanbilizare.
+Studierea mai amănunțită a acestui principiu a scos la iveală o problemă importantă a acestui algoritm, reprezentată de pringimiul blocării gimbal. Blocarea gimbal face ca sistemul să se blocheze în momentul în care orientarea sistemului și face ca două planuri ale axelor de coordonate să fie paralele, atunci sistemul devenind unul 2D, fiind nevoie de o miscare necontrolată pentru deblocare. Principiul blocării gimbal face ca modelul ungiurilor lui Euler să fie un model problematic în determinarea orientării 3D.
+
+\-\hspace{1cm}Pentru a evita problemele evidențiate de principiul unghiurilor lui Euler s-a observat că, în multe studii sa folosit reprezentarea spațiului 3D în forma cuaternionilor, o extindere matematică a numerelor complexe, iar orientarea pe baza acestora se face printr-o filtrare Kalman a datelor inerțiale, astfel se reduc influențele gravitației și câmpului magnetic terestru, orientaea fiind determinată mult mai precis prin elaborarea unei estimării a acestei analizănd starea precedentă, rezultând un control mult mai bun. Această metodă pare ideală, dar problema ei este reprezentată de complexitatea calculelor și multitudinea de iterații, fapt ce o duce la întârzieri, ce afectează implementarea într-o aplicație în timp real.
+
+\-\hspace{1cm}Aprofundând studiile sa observat că aceste întârzieri ale filtrului Kalman pot fi evitate printr-un filtru derivat din filtrul Kalman, filtrul AHRS elaborat de Mahony și îmbunătățit de Madgvick, care implementează mai puține calcule și iterații, astfel rezultă un răspuns mai bun al sistemului, la performanțe asemanătoare filtrului Kalman.
+   
+\-\hspace{1cm}Prin implementarea metodelor unghiurilor lui Euler și algoritmului AHRS s-a observat că cele două metode prezintă rezultate asemănătoare în determinarea orientării în funcție de axele $x$ și $y$, diferența principală este observată la determinarea orientării axei $z$, în care metoda filtrului AHRS are rezultate mult mai precise, dar cu un timp de stabilizare a semnalului mult mai mare decât cel al metodei Euler.
+ 
+\-\hspace{1cm}Pe baza acestor concluzii experimentale se poate spune că metoda unghiurilor lui Euler este cea mai bună pentru determinarea orientării 2D, dar în cazul în care se dorește monitorizarea orientării în funcție de axa $z$ este nevoie de un filtru ce compensează componenta accelerației gravitaționale, a influenție câmpului magnetic și a erorilor giroscopului, cel mai eficient algoritm fiind expus în filtrul AHRS.
+
+\section{Direcții de dezvoltare ulterioară}
+\-\hspace{1cm}Pe baza realizărilor acestui proiect, și obsrvării altor aplicții ale metodelor studiate în această aplicație, dar și prin prisma dezvoltării sistemelor de acest tip se pot trasa mai multe direcții de dezvoltare.
+
+\-\hspace{1cm}O direcție de dezvoltare ar duce la compnesarea unui neajuns al aplicației curente. Acest neajus este legat de conectarea cablată între calculator și arhitectura hardware. Rezolvarea acestei probleme poate fi făcută prin integrarea unei componente ce furnizează conexiunea la internet, în cadrul plăcii de dezvoltare Arduino. Astfel printr-o conexiune TCP/IP se poate realiza conexiune datelor la nivel de LAN. Tot această direcție de dezvoltarre poate fi făcută prin dezvoltarea aplicație pe o platforma Rasberry Pi, care conține implicit un modul ce permite conexiunea wireless, iar sistemul de operare Linux, folosit de această placă de dezvoltare este mult mai stabil, si permite mai multe facilități legate de tipul conexiunii, menționând și timpul de calcul mult mai eficient. 
+
+\-\hspace{1cm}O altă direcție de dezvoltare este reprezentată de îmbunătățirile ce pot fi aduse, cu scopul implementării în cadrul aplicațiilor Unity3D, astfel se poate dezvolta pe baza algoritmilor dezvoltați în acest proiect, și prin îmbunătățirea structurii hardware, un prototip de mănușă ce va oferii utilizatorului o experiență, în animația 3D, conformă cu mișcările realizate de mâna și degetele sale. Astfel jocul dezvoltat va fi mult mai interactiv, calite ce poate fi sporită prin adăugarea unei componente haptice, în cadrul acestei mănuși. Această componetă oferindu-i utilizatorului un răspuns tactil la acțiunile realizate de el în cadrul jocului.
+
+\-\hspace{1cm}Precum s-a observat în secțiunea de introducere a proiectului, studiile de determinare a orientării se folosesc intens în proiectele aerospațiale. Pe baza studiilor și cunoștințelor dobândite în acest proiect se poate trasa un obiectiv de realizare unui quadocopter ce va fi controlat prin miscările mâinii utilizatorului. Acestă dezvoltare este una foarte complexă avănd în vedere că implică și controlul motoarelor, pe baza orientării, dar reprezintă o provocare extrem de interesantă.

@@ -1,0 +1,160 @@
+\stepcounter{cap}
+
+\mychapter{7}{\arabic{cap}. Rezultate experimentale}
+
+%\chapter{\arabic{cap}.Determinarea orientării pe baza filtrului AHRS} % Main chapter title
+
+\label{Chapter7} % For referencing the chapter elsewhere, use \ref{Chapter1}
+\noindent\rule{14.7cm}{0.4pt}\\
+\-\hspace{1cm} Analiza datelor citite de senzorii inerțiali\\
+\-\hspace{1cm} Rezultatele algoritmilor de determinare a orientării\\
+\-\hspace{1cm} Rezultatele determinării orientării pe baza unghiurilor lui Euler și a filtrului \\
+\-\hspace{1cm}AHRS\\
+\noindent\rule{14.7cm}{0.4pt}
+
+%\lhead{\emph\bfseries \textcolor{black!100}{Universitatea \textit{Transilvania} din Braşov }}
+%
+%\rhead{\emph\bfseries \textcolor{black!100}{Departamentul Automatică \\și Tehnologia Informației }}
+
+\fancyhead[L]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Universitatea \textit{Transilvania} din Braşov \\Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor}}
+
+\fancyhead[R]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Automatică şi \\ Informatică Aplicată}}
+
+%----------------------------------------------------------------------------------------
+\-\hspace{1cm}Principiile de determinare a orientării în spațiul tri-dimensional,  enunțate în capitolele anterioare pot fi dovedite prin fuziunea dintre datele captate de structura hardware și procesarea acestora pe baza structurii software cu scopul determinării parametrilor orientativi ce descriu un corp în spațiul terestru.
+
+\-\hspace{1cm}Pe baza arhitecturi hardware expusă în capitolul 2 ce are ca scop captarea parametilor inerțiali ce pot fi procesați prin mai multe platforme software, platforme ce pot fi rulate la nivelul plăcii de dezvoltare sau la nivelul calculatorului. În funcție de comlexitatea algoritmului și facilitățile dorite folosit se aleg platformele optime și dispozitivele pe care acestea rulează.
+
+\-\hspace{1cm}Independent de algoritmii de determinare implementați și platforma hardware pe care rulează aceștia, este nevoie de o reprezentre a detelor de intrare, eventual a datelor preliminare, și a rezultatelor procesării pentru a observa comportările sistemului și a face analize asupra acestora. În acest scop,  în cadrul acestui proiect sa folosit platforma Matlab expusă în subcapitlolul \ref{sec3_3}, ce citește datele de la nivelul structurii hardware, pe baza comunicației seriale detaliate în subcapitolul \ref{sec3_4_2} și realizează o reprezentare grafică a acestora.
+
+\-\hspace{1cm}Pentru simularea orientării determinate de algoritmii de filtrarea și modelare a parametriilor inerțiali sa folosit platforma Unity3D detaliată în subcapitolul \ref{sec3_1} ce primește datele procesate de algoritmii rulați pe placa de dezvoltare Arduino prin conexiunea expusă în secțiunea  \ref{sec3_4_1}.
+
+\section{Analiza datelor citite de senzorii inerțiali}
+\-\hspace{1cm}Asupra datelor citite de senzorii inerțiali sau formulat o serie de formulări matematice a comportării acestora având în vedere toți factorii perturbatori ai mediului înconjurător.
+
+\subsection{Analiza parametrilor în regim static}
+\-\hspace{1cm}În cadrul acestei secțiuni se observă comportărole intrărilor sistemului în cazul în care senzorul nu este deviat din poziția inițială. Astfel rezultă următoarele caracteristici ale datelor giroscopului:
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.7\textwidth]{Figures/GyroData}}
+  \caption{Parametrii giroscopului în regim staționar}
+\end{figure}
+
+\-\hspace{1cm}În această reprezenatre a datelor furnizate de giroscop se observă că viteza unghiulară are valoarea zero pe toate cele trei direcții spațiale, giroscopul ne fiind scos din starea inițială.
+
+\-\hspace{1cm}Aceste caracteristici nu mai sunt valabile pentru valorile accelerometului care generează o repartiție a semnalului vizibilă în figura \ref{fig:gyro}. În această figură se observă că se adeveresc principile enunțate în capitolul \ref{Chapter1}, cu privire cărora accelerația este afectată de zgomote. Principala influență asupra parametriilor accelerației e adusă de influența forței gravitaționale exerciate de Pământ. Precum sa enunțat pe   parcursul lucrării se observă că cea mai importantă influență a gravitației este asupra datelor generate de acceleormetru pe axa $z$, paralelă cu gravitația. Pe acestă direcție senzorul detectează a accelerație constantă, dar diferită cu mult de zero, valoarea reală a acesteia.
+\-\hspace{1cm}Prin această comportare se poate observa că, perturbația instalată de gravitație asupra axei paralele pe direcția acesteia, trebuie compensată în scopul obținerii unei comportări reale.
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.7\textwidth]{Figures/AccData}}
+  \caption{Parametrii accelerometrului în regim staționar}\label{fig:gyro}
+\end{figure}
+\subsection{Analiza datelor de intre în regim dinamic}
+\-\hspace{1cm}În această secțiune se încearcă observarea distribuței parametrilor accelerometrului și giroscopului în funcție de orientarea senzorului. Această evaluare este o evaluare pur subiectivă, pe baza repartiției semnalelor se poate observa o orientare posibilă, dar nu sigură sau măsurabilă.
+
+\-\hspace{1cm}Astfel în imaginea următoare se poate observa pe baza semnalelor provenite de la giroscop un model al rotaților realizat de senzor.
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.6\textwidth]{Figures/GyroDinam}}
+  \caption{Datele furnizate de giroscop în regim dinamic}
+\end{figure}
+
+\-\hspace{1cm}Pe baza imaginii anterioare se poate observa, în diferite secțiuni, o rotație accentuată. Astfel în prima secțiune se observă valori ridicate ale vitezei unghiulare realizate pe axa $x$, putând presupune că senzorul realizează o rotație în jurul axei $x$. În a doua secțiune a imaginii se poate observa o fluctuație a valorilor semnalului pe axa $y$, putănd presupune ca sunt rezultate ale rotație în jurul axei $z$. Ultima secțiune a imaginii conține fluctuații importante ale semnalului furnizat de axa $z$ a giroscopului, comporate ce poate determina o rotație în jurul axei $z$. 
+
+\-\hspace{1cm}Pe baza presupunerilor anterioare se poate  presupune o orientare, operând anumite valori de threshold se poate spune că între anumite valori avem ununghi $\alpha$ în raport cu axa $x$, dar acesta este o evaluare nesigură și orientativă.
+
+\-\hspace{1cm}Semnalele echivalente accelerometrului, din  modelul mișcărilor dezbătut anterior, sunt reprezentate în imaginea:
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.9\textwidth]{Figures/AccDinam}}
+  \caption{Datele furnizate de accelerometru în regim dinamic}
+\end{figure}
+
+\-\hspace{1cm}Din repartiția semnalelor realizată anterior nu se poate determina un model al accelerației, dar se observă fluctuații importante ale valorilor accelerației pe axa $z$, valori afectate de accelerația gravitațională. În funcție de rotațiile realizate de corp se poate observa că la un moment dat și celealte axe ale sistemului sunt paralele cu vectorul accelerației gravitațiomnale, putându-se presupune existența unor perturbații ridicate ce afectează accelerațiile de pe axele $x$ respectiv $z$.
+
+\section{Rezultatele algoritmilor de determinare a orientării}
+\-\hspace{1cm}Presupunerile anterioare asupra unei posibile orientări a corpului în spațiul 3D pe baza fluctuaților parametrilor giroscopului reprezinta ipoteze nesigure și imprecise. În scopul formulării unei unei expresii precise și sigure a orientării unui corp sau elaborat o serie de algoritmi matematici ce determină, pe baza parametriilor inerțiali, o formulare veridică a orientării în spațiul tri-dimensional.
+
+\-\hspace{1cm}O parte din algoritmii matematici, elaborați în decursul timpului, ce pot determina orientarea 3D sau amintit în secțiunea \ref{cap1_3}. Dar principile implementate în acest proiect au fost bazate pe metoda matricei cosinusului (DCM) și unghiurile lui Euler, respectiv metoda filtrului AHRS pe baza cuaternionilor.
+
+\subsection{Rezultatele determinării orientării pe baza unghiurilor lui Euler și a filtrului AHRS}
+\-\hspace{1cm}Reprezentarea sub forma unghiurilor lui Euler a fost detaliată în subcapitolul \ref{cap4_1}, enunțând rotațiile realizate în funcție de cele trei axe , în care se reprezintă rotația în sensul acelor de ceasornic  funcție de axa $z$ (yaw), rotația în funcție de axa $y$ (pitch),rotația în fucție de axa $x$ (roll).
+
+\-\hspace{1cm}Determinarea orientării pe baza unghuirilor lui Euler generează rezultate bune fară un volum mare de calcul, dar principala problemă a acestei reprezentări este generată de defetul principal al acestei metode, acesta este principiul blocării gimbal este reprezentat de cazul în care două inele axiale se plasează pe același plan, moment în care sistemul 3D se transforma într-un model 2D.
+
+\-\hspace{1cm}În scopul evitării acestui defect al metodei unghiurilor lui Euler s-a încercat implementarea unui filtru AHRS, un filtru dezvoltat din metoda filtrului Kalman și filtrul Kalman extins detaliate în capitolul 6, ce se bazează pe descrierea spațiului tri-dimensional printr-un vector al cuaternionilor dezbătut în secțiunea \ref{cap4_2}. Această reprezentare a spațiului 3D sub forma de cuaternioni elimină blocarea gimbal, îmbunătațind calitatea determinării orientării.
+
+\-\hspace{1cm}Filtrul AHRS dezvoltat în capitolul 7 generează o calculare a orientării, implicând și componenta câmpului magnetic al pământului, copmensând foarte bine erorile de măsurare ale giroscopului și reușind să elimine proceseze componenta accelerației gravitaționale în scopul îmbunătățirii performanțelor.
+  
+\-\hspace{1cm}Comparând metoda filtrului AHRS cu metoda filtrării Kalman se observă ca versiunea filtrului AHRS realizată de Madgwick are o viteză de procesare mai bună decât filtrul Kalman, realizănd calcule matematice mult mai reduse, generând rezultate asemănătoare calitativ. 
+
+\subsubsection{Rezultatele determinării orientării în regim static}
+\-\hspace{1cm}Rezultatele experimentale pot fi analizate prin reprezentarea rezultatelor generate de cele două metode în același grafic, astfel putându-se observa diferențele acestora.
+
+\-\hspace{1cm}Imaginile următoare reprezintă detectarea orientării în regim static, paketul de senzori ne fiind scos din echilibru:
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.7\textwidth]{Figures/Roll}}
+  \caption{Reprezentarea unghiului în raport cu axa $x$}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.7\textwidth]{Figures/Pitch}}
+  \caption{Reprezentarea unghiului în raport cu axa $y$}
+\end{figure}
+
+\-\hspace{1cm}În imaginile precedente se poate observa că, dupa calibrare,  cele două metode au o comportatrea asemănătoare, observăndu-se că senzorul are o poziție apropiată de zero grade în raport cu axa $x$, și $y$.
+ 
+\-\hspace{1cm}Această comportare va fi diferită în momentul în care se încercă detectare unghiului în raport cu axa $z$, această reprezentare se poate analiza în imaginea:
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.9\textwidth]{Figures/Yaw}}
+  \caption{Reprezentarea unghiului în raport cu axa $z$}
+\end{figure}
+
+\-\hspace{1cm}Din reprezentarea orintării pachetului de senzori față de axa $z$ a sistemului spațial se observă că în cazul metodei unghiurilor lui Euler stabilizarea se face mult mai rapid decât timpul de stabilizare al metodei AHRS, dar această are un rezultat mult mai bun decât cel al al metodei unghiurilor lui Euler. În cazul acesta unghiul cu raportat față de axa $z$ este apropiat de $90^0$, observându-se că filtrul AHRS se stabilizează la această valoare.  
+
+\subsubsection{Rezultatele determinării orientării în regim dinamic}
+\-\hspace{1cm}Determinarea orientării în regim dinamic este mult mai dificilă datorită schimbărilor bruște ale parametrilor senzorilor. Comportarea orientării aplicând cele două metode, duce la detectarea unei orientări similare în raport cu axa $x$ și $y$, observându-se că orientarea detectată cu metoda unghiurilor lui Euler generează un răspuns mult mai liniar, fără a detecta fluctuațile rapide. 
+
+\-\hspace{1cm}Analizând orientările detectate de filtrul AHRS se poate observa că acesta detectează fluctiații mult mai dese ale miscărilor unghiulare realizate de sistem. Acest poate fi folositor pentru precizie, dar poate fi deranjant pentru stabilitate și constanță.
+
+\-\hspace{1cm}Analiza realizată anterior se bazează pe următoarele figuri ce descriu comparativ comportarea sistemului aplicând cele două metode: 
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.7\textwidth]{Figures/RollDim}}
+  \caption{Reprezentarea orientării în raport cu axa $x$}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.7\textwidth]{Figures/PitchDim}}
+  \caption{Reprezentarea orientării în raport cu axa $y$}
+\end{figure}
+
+\-\hspace{1cm}Precum în cadrul comportării în regim stabil, reprezentarea  orientării dinamice în raport cu axa $z$ a sistemului 3D prezintă soluții diferite genertate de cele două metode. Pe baza comportării semnalului se poate observa că metoda filtrului AHRS are o comportare foarte diferită în raport cu metoda ungiurilor lui Euler, în special în primele perioade de timp, când filtrul AHRS se calibrează și se stabilizează. După stabilizarea modelului AHRS cele două modele genereaza un model asemănător al semnalului, dar rezultatul filtrului AHRS est mai precis comparativ cu cel al modelului unghiurilor lui Euler.
+
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.9\textwidth]{Figures/YawDim}}
+  \caption{Reprezentarea orientării în raport cu axa $z$}
+\end{figure}
+
+\-\hspace{1cm}Pentru a vizualiza orientarea mai apropiat de realitatea mișcărilor sa realizat o animație în limbajul Matlab care preia datele orientării si le transpune într-o animație ce arată orientarea tridimensională. Un cadru al acestei animații este în imaginea:
+ \begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.9\textwidth]{Figures/AHRS_anim}}
+  \caption{Reprezentarea orientării în 3D}
+\end{figure}

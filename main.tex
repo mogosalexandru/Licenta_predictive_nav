@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper, oneside]{Thesis} 
+
+%\usepackage[left=35mm,right=35mm,top=50mm,bottom=25mm]{geometry}
+
+% The default font size and one-sided printing (no margin offsets)
+%[12pt, oneside]
+\input{settings/packages}
+%\input{settings/page}
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+
+%\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+%\hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
+%\title{\ttitle} % Defines the thesis title - don't touch this
+
+\begin{document}\thispagestyle{fancy}
+%\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\subsection}{\normalsize\normalfont}
+\titleformat*{\subsubsection}{\normalsize\normalfont}
+\titleformat*{\paragraph}{\normalsize\bfseries}
+\titleformat*{\subparagraph}{\normalsize\bfseries}
+
+  
+\pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
+
+\fancyhead[L]{\fontsize{10}{10}\selectfont\emph\bfseries\textcolor{black!70}{\textit{Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor \\ Departamentul Automatică şi Tehnologia Informaţiei \\}}}
+
+\fancyhead[R]{\fontsize{10}{10}\selectfont\emph\bfseries\textcolor{black!70}{\textit{Automatică şi Informatică Aplicată \\}}}
+
+ % Begin numeric (1,2,3...) page numbering
+\mainmatter
+
+\label{Cuprins}
+%\addcontentsline{toc}{chapter}{Cuprins}
+\tableofcontents
+
+
+
+%\addcontentsline{toc}{chapter}{Listă de figuri}
+\listoffigures
+
+\listoftables
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+
+
+\pagestyle{fancy} % Return the page headers back to the "fancy" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\input{Chapters/Chapter1}
+\input{Chapters/Chapter2}
+\input{Chapters/Chapter4}
+%\input{Chapters/Chapter3}
+\input{Chapters/Chapter4} 
+\input{Chapters/Chapter5} 
+\input{Chapters/Chapter6} 
+%\input{Chapters/Chapter7} 
+%\input{Chapters/Chapter8}
+
+
+\end{document}  

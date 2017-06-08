@@ -1,0 +1,133 @@
+% Chapter 2
+\stepcounter{cap}
+%\chapter{cap2}
+
+
+\mychapter{2}{\arabic{cap}. Arhitecura hardware}
+%\chapter{\arabic{cap}.Componente Hardware} % Main chapter title
+
+\noindent\rule{14.7cm}{0.4pt}\\
+\-\hspace{1cm}Placa de dezvoltare Arduino Uno\\
+\-\hspace{1cm}Pachetul de sinzori accelerometru, giroscop și magnetometru AltIMU-10 v4\\
+\-\hspace{1cm}Conectarea AltIMU-10 v4 la Arduino Uno\\
+\noindent\rule{14.7cm}{0.4pt}
+
+%Componente Hardware
+\label{Chapter2} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+%\lhead{\emph\bfseries \textcolor{black!100}{Universitatea \textit{Transilvania} din Braşov \\Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor}}
+
+
+%\rhead{\emph\bfseries \textcolor{black!100}{Departamentul Automatică \\și Tehnologia Informației }}
+
+\fancyhead[L]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Universitatea \textit{Transilvania} din Braşov \\Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor}}
+
+\fancyhead[R]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Automatică şi \\ Informatică Aplicată}}
+%------------------
+\-\hspace{1cm}Componetele dispozitivului hardware sunt compuse dintr-o placa de dezvoltare Arduino Uno, care are ca scop citirea parametrilor furnizați de pachetul de senzori AltImu-10 v4 ce conține senzori de accelerometru, giroscop și magnetometru.
+
+\section{Placa de dezvoltare Arduino Uno}
+\-\hspace{1cm}Arduino UNO  este o platformă de procesare disponibilă tuturor utilizatorilor, bazată pe software și hardware flexibil și simplu de folosit. Constă intr-o platformă de mici dimensiuni (6.8 cm / 5.3 cm – în cea mai des întâlnită variantă) construită în jurul unui procesor de semnal și este capabilă de a prelua date din mediul înconjurator printr-o serie de senzori și de a efectua acțiuni asupra mediului prin intermediul luminilor, motoarelor, servomotoare, și alte tipuri de dispozitive mecanice. Procesorul este capabil să ruleze cod scris într-un limbaj de programare care este foarte similar cu limbajul C++ \cite{arduino}.
+
+\textbf{Specificații :}
+\begin{itemize}
+ \setlength\itemsep{0em}
+ \item microcontroler: ATmega328;
+ \item tensiune de lucru:5V ;
+ \item tensiune de intrare (recomandat):7-12V;
+ \item tensiune de intrare (limita):6-20V;
+ \item pini digitali:14(6 generând ieșlire PWM);
+ \item pini analogici:6;
+ \item intensitatea curentului de ieșire:40 mA;
+ \item intensitate curentului de ieșire pe 3.3V: 50 mA;
+ \item memoria flash: 32 KB (ATmega328) 0.5 KB pentru bootloader;
+ \item EEPROM: 1 KB (ATmega328);
+ \item Frecvența generatorului de impulsuri:16 MHz.
+\end{itemize}
+
+\-\hspace{1cm}O descrierea detaliată a plăcii de dezvoltare Arduino Uno se poate face pe baza imaginii următoare, unde sunt evidențiate componentele principale.
+\begin{figure}[h!]\label{fig:arduino}
+  \centering
+    \centering{%
+      \includegraphics[width=0.7\textwidth]{Figures/Arduino-Uno}}
+  \caption{Explicarea pinilor plăcii Arduino Uno}
+\end{figure}
+
+\-\hspace{1cm}Componentele principale vizibile în imaginea următoare au caracteristici ce sunt necesare în cadrul realizării unei structuri hardware pe baza acestei platforme electronice. Secțiunile evidențiate în imagine sunt:
+\begin{enumerate}
+ \setlength\itemsep{0em}
+ \item Conector de USB de Tip B (Mamă), pentru alimentarea cu 5V și transmisii de date;
+ \item Port de alimentare placă Arduino, recomandat este ca tensiunea de alimentare să fie între 7V-12V, putându-se formula o serie de observații:
+ 	\begin{itemize}
+	 \setlength\itemsep{0em}
+	 \item în cazul în care se alimentează Arduino Uno prin conectorul USB din altă sursă în afară de PC(de exemplu un încărcător), trebuie măsurată tensiunea de alimentare deoarece alimentarea de la conectorul USB nu trece prin stabilizatorul de 5V al plăcii;
+	 \item în momentul când placa Arduino Uno este conectată la PC pentru programare sau comunicare prin intermediul monitorizării seriale este recomandată deconectarea alimentării externe din conectorul 2;
+	\end{itemize}
+ \item  Buton de reset, resetează placa fără însă a se pierde programul scris, acesta reîncepând de la funcția \textit{void setup()} ;
+ \item Șir pini digitali, conține 14 intrări/ieșiri din care 6 pot fi folosite ca ieșiri PWM (3,5,6,9,10,11), o detaliere se face a acstora se face astfel:
+  	\begin{itemize}
+	 \setlength\itemsep{0em}
+	 \item pinii 0(rx), 1(tx) sunt folosiți pentru a primi (rx) și transmite (tx) date.  În cazul în care programul folosește funcția de comunicare serială (se poate indentifica în program prin „Serial.begin„) aceste ieșiri nu pot fi folosite;
+	 \item pinul 13 are conectat un led (L pe placă) în serie cu o rezistentă. LED-ul ne indică starea pinului: aprins pentru HIGH, și stins pentru LOW;
+	 \item GND este conectat la masă.
+	\end{itemize}
+ \item Șir pini alimentare:
+   	\begin{itemize}
+	 \setlength\itemsep{0em}
+	 \item IOREF: poate măsura tensiunea la care operează microcontrolerul (3v3 sau 5V)
+	 \item RESET: resetează placa când acesta este conectat la masă (GND) 
+	 \item Vin: rin intermediul acestui pin se poate alimenta placa Arduino Uno, respectându-se tensiunea recomandată de alimentare (în cazul în care alimentăm placa prin acest pin, tensiunea trece prin stabilizator).
+	\end{itemize}
+ \item Șir pini analogici: A0…A5. Valoarea acestori pini se poate citi cu funcția \textit{analogRead()}, din citire rezultă numere între 0-1023 pentru 0V – 5V.
+\end{enumerate} 
+
+\section{Pachetul de sinzori accelerometru, giroscop și magnetometru \\AltIMU-10 v4}
+\-\hspace{1cm}AltIMU-10 v4 este un pachet de senzori inerțiali(IMU) ce este compus dintr-un giroscop tri-axial L3GD20H, un accelerometru tri-axial LSM303D, un magnetometru tri-axial și un barometru digital LPS25H. Primii trei parametrii ai acestui pachet de senzori, reprezintă componentele inerțiale ce pot determina orientarea și poziția sistemului (AHRS), iar citirea presiuni poate fi convertită în altidudine. Printr-un algoritm matematic și un microcontroler sau microprocesor pe baza măsurătorilor făcute de Altimu-10 v4 se poate determina orientarea și poziția unui corp.
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.7\textwidth]{Figures/Altimu}}
+  \caption{Altimu-10 v4}
+\end{figure}\\
+\textbf{Specificații:}
+\begin{itemize}
+ \setlength\itemsep{0em}
+ \item dimensiuni:25mm x 13mm x 3mm ;
+ \item greutate(fără pini):0.8g;
+ \item tensiunea de operare:2.5V -5.5V;
+ \item intensitatea curentului de iesire:6mA;
+ \item formatul ieșirii($I^2C$):
+ 		\begin{itemize}
+		 \setlength\itemsep{0em}
+		 \item ieșirea giroscopului:citirea unei axe se face pe 16 biți;
+		 \item ieșirea accelerometrului:citirea unei axe se face pe 16 biți;
+		 \item ieșirea magnetometrului:citirea unei axe se face pe 16 biți;
+		 \item ieșirea barometrului:citirea presiunii se face pe 24 biți;
+ 		\end{itemize}
+ \item domeniul sensibilitatății:
+  		\begin{itemize}
+		 \setlength\itemsep{0em}
+		 \item giroscop:$\pm 245$,$ \pm 500$ rad/s;
+		 \item accelerometru:$\pm 2$,$ \pm 4$,$\pm 6$,$ \pm 8$ g;
+		 \item magnetometrul:$\pm 2$,$ \pm 4$,$\pm 8$ gauss;
+		 \item barometrul:$260$ mbar- $1260$ mbar;
+ 		\end{itemize}
+ \item Conectarea: Pentru folosirea acestui pachet de senzori trebuie folosite cel puțin patru conexiuni legate la pinii:$VIN$, $GND$, $SCL$ și $SDA$. $VIN$ va fi conectat la un pin ce are o tensiune între $2.5-5.5V$, $GND$ va fi conectat la $0 V$, iar pinii $SCL$ și $SDA$ trebuie conectați la magistrala $I^2C$ ce operează pe nivelul logic al pinului $VIN$ \cite{IMU}.
+\end{itemize}
+
+%-------------------------------------------
+\section{Conectarea AltIMU-10 v4 la Arduino Uno}
+
+\-\hspace{1cm}Din caracteristicile de conexiune ai pachetului de senzori Altimu-10 v4 se observă că acesta trebuie conectat la o magistrală $I^2C$.
+
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.7\textwidth]{Figures/to_arduino}}
+  \caption{Conectarea AltIMU-10 v4 la Arduino Uno}
+\end{figure}
+
+\-\hspace{1cm}Magistrala $I^2C$ a fost creata in ani '80 de către Philips semiconductors. Ea își propunea să fie o cale usoara de a conecta microcontroller-ul cu alte circuitele integrate. 
+
+\-\hspace{1cm}Magistrala $I^2C$ consta fizic în două linii active ($SDA$ și $SCL$) si una de masă ($GND$) prin care comunică două sau mai multe componente dupa niște reguli precise. Liniile active SDA (Serial Data Line) și $SCL$ (Serial CLock Line) sunt bidirectionale, componentele conectate la magistrala pot funcționa fie ca receptor fie ca emițător (la momente de timp distincte).\\
+\-\hspace{1cm}Controlul magistralei va aparține (la un moment dat) unui singur dispozitiv Master, care va adresa un singur dispozitiv Slave . Masterul este dispozitivul care va iniția transferul (printr-o condiție de START), va genera impulsurile de ceas pe linia $SCL$ și tot el va încheia transferul generand conditia de STOP. Viteza de transfer pe magistrală poate fi de $100kbit/sec$ sau $400kbit/sec$, iar adresa dispozitivelor $I^2C$ este formată de regulă din 7 biți \cite{IMU}. 

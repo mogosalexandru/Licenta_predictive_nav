@@ -1,0 +1,204 @@
+% Chapter 4
+\stepcounter{cap}
+%\arabic(cap)
+%-\hspace{8cm}
+\mychapter{4}{\arabic{cap}. Convențiile orientării}
+%\chapter{\arabic{cap}.Convențiile orientării} % Main chapter title
+\noindent\rule{14.7cm}{0.4pt}\\
+\-\hspace{1cm}Unghiurile lui Euler\\
+\-\hspace{1cm}Cuaternionii\\
+\noindent\rule{14.7cm}{0.4pt}
+\label{Chapter4} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+%\lhead{\emph\bfseries \textcolor{black!100}{Universitatea \textit{Transilvania} din Braşov \\Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor}}
+%
+%\rhead{\emph\bfseries \textcolor{black!100}{Departamentul Automatică \\și Tehnologia Informației }}
+
+\fancyhead[L]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Universitatea \textit{Transilvania} din Braşov \\Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor}}
+
+\fancyhead[R]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Automatică şi \\ Informatică Aplicată}}
+%----------------------------------------------------------------------------------------
+
+\-\hspace{1cm}Există multe metode ce descriu orientarea unui obiect  în raport cu un sistem de referință. În acest proiect sunt folosite metoda unghiurilor lui Euler și cuaternionii relativi la orizontală și la câmpul magnetic. O altă metodă folosită des este determinarea direcției prin matricea cosinusului (DCM), dar această metodă este inferioară metodei cuaternionilor.
+
+
+%----------------------------------------------------------------------------------------
+
+\section{Unghiurile lui Euler}\label{cap4_1}
+
+\-\hspace{1cm}Reprezentarea sub forma unghiurilor lui Euler folosește rotația pe cele trei axe ale reprezentării 3D. Rotațiile realizate în funcție de cele trei axe se poate organiza în funcție de reprezentarea Tait-Bryan a unghiurilor sau în funcție de reprezentarea clasică a unghiurilor Euler. În acest proiect e folosită reprezentarea în funcție de $Z-X’-Z’'$ a convenței Tait-Bryan, în care se reprezintă rotația în sensul acelor de ceasornic  funcție de axa $Z$ (yaw), rotația în funcție de axa $Y$ (pitch), rotația în fucție de axa $X$ (roll).
+
+
+\-\hspace{1cm}Această metodă de reprezentare a orientării are o serie de dezavantaje. Cel mai important dezavantaj este reprezentat de blocarea gimbal (Sistemul gimbal este reprezentat de trei inele pivotante ce exemplifică mișcările de rotație ale unui corp în sistemul 3D). Principiul blocării gimbal este reprezentat de cazul în care două inele axiale se plasează pe același plan, moment în care sistemul 3D se transforma într-un model 2D. În exemplul din imaginea \ref{fig:euler} dacă avionul realizează o miscare de rotație cu 0 radiani față de axa $Z$, 0.5 radiani în raport cu axa $Y$ și 0 radiani față de axa $Z$. Axa $Z$ și axa $X$ se afla pe planul $xy$, astfel avionul nu se mai poate rotii pe planul $yz$ \cite{DCM}, \cite{humm4}.
+\begin{SCfigure}
+  \centering
+  \caption{  Reprezentarea unghiurilor Tait-Bryan. Unghiul $\Psi$ corespunde rotației în jurul axei $Z$. Unghiul $\Phi$ corespunde rotației în jurul axei $X$.
+Unghiul $\Theta$ corespunde rotației în jurul axei $Y$
+}\label{fig:euler}
+  \includegraphics[width=0.7\textwidth]%
+    {Figures/RPY}% picture filename
+\end{SCfigure}
+
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+
+\section{Cuaternionii}\label{cap4_2}
+
+\-\hspace{1cm}Un cuaternion reprezintă o extensie a numerelor complexe fiind o reprezentare patru-dimensională a unui număr complex  folosit pentru coordona o reprezentare tri-dimensională sau pentru a reprezenta orientarea unui corp în spațiu. Rotația unui corp cu unghiul $\Theta$ în jurul axei $A_r$ din sistemul de coordonate $A$, dar această rotație poate avea o reprezentare în raport cu un alt sistem de coordonate $B$, ce este relativ la sistemul $A$ \cite{Htrack}.
+
+\begin{equation}
+\mathsf{{\textit{${}^{A}_{B}\mathbf{\hat q}$}}} =
+\begin{bmatrix}
+q_0 & -q_1 & -q_2 & -q_3\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+cos(\frac{\Theta}{2}) & -r_xsin(\frac{\Theta}{2}) & r_ysin(\frac{\Theta}{2}) & r_zsin(\frac{\Theta}{2})\\
+\end{bmatrix}
+\end{equation}
+
+\-\hspace{1cm}Astfel în figura \ref{fig:quat} se poate observa că vectorii $\hat{x}_A$, $\hat{y}_A$, $\hat{z}_A$ și vectorii $\hat{x}_B$, $\hat{y}_B$, $\hat{z}_B$ reprezintă cele trei axe de coordonate ale sistemelor A respectiv B.   În ecuația 1.1 cuaternionul $\hat{q} $ ce  descrie orientarea corpului, unde $r_x$, $r_y$, $r_z$ definesc componentele vectorului ${}^{A}\hat{r}$  in sistemul de coordonate A.\\ \\ \\
+
+
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.6\textwidth]{Figures/quat}}
+  \caption{Orientarea vectorului ${}^{A}\hat{r}$ ce se rotește în cu unghiul $\Theta$ în sistemul de coordonate $A$ raportat la sistemul de coordonate $B$ }\label{fig:quat}
+\end{figure}
+
+
+
+\-\hspace{1cm}În momentul în care avem o unitate a magnitudinii, cuaternionii pot fi folosiți pentru a reprezenta rotația. Pentru reprezentarea rotațiilor se folosesc cuaternionii de rotație, iar pentru reprezentarea orientării relative la un sistem de referința se folosesc cuaternionii de poziție. Spre deosebire de metoda unghiurilor lui Euler, metoda cuaternionilor poate măsura rotațiile în sistemul 3D în fiecare orice situație, evitând blocarea gimbal. Această caracteristică a cuaternionilor duce la o reprezentare matematică a orintării mult mai robustă și fiabilă \cite{quatro}.
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Norma unui cuaternion}
+
+\-\hspace{1cm}Norma unui cuaternion este definită ca :
+\begin{equation}
+|q|=\sqrt{q_0^2+q_1^2+q_2^2+q_3^2}
+\end{equation}
+
+\-\hspace{1cm}Norma cuaternionului este folosită la normalizarea expresiei acestuia dupa fiecare iterație. Expresia dupa cere se realizează acest lucru este \cite{quatro}: 
+
+\begin{equation}
+q=\frac{q}{|q|}
+\end{equation}
+
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Înmulțirea}
+
+\-\hspace{1cm}Înmulțirea quaternionilor \textit{\textit{p$\bigotimes$q}} este definită ca o combinație secvențială a două rotații. Înmulțirea cuaternionilor este o operație necomutativă definită ca \cite{quatro}: 
+\begin{equation}
+\text{p$\otimes$q}=Q(p)q= \bar{Q}(q)p
+\end{equation}
+
+unde matricea cuaternionilor este definită astfel:
+
+\begin{equation}
+\mathsf{Q(p)} =
+\begin{bmatrix}
+q_0 & -q_1 & -q_2 & -q_3\\
+q_1 & q_0 & q_3 & -q_2\\
+q_2 & -q_3 & q_0 & q_1\\
+q_3 & q_2 & -q_1 & q_0\\
+\end{bmatrix}
+\end{equation}
+
+iar conjugata acesteia este:
+\begin{equation}
+\mathsf{\bar{Q}(p)} =
+\begin{bmatrix}
+q_0 & -q_1 & -q_2 & -q_3\\
+q_1 & q_0 & q_3 & -q_2\\
+q_2 & -q_3 & q_0 & q_1\\
+q_3 & q_2 & -q_1 & q_0\\
+\end{bmatrix}
+\end{equation}
+%----------------------------------------------------------------------------------------
+
+\subsection{Vectorul de rotație}
+
+\-\hspace{1cm}Un vector x poate fi rotit față de sistemul de referință, proces ce e determinat de cuaternionul $q$ ce produce expresia vectorului $x’$ folosind expresia \cite{quatro}:
+\begin{equation}
+\begin{bmatrix}
+	0\\
+	x'\\
+\end{bmatrix}
+=
+q\otimes
+\begin{bmatrix}
+	0\\
+	x\\
+\end{bmatrix}
+\otimes q^*
+\end{equation}
+
+Aceste două înmulțiri de cuaterninoni poate fi combinată sub forma unei matrice $R(q)$ unde:
+\begin{equation}
+x'=R(q)x
+\end{equation}
+
+\begin{equation}
+\mathsf{\textit{R}} =
+\begin{bmatrix}
+q_0^2+q_1^2-q_2^2-q_3^2 & 2(q_1q_2-q_0q_3) & 2(q_1q_3-q_0q_2)\\
+2(q_1q_2-q_0q_3) & q_0^2-q_1^2+q_2^2-q_3^2 & 2(q_2q_3-q_0q_1)\\
+2(q_1q_2-q_0q_3) & 2(q_1q_3-q_0q_2) &q_0^2-q_1^2-q_2^2+q_3^2\\
+\end{bmatrix}
+\end{equation}
+%----------------------------------------------------------------------------------------
+
+\subsection{Derivata unui cuaternion}
+\-\hspace{1cm}Derivata unui cuaternion poate fi făcută cu ajutorul a două ecuații, prima ecuație ia în considerare viteza unghiulară a vectorului de referința în raport cu sistemul de referință fixat, iar a doua ecuație analizează viteza unghiulară față de sistemul de referința al corpului. În acest proiect s-a folosit a doua ecuație \cite{quatro}:
+\begin{equation}
+\mathsf{\dot{q}_\textit{w}(\textit{q},\textit{w})} =
+\frac{1}{2}
+\begin{bmatrix}
+q_0 & -q_1 & -q_2 & -q_3\\
+q_1 & q_0 & -q_3 & q_2\\
+q_2 & q_3 & q_0 & -q_1\\
+q_3 & -q_2 & q_1 & q_0\\
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+0\\
+w_x\\
+w_y\\
+w_z\\
+\end{bmatrix}
+\end{equation}
+%----------------------------------------------------------------------------------------
+
+\subsection{Determinarea unghiurilor lui Euler pe baza cuaternionilor}
+
+\-\hspace{1cm}Pe baza expresiei orintării pe baza cuaternionilor se poate determina expresia unghiurilor lui Euler în forma Tait-Bryan YPR (yaw=rotația pe axa z, pitch=rotația pe axa y, roll=rotația pe axa x)
+\cite{Mad}:
+
+\begin{equation}
+yaw=atan2(2\cdot(q_0q_3+q_1q_2),1-2\cdot(q_2^2+q_3^2))
+\end{equation}
+
+
+\begin{equation}
+pitch=atan2(2\cdot(q_0q_1+q_2q_3),1-2\cdot(q_1^2+q_2^2))
+\end{equation}
+
+\begin{equation}
+roll=asin(2\cdot(q_0q_2+q_3q_1))
+\end{equation}
+
+\-\hspace{1cm}Cu ajutorul acestor ecuații se poate determina și folosii o expresie a unghiurilor lui Euler neafectată de efectul blocării gimbal, generând performanțe mult mai bune în aplicațiile folosite.
+
+
+%----------------------------------------------------------------------------------------
+

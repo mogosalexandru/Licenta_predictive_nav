@@ -1,0 +1,283 @@
+\stepcounter{cap}
+
+\mychapter{6}{\arabic{cap}. Determinarea orientării pe baza filtrului AHRS}
+
+%\chapter{\arabic{cap}.Determinarea orientării pe baza filtrului AHRS} % Main chapter title
+
+\label{Chapter6} % For referencing the chapter elsewhere, use \ref{Chapter1}
+\noindent\rule{14.7cm}{0.4pt}\\
+\-\hspace{1cm} Filtrul AHRS\\
+\-\hspace{1cm} Orientarea pe baza vitezei unghiulare\\
+\-\hspace{1cm} Orientarea pe baza vectorului măsurătorilor\\
+\-\hspace{1cm} Fuziunea celor două metode de determianre a orientării\\
+\-\hspace{1cm} Compensarea deformării magnetice\\
+\-\hspace{1cm} Controlul implicării erorii furnizate de giroscop\\
+\noindent\rule{14.7cm}{0.4pt}
+
+%\lhead{\emph\bfseries \textcolor{black!100}{Universitatea \textit{Transilvania} din Braşov }}
+%
+%\rhead{\emph\bfseries \textcolor{black!100}{Departamentul Automatică \\și Tehnologia Informației }}
+
+\fancyhead[L]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Universitatea \textit{Transilvania} din Braşov \\Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor}}
+
+\fancyhead[R]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Automatică şi \\ Informatică Aplicată}}
+
+%----------------------------------------------------------------------------------------
+\section{Filtrul AHRS}
+\-\hspace{1cm}Majoritatea senzorilor inerțiali generează date brute ce nu pot fi implementate astfel în aplicații. Obectivul acestui proiect este de a transforma aceste date brute în reprezentări ce pot determia orientarea în spațiul 3D. Pentru a realiza acest lucru, datele provenite de la senzorii inerțiali trebuie procesate, calibrate și stocate pentru a genera date ce pot configura orientarea în spațiul 3D.\\
+Elaborarea unui algoritm de generare a orientării a reprezentat o problemă intens dezbătută realizăndu-se multe variante de generare a orientării pe baza accelerometrului, giroscopului și magnetometrului. Astfel metodele cele mai folosite în cadrul  proiectelor bazate pe determinarea orientării sau bazat pe metodele unghiurilor lui Euler, matricilor de rotație, cuaternionilor sau filtrului Kalman. Aceste prezintă o complextate de operații matematice ce diminuează viteza de execuție, dar au și a dificultate în implementarea software, având și performanțe reduse prin implementarea unei singure metode enunțate mai sus.\\
+\-\hspace{1cm}O implementare care prezintă o eficiență foarte bună realizând o implementare ce face o simbioză între metodele enunțate anterior este reprezentată de filtrul AHRS (Altittude and Heading Reference System) dezvoltat de Mahony și perfecționat de Madgwick. Un filtru ce este mult mai rapid și mult mai simplu decât filtrul Kalman, prezentând performanțe asemănătoare poate chiar mai bune.
+
+
+%----------------------------------------------------------------------------------------
+\section{Principiile folosite în filtrul AHRS}
+\-\hspace{1cm}Implemetarea realizată de Madgwick prezintă două versiuni de filtru AHRS. Prima implementare se adresa dispozitivelor IMU generale ce e compus dintr-un accelerometru și giroscop tri-axial. A doua implementare se referă asupra senzorilor MARG (Magnetic, Angular Rate, and Gravity), senzori ce aduc o îmbunătățire față de senzorii IMU, având în componență un magnetometru tri-axial.  Această implementare încorporează componenta magnetică și compensarea erorii generate de măsurătorile giroscopului\cite{Mad}.
+
+
+\subsection{Orientarea pe baza vitezei unghiulare}
+\-\hspace{1cm}Giroscopul tri-axial va măsura viteza unghiulară a axelor $x$, $y$  și $z$ ale sistemului de referință al senzorului, vitezele ungiulare se notează $w_x$, $w_y$ și $w_z$. Acești parametrii sunt distribuiți într-un vector definit prin ecuația\eqref{test}, expresia cuaternionului descrie viteza de schimbare a orientării a sistemului de coordonate al senzorului raportat la sistemul de coordonate al pământului ${}^{S}_{E}\mathit{\dot q}$ ce poate fi calculată prin ecuația \eqref{qoat}\cite{ahrs1}. 
+\begin{equation}\label{test}
+{\mathsf{\textit{S}} = 
+\begin{bmatrix}
+0 & w_{x} & w_{y} & w_{z}\\
+\end{bmatrix}}
+\end{equation}
+\begin{equation}\label{qoat}
+{}^{S}_{E}\mathit{\dot q}=\frac{1}{2}{}^{S}_{E}\mathit{\hat q}\bigotimes S_w
+\end{equation}
+\-\hspace{1cm}Orientarea sistemului de coordonate al senzorului relativ la sistemul de coordonate al pământului la momentul de timp $t$,  ${}^{S}_{E}\mathit{q_{w,t}}$ poate fi determinat prin integrarea expresiei derivatei cuaternionului determinat anterior ${}^{S}_{E}\mathit{\dot q_{w,t}}$ este descris prin ecuațile \eqref{qoat2} și \eqref{qoat3} furnizate pentru condițile inițiale știute. În această ecuație, $S_{wt}$ este viteza unghiulară măsurată la timpul $t$, $\Delta t$ este perioada de eșantionare, iar ${}^{S}_{E}\mathit{\hat q_{est,t-1}}$ este estimarea precedentă a eorientării. Indicele $w$ indică calcularea cuaternionului în funcție de viteza unghiulară\cite{Mad}.
+
+\begin{equation}\label{qoat2}
+{}^{S}_{E}\mathit{\dot q{w,t}}=\frac{1}{2}{}^{S}_{E}\mathit{\hat q_{est,t-1}}\bigotimes S_{w,t}
+\end{equation}
+
+
+\begin{equation}\label{qoat3}
+{}^{S}_{E}\mathit{ q}_{w,t}={}^{S}_{E}\mathit{\hat q_{est,t-1}}+ {}^{S}_{E}\mathit{\dot q_{w,t}} \Delta t
+\end{equation}
+
+\subsection{Orientarea pe baza vectorului măsurătorilor}
+\-\hspace{1cm}Accelerometrul tri-axial va măsura mărimea și direcția câmpului gravitației în sistemul de coordonate al senzorului, măsurători afectate de accelerațiile liniare determinate de mișcarea senzorului. Similar magnetometrul tri-axial va măsura mărimea și direcția câmpului magnetic al pământului în sistemul de coordonate al senzorului, afectt de câmpul magnetic local și de perturbații. În contextul implementării unui filtru al orientării, se va admite ca accelerometrul va măsura doar gravitația, iar magnetometrul va măsura doar câmpul magnetic al pământului\cite{Mad}.
+
+\-\hspace{1cm}Dacă direcția câmpului pamăntului este cunoscută în sistemul de coordonate terestru, măsurarea direcție cămpului în cadrul sisemului de coordonate al senzorului va permite calcularea orientării sistemului de coordonate al senzorului în  raport cu sistemul de coordonate terestru. Oricum, pentru orice măsurători date, nu va exista o soluție unică a orientării senzorului, existând o infinitate de soluții reperezentate de rotațiile ce se pot realiza pe baza orientării în jurul unei axe paralele cu câmpul. În unele aplicații se folosesc pentru determinarea orientării unghiurile lui Euler, dar acestea generează o soluție incompletă, generănd o soluție în care se cunosc două unghiuri, dar al treilea este necunoscut, unghiul necunoscut fiind ungiul în jurul axei paralele cu cămpul magnetic al pământului. Această problemă a fost dezbătută în capitolul \ref{Chapter5}, și se numește blocarea gimbal \cite{quatTut}. O soluție pentru rezolvara completă a acestei probleme este dată de folosirea quaternionilor, detaliați în capitolul \ref{Chapter5}. Generând formularea optimizării problemei, se consideră o orientare a senzorului, ${}^{S}_{E}\mathit{\hat q}$, care se aliniază cu o direcție predefinită a a câmpului în sistemul de coordonate al pămîntului ${}^{E}_{}\mathit{\hat d}$, cu direcția măsurată a câmpului în sistemul senzorului, ${}^{S}_{}\mathit{\hat s}$, folosind operația de rotație. Astfel ${}^{S}_{E}\mathit{\hat q}$ e posibil să găsească  o soluție, unde ecuația \eqref{ah1} este funcția obiectiv, iar componenta fiecărui vector e definită în ecuațiile \eqref{ah2},\eqref{ah3} și \eqref{ah4}\cite{Mad}.
+
+\begin{equation}\label{ah1}
+f({}^{S}_{E}\mathit{\hat q},{}^{E}_{}\mathit{\hat d},{}^{S}_{}\mathit{\hat s})={}^{S}_{E}\mathit{\hat q}^*\bigotimes{}^{E}_{}\mathit{\hat d}\bigotimes{}^{S}_{E}\mathit{\hat q}-{}^{S}_{}\mathit{\hat s}
+\end{equation}
+
+\begin{equation}\label{ah2}
+{\mathsf{\textit{${}^{S}_{E}\mathit{\hat q}$}} = 
+\begin{bmatrix}
+q_0 & q_1 & q_2 & q_3\\
+\end{bmatrix}}
+\end{equation}
+
+\begin{equation}\label{ah3}
+{\mathsf{\textit{${}^{E}_{}\mathit{\hat d}$}} = 
+\begin{bmatrix}
+0 & d_x & d_y & d_z\\
+\end{bmatrix}}
+\end{equation}
+
+\begin{equation}\label{ah4}
+{\mathsf{\textit{${}^{S}_{}\mathit{\hat s}$}} = 
+\begin{bmatrix}
+0 & s_x & s_y & s_z\\
+\end{bmatrix}}
+\end{equation}
+
+\-\hspace{1cm}Există mulți algoritmi de optimizare, dar algoritmul gradientului este unul dintre cele mai simple de implementat și calculat. Ecuația \eqref{ah5} descrie algoritmul gradientului pentru $n$ iterații rezultând orientarea estimată ${}^{S}_{E}\mathit{q}_{n+1}$ bazată pe orientarea inițială ${}^{S}_{E}\mathit{q}_{0}$ și un pas $\mu$. Ecuația \eqref{ah6} calculează soluția definită prin funcția obiect și funcția Jacobian, simplificate sub forma unor matrice coloană \eqref{ah7} respctiv o matrice 3x4 \eqref{ah8} 
+
+\begin{equation}\label{ah5}
+{}^{S}_{E}\mathit{q}_{k+1}={}^{S}_{E}\mathit{\hat q}_k-\mu \frac{\bigtriangledown f({}^{S}_{E}\mathit{\hat q},{}^{E}_{}\mathit{\hat d},{}^{S}_{}\mathit{\hat s})}{||\bigtriangledown f({}^{S}_{E}\mathit{\hat q},{}^{E}_{}\mathit{\hat d},{}^{S}_{}\mathit{\hat s})||}, k=0,1,2...n.
+\end{equation}
+
+\begin{equation}\label{ah6}
+\bigtriangledown f({}^{S}_{E}\mathit{\hat q},{}^{E}_{}\mathit{\hat d},{}^{S}_{}\mathit{\hat s})=J^T({}^{S}_{E}\mathit{\hat q},{}^{E}_{}\mathit{\hat d})f({}^{S}_{E}\mathit{\hat q},{}^{E}_{}\mathit{\hat d},{}^{S}_{}\mathit{\hat s})
+\end{equation}
+\begin{equation}\label{ah7}
+{\mathsf{\textit{$f({}^{S}_{E}\mathit{\hat q},{}^{E}_{}\mathit{\hat d},{}^{S}_{}\mathit{\hat s})$}} = 
+\begin{bmatrix}
+2d_x(\frac{1}{2}-q_3^2-q_4^2)+2d_y(q_1q_4+q_2q_3)+2d_z(q_2q_4-q_1q_3)-s_x\\
+2d_x(q_2q_3-q_1q_4)+2d_y(\frac{1}{2}-q_2^2-q_4^2)+2d_z(q_1q_2+q_3q_4)-s_y\\
+2d_x(q_1q_3+q_2q_4)+2d_y(q_3q_4-q_1q_2)+2d_z(\frac{1}{2}-q_2^2-q_3^2)-s_z\\
+\end{bmatrix}}
+\end{equation}
+
+\begin{equation}\label{ah8}
+{\mathsf{\textit{$J({}^{S}_{E}\mathit{\hat q},{}^{E}_{}\mathit{\hat d})$}} = 
+\begin{bmatrix}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+\end{bmatrix}}
+\end{equation}
+\begin{multicols}{2}
+\-\hspace{0.5cm}$a_{11}=2d_yq_4-2d_zq_3$;\\
+\-\hspace{0.5cm}$a_{12}=2d_yq_3+2d_zq_4$;\\
+\-\hspace{0.5cm}$a_{13}=4d_xq_3-2d_yq_2$;\\
+\-\hspace{0.5cm}$a_{14}=-4d_xq_4+2d_yq_1+2d_zq_2$;\\
+\-\hspace{0.5cm}$a_{21}=-2d_xq_4+2d_zq_2$;\\
+\-\hspace{0.5cm}$a_{22}=2d_xq_3-4d_yq_2+2d_zq_1$;\\
+
+\-\hspace{0cm}$a_{23}=4d_xq_3-2d_yq_2$;\\
+\-\hspace{0cm}$a_{24}=-2d_xq_1-4d_yq_4+2d_zq_3$;\\
+\-\hspace{0cm}$a_{31}=2d_xq_3-2d_yq_3$;\\
+\-\hspace{0cm}$a_{32}=2d_xq_4-2d_yq_1-4d_zq_2$;\\
+\-\hspace{0cm}$a_{33}=2d_xq_1+2d_yq_4-4d_zq_3$;\\
+\-\hspace{0cm}$a_{34}=2d_xq_2+2d_yq_3$;
+\end{multicols}
+\-\hspace{1cm}Ecuațiile din intervalul \eqref{ah5}-\eqref{ah8} descriu forma generală a algoritmului aplicabilă unui câmp predefinit în orice direcție. Oricum, dacă direcția câmpului poate fi determinată doar cunoscând componentele de pe una sau două axe principale ale sistemului de coordonate global, astfel ecuațiile se simplifică considerabil. Prin convenție se știe că direcția gravitației definește verticala, axa $z$ precum e definită în ecuația  \eqref{ah9}. Substituind ${}^{E}_{}\mathit{\hat g}$ cu vectorul accelerometrului normalizat ${}^{S}_{}\mathit{\hat a}$ pentru ${}^{E}_{}\mathit{\hat d}$ și pentru ${}^{S}_{}\mathit{\hat s}$, ecuațiile \eqref{ah7} și \eqref{ah8} devin ecuațiile \eqref{ah11} și \eqref{ah12}\cite{Mad}.
+\begin{equation}\label{ah9}
+{\mathsf{\textit{${}^{E}_{}\mathit{\hat g}$}} = 
+\begin{bmatrix}
+0 & 0 & 0 & 1\\
+\end{bmatrix}}
+\end{equation}
+\begin{equation}\label{ah10}
+{\mathsf{\textit{${}^{S}_{}\mathit{\hat a}$}} = 
+\begin{bmatrix}
+0 & a_x & a_y & a_z\\
+\end{bmatrix}}
+\end{equation}
+\begin{equation}\label{ah11}
+{\mathsf{\textit{$f({}^{S}_{E}\mathit{\hat q},{}^{S}_{}\mathit{\hat a})$}} = 
+\begin{bmatrix}
+2(q_2q_4-q_1q_3)-ax\\
+2(q_1q_2+q_3q_4)-ay\\
+2(\frac{1}{2}-q_2^2-q_3^2)-az\\
+\end{bmatrix}}
+\end{equation}
+\begin{equation}\label{ah12}
+{\mathsf{\textit{$J({}^{S}_{E}\mathit{\hat q})$}} = 
+\begin{bmatrix}
+-2q_3 & 2q_4 & -2q_1 & 2q_2 \\
+2q_2 & 2q_1 & 2q_4 & 2q_3 \\
+0 & -4q_2 & -4q_3 & 0 \\
+\end{bmatrix}}
+\end{equation}
+
+\-\hspace{1cm}Câmpul magnetic al pământului poate fi considerat având componente doar pe axa orizontală și verticală, componenta verticală generând înclinarea câmpului care fluctuează între $65^0$ și $70^0$ raportat la orizontală\cite{inc}. Acesta poate fi reprezentat prin ecuația \eqref{mg}. Substituind ${}^{E}_{}\mathit{\hat b}$ și normalizând măsurătorile ${}^{S}_{}\mathit{\hat m}$ pentru ${}^{E}_{}\mathit{\hat d}$ și ${}^{S}_{}\mathit{\hat s}$ în ecuațiile \eqref{ah7} și \eqref{ah8} devin ecuațiile \eqref{mag2} și \eqref{mag3} \cite{ahrs2}.
+ \begin{equation}\label{mg}
+{\mathsf{\textit{${}^{E}_{}\mathit{\hat b}$}} = 
+\begin{bmatrix}
+0 & 0 & 0 & 1\\
+\end{bmatrix}}
+\end{equation}
+\begin{equation}\label{mg1}
+{\mathsf{\textit{${}^{S}_{}\mathit{\hat m}$}} = 
+\begin{bmatrix}
+0 & m_x & m_y & m_z\\
+\end{bmatrix}}
+\end{equation}
+\begin{equation}\label{mag2}
+{\mathsf{\textit{$f({}^{S}_{E}\mathit{\hat q},{}^{E}_{}\mathit{\hat b},{}^{S}_{}\mathit{\hat m})$}}= 
+\begin{bmatrix}
+2b_x(0.5-q_3^2-q_4^2)+2b_z(q_2q_4-q_1q_3)-m_x\\
+2b_x(q_2q_3-q_1q_4) + 2b_z(q_1q_2 + q_3q_4)-m_y\\
+2b_x(q_1q_3 + q_2q_4) + 2b_z(0.5-q_2^2-q_3^2)-m_z\\
+\end{bmatrix}}
+\end{equation}
+\begin{equation}\label{mag3}
+{\mathsf{\textit{$J({}^{S}_{E}\mathit{\hat q},{}^{E}_{}\mathit{\hat s})$}} = 
+\begin{bmatrix}
+-2b_zq_3 & 2b_zq_4 & -4b_xq_3-2b_zq_1 & -4b_xq_4+2b_zq_2 \\
+-2b_xq_4 + 2b_zq_2 & 2b_xq_3 + 2b_zq_1 & 2b_xq_2+2b_zq_4 & -4b_xq_4+2b_zq_2\\
+2b_xq_3 & 2b_xq_4-4b_zq_2 & -4q_3 & 2b_xq_2 \\
+\end{bmatrix}}
+\end{equation}
+
+\-\hspace{1cm}Cum sa enunțat anterior, măsurătorile individuale ale câmpului magnetic al pămîntului sau a gravitației nu oferă o orientare unică a senzorului. Pentru a obține o orientare unică se combină cele două măsurători.
+
+\-\hspace{1cm}Pentru optimizarea procesului de obținere a orientării senzorului este nevoie de apelarea în mai multe iterații a ecuației \eqref{ah5}, pentru a calcula orientarea senzorului la fiecare măsurătoare dăcută de senzor. Pentru eficientizarea algoritmului este nevoie și de ajustarea rata de eșantionare $\mu$ la fiecare iterație, în general valoarea optimă cu care este ajustat $\mu$ este calculat prin dericvarea funcției $f$. Această operație prouce un volm ridicat de calcule ce va încetinii procesul, fară a aduce îmbunătațiri considerabile. În cazul acestei aplicații este suficient să se calculeze o iterație la momentul de timp stabilit de convergența reglementată de $\mu_t \geq$ rata de schimbare a orientării.Ecuația \eqref{or} calculează orientarea estimată ${}^{S}_{E}\mathit{q}_{\bigtriangledown,t}$ la momentul de timp $t$ bazată pe estimarea precedentă ${}^{S}_{E}\mathit{\hat q}_{est,t-1}$, și de gradientul funcției obiectiv $f$, $\bigtriangledown f$ definit de măsurătorile  senzorului ${}^{S}_{}\mathit{\hat a}_t$ și ${}^{S}_{}\mathit{\hat m}_t$ la momentul de timp $t$ \cite{ahrs2}.
+\begin{equation}\label{or}
+{}^{S}_{E}\mathit{q}_{\bigtriangledown,t}={}^{S}_{E}\mathit{\hat q}_{est,t-1}-\mu_t \frac{\bigtriangledown f}{||\bigtriangledown f||}
+\end{equation}
+
+\-\hspace{1cm}Valoarea optimă a rata de eșantionare $\mu_t$ poate fi definită pe baza convergența orientării estimate ${}^{S}_{E}\mathbf{q}_{\bigtriangledown,t}$, evităndu-se depășirile sau perioadele de eșantionare cu durate ineficient de îndelungate.
+\-\hspace{1cm}Astfel $\mu_t$ se calculează cu expresia \eqref{or1}, unde $\Delta_t$ este perioada de eșantionare, ${}^{S}_{E}\dot{q}_{w,t}$ este rata orientării măsurată de giroscop, iar $\alpha$ este augumenatrea $\mu$ în concordanță cu zgomotul impus de măsurătorile accelerometrului și magnetometrului\cite{Mad}.   
+\begin{equation}\label{or1}
+\mu_t=\alpha||{}^{S}_{E}\dot{q}_{w,t}|| \Delta_t, \alpha>1
+\end{equation}
+
+\subsection{Fuziunea celor două metode de determianre a orientării}
+\-\hspace{1cm}Estimarea orientării sistemului de coordonate al senzorului relativ la sistemul de coordonate al pământului ,${}^{S}_{E}\mathit{q}_{est,t-1}$ este obținut din fuzionarea calculelor orientării din expresiile ,${}^{S}_{E}\mathit{q}_{w,t}$ și ${}^{S}_{E}\mathit{q}_{\bigtriangledown,t}$, determinate de ecuațiile \eqref{qoat3} respectiv \eqref{or}. Fuziunea celor două metode este realizată prin ecuația \eqref{fuz}, unde $\gamma_t$ și $(1-\gamma_t)$ sunt ponderile asociate fiecărui tip de orientare. 
+\begin{equation}\label{fuz}
+{}^{S}_{E}\mathit{q}_{est,t}=\gamma_t{}^{S}_{E}\mathit{q}_{\bigtriangledown,t}-(1-\gamma_t){}^{S}_{E}\mathit{q}_{w,t}, 0 \leq \gamma_t \leq 1
+\end{equation}
+\-\hspace{1cm}Valoarea optimă a $\gamma_t$ se poate obține prin condiția ca divergența ${}^{S}_{E}\mathit{q}_{w}$ este egală cu covarianța ponderată a ${}^{S}_{E}\mathit{q}_{\bigtriangledown}$, condițiie exprimată în ecuația \eqref{fuz1}, unde $\frac{\mu_t}{\Delta_t}$ este rata covarianței ${}^{S}_{E}\mathit{q}_{\bigtriangledown}$, iar $\beta$ este divergența ${}^{S}_{E}\mathit{q}_{w}$ exprimată prin valoarea dericvatei cuaternionului corespondent erorii de măsurare a giroscopului.
+
+\begin{equation}\label{fuz1}
+\gamma_t=\frac{\beta}{\frac{\mu_t}{\Delta_t}+\beta}
+\end{equation}
+
+\-\hspace{1cm}Ecuațiile  \eqref{fuz} și \eqref{fuz1} asigură fuziunea optimă între ${}^{S}_{E}\mathit{q}_{w,t}$ și ${}^{S}_{E}\mathit{q}_{\bigtriangledown,t}$, asumând că rata covarianței ${}^{S}_{E}\mathit{q}_{\bigtriangledown}$ este dependentă de $\alpha$, adică de zgomot. Încazul în care zgomotul este foarte mare atunci și augumentarea $\mu$ definită de expresia \eqref{or1} va crește direct proporțional. O valoare mare a augumentării va face ca termenul ${}^{S}_{E}\mathit{\hat q}_{est,t-1}$ folosit în ecuația \eqref{or} să devină neglijabil, rezulând ecuațile \eqref{fuz2} \eqref{fuz3}
+\begin{equation}\label{fuz2}
+{}^{S}_{E}\mathit{q}_{\bigtriangledown,t}\approx -\mu_t \frac{\bigtriangledown f}{||\bigtriangledown f||}
+\end{equation}
+\begin{equation}\label{fuz3}
+\gamma_t\approx\frac{\beta\Delta_t}{\mu_t}
+\end{equation}
+
+\-\hspace{1cm}Înlocuind ecuațiile \eqref{qoat3}, \eqref{fuz2} și \eqref{fuz3} în ecuația \eqref{fuz} ecuația finală devine \eqref{fuz4}
+\begin{equation}\label{fuz4}
+{}^{S}_{E}\mathit{q}_{est,t}=\frac{\beta\Delta_t}{\mu_t}(-\mu_t \frac{\bigtriangledown f}{||\bigtriangledown f||})+(1-0)({}^{S}_{E}\mathit{\hat q}_{est,t-1}+{}^{S}_{E}\mathit{\dot q}_{w,t}\Delta_t)
+\end{equation}
+\-\hspace{1cm}Ecuația \eqref{fuz4} poate fi simplificată sub forma expresiei \eqref{fuz5} unde ${}^{S}_{E}\mathit{\dot q}_{est,t}$ este estimarea ratei de schimbare a orientării definită în ecuația \eqref{fuz6} și ${}^{S}_{E}\mathit{\dot\hat q}_{E,t}$ reprezintă direcția erorii ${}^{S}_{E}\mathit{\dot q}_{est,t}$ definită în ecuația \eqref{fuz7}
+\begin{equation}\label{fuz5}
+{}^{S}_{E}\mathit{q}_{est,t}={}^{S}_{E}\mathit{\hat q}_{est,t-1}+{}^{S}_{E}\mathit{\dot q}_{est,t}\Delta_t
+\end{equation}
+\begin{equation}\label{fuz6}
+{}^{S}_{E}\mathit{\dot q}_{est,t}={}^{S}_{E}\mathit{\dot q}_{w,t}-\beta{}^{S}_{E}\mathit{\hat\dot q}_{E,t}
+\end{equation}
+\begin{equation}\label{fuz7}
+{}^{S}_{E}\mathit{\dot\hat q}_{E,t}=\frac{\bigtriangledown f}{||\bigtriangledown f||}
+\end{equation}
+\-\hspace{1cm}Se poate observa că filtrul calculeaza valoarea schimbării orientării măsurate pe baza gyroscopului, impicând erorile de măsurare ale giroscopului, $\beta$, ce vor fi eliminate pe baza direcției erorii estimate a giroscopului, ce a fost calculată cu ajutorul parametrilor accelerometrului și magnetometrului. 
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=1\textwidth]{Figures/Ahrs1}}
+  \caption{Schema bloc de determinare a orientării pe baza fuzionării celor două metode }
+\end{figure}
+
+\subsection{Compensarea deformării magnetice}
+\-\hspace{1cm}Măsurătorile câmpului magnetic al pământului vor fi afectate de prezența materialelor feromagnetice din apropierea magnetometrului. Investgigând efectele distorsiunilor generate de comonenta magnetica în determinaea orientări, s-a observat că există numeroase erori incluse de interferențele introduse de componentele metalice \cite{magi1}\cite{Mad}. Surse interferatoare ce sunt fixe în cadrul sistemuli de coordonate al senzorului pot fi eliminate prin calibrarea senzorilor \cite{magi2} \cite{ahrs3}. Aceste surse generatoare de interferențe pot genera erori de determinare a înclinării planului orizontal relativ la suprafața pământului, erori ce nu pot fi corectate decât raportând la o poziție de referință. Erorile de înclinare ale planului vertical cu pământul pot fi compensate cu ajutorul accelerometrului ce generează poziția senzorului.
+
+\-\hspace{1cm}Direcția câmpului magnetic în sistemul de coordonate al pământului la timpul $t$, ${}^{E}_{}\mathbf {\mathit{\hat q}}_{t}$ poate fi calculat pe baza datelor magnetometrului normalizate, ${}^{S}_{}\mathit {\hat m}_{t}$, rotit pe baza orientării senzorului calculată de filtru, ${}^{S}_{E}\mathit {\hat q}_{est,t-1}$ descrisă de ecuația \eqref{err1}. Această eroare poate fi eliminată dacă direcția de câmpului magnetic de referință terestru ${}^{E}_{}\mathbf {\mathit{\hat b}}_{t}$ este egală cu înclinarea \eqref{err2} . 
+
+\begin{equation}\label{err1}
+{\mathsf{\textit{${}^{E}_{}\mathbf {\mathit{\hat q}}_{t}$}} = 
+\begin{bmatrix}
+0 & h_{x} & h_{y} & h_{z}\\
+\end{bmatrix}}
+= {}^{S}_{E}\mathit{\hat q}_{est,t-1} \bigotimes {}^{S}_{}\mathit {\hat m}_{t}
+\end{equation}
+\begin{equation}\label{err2}
+{\mathsf{\textit{${}^{E}_{}\mathbf {\mathit{\hat b}}_{t}$}} = 
+\begin{bmatrix}
+0 & \sqrt{h_{x}+h_{y}} & 0 & h_{z}\\
+\end{bmatrix}}
+\end{equation}
+
+\-\hspace{1cm}Compensând astfel zgomotul parametrilor magnetici, rămân afectate de zgomot datele privind poziția senzorului.
+
+\subsection{Controlul implicării erorii furnizate de giroscop}
+\-\hspace{1cm}Obiectivul acestei sarcini a filtrului AHRS este acela ca valoarea erorii staționare furnizate de giroscop să fie zero. Orice implementare practică cu senzori IMU sau MARG trebuie să țină cont de această condiție, find foarte importantă în cadrul funcționării. Avantajul folosirii bazelor filtrului Kalman face ca modelul AHRS să fie capabil să estimeze eroarea giroscopului, ca o stare adițională pe baza modelului sistemului\cite{Kalma1}, \cite{DCM}. Mahony, în implementare propusă de el asupra filtrului AHRS \cite{ahrs3} arată că implicarea erorii furnizate de giroscop poate fi compensată prin orientarea filtrului spre integrarea erorii în bucla de reglare a ratei de schimbare a orientării.
+\-\hspace{1cm}Normalizarea erorii estimate în rata de zchimbare a orientării, ${}^{S}_{E}\mathit{\hat\dot q}_{E}$, va fi exprimată ca eroarea unghiulară pe fiecare axă a giroscopului \eqref{girer1}. Implicarea erorii furnizate de giroscop ${}^{S}_{}\mathit{ w}_{b}$, este influențată direct de eroare, aceasta poate fi eliminată prin ponderarea cu un coeficient corespunzător $\zeta$. Acest procedeu va genera compensarea măsurătorilor giroscopului ${}^{S}_{}\mathit{ w}_{c}$ , e furnizată de ecuațiile \eqref{girer2} și \eqref{girer3}\cite{Mad}.
+\begin{equation}\label{girer1}
+{}^{S}_{}\mathit{ w}_{E,t}=2{}^{S}_{E}\mathit{\hat q}_{est,t-1} \bigotimes {}^{S}_{E}\mathit{\hat\dot q}_{E,t}
+\end{equation}
+\begin{equation}\label{girer2}
+{}^{S}_{}\mathit{ w}_{b,t}=\zeta \sum\limits_t{}^{S}_{}\mathit{ w}_{E,t}\Delta_t
+\end{equation}
+\begin{equation}\label{girer3}
+{}^{S}_{}\mathit{ w}_{c,t}={}^{S}_{}\mathit{ w}_{t}-{}^{S}_{}\mathit{ w}_{b,t}
+\end{equation}
+\-\hspace{1cm}Rezultatele compensării implicaților aduse de erorile măsurătorilor giroscopului ${}^{S}_{}\mathit{ w}_{c}$ pot fi înlocuite cu măsurătorile giroscopului ${}^{S}_{}\mathit{ w}$ în ecuația \eqref{qoat2}. Valoarea erorii unghiulare pe fiecare axă ${}^{S}_{}\mathit{ w}_{E}$ este egală cu derivata cuaternionului în unitatea de timp \cite{ahrs2}.
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=1\textwidth]{Figures/ahrs2}}
+  \caption{Schema bloc de determinare a orientării pe baza fuzionării celor două metode, compensarea distorsiunilor magnetice(Group1) și compensarea erorii giroscopului (Group2). }
+\end{figure}

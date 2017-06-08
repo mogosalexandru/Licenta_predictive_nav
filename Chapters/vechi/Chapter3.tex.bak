@@ -1,0 +1,289 @@
+% Chapter 3
+\stepcounter{cap}
+
+
+%\arabic(cap)
+%-\hspace{8cm}
+\mychapter{3}{\arabic{cap}. Arhitectura software}
+%\chapter{\arabic{cap}.Software} % Main chapter title
+
+\noindent\rule{14.7cm}{0.4pt}\\
+\-\hspace{1cm}Platforma de dezvoltare Unity 3D\\
+\-\hspace{1cm}Crearea unei animații în Unity3D\\
+\-\hspace{1cm}Limbajul de programare specific plăcii de dezvoltare Arduino\\
+\-\hspace{1cm}Platforma Matlab\\
+\noindent\rule{14.7cm}{0.4pt}
+
+\label{Chapter3} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+%\lhead{\emph\bfseries \textcolor{black!100}{Universitatea \textit{Transilvania} din Braşov \\Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor}}
+%
+%\rhead{\emph\bfseries \textcolor{black!100}{Departamentul Automatică \\și Tehnologia Informației }}
+
+\fancyhead[L]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Universitatea \textit{Transilvania} din Braşov \\Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor}}
+
+\fancyhead[R]{\fontsize{12}{12}\selectfont\emph\bfseries\textcolor{black!70}{Automatică şi \\ Informatică Aplicată}}
+
+\section{Platforma de dezvoltare Unity 3D}\label{sec3_1}
+\-\hspace{1cm}La începutul anilor 2000, trei tineri programatori, fără  mulți bani, au început să codeze și să implementeze cea ce avea să devină una din cele mai populare platforme software din industria jocurilor. Acești trei programatori sunt David Helgson, Joachim Ante și Nicholas Francis, iar proiectul lor a fost inspirat din platforma Apple Final Cut Pro. Final Cut Pro oferea realizatorilor amatori de filme instrumente profesionale la un preț redus, pe aceleași coordonate s-a bazat și Unity, vizând dezvoltatorii amatori de jocuri video.\\
+\-\hspace{1cm}O versiune primitivă de Unity a fost lansată în 2005, versiune ce era compatibilă și pe sistemul Windows, nu doar sistemul de operare Mac pentru care s-a dezvoltat inițial. Din 2008 bazându-se pe un real succes, platforma a devenit mult mai complexă, iar vânzările softului le-a permis să angajeze și o duzină de programatori.\\
+\-\hspace{1cm}O altă lovitură dată de în 2009 a fost folosirea platformei Unity3D de către Cartoon Network pentru crearea FusionFall, un MMORPG (Massively Multiplayer Online Role Playing Game) pentru copii ce a fost jucat de 8 milioane de persoane. Electronic Arts a folosit în Unity3D în 2009 pentru crearea Tiger Woods PGA Tour Online, chiar Microsoft și Ubisoft au devenit clienți pentru Unity.\\
+\-\hspace{1cm}Astăzi Unity are peste 300 de angajați în toată lumea și dezvoltă software pentru iOS, Android, Windows, Mac, Linux, Web browsers, PS3, Xbox 360.  Unity plănuiește suport și pentru Sony’s PlayStation Vita, oferind în acest moment suport pentru Windwos Phone și BlackBerry. Peste 1.8 milioane de programatori folosesc Unity, plug-in-ul pentru browser a fost insatlat de peste 200 de milioane de ori. Dead Trigger și Dead Trigger 2, unele din cele mai complexe grafici pentru jocuri au fost dezvoltate pe baza a Unity3D.\\
+Chiar dacă mari nume din industria graficii folosesc Unity, micii dezvoltatori sunt principala mândrie ai dezvoltatorilor acestei platforme, fapt ce se observă din deviza spusă de David Helgson, CEO și co-fondatorul Unity: \textit{”Dorința noastră este să oferim aceleași instrumente și micilor developeri precum granzilor”} \cite{unity}
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.9\textwidth]{Figures/unity}}
+  \caption{Animație Unity}
+\end{figure}
+
+\subsection{Editorul Unity}
+
+\-\hspace{1cm}Editorul Unity are împărțită fereastra principală mai multe secțiuni vizibile  imaginea \ref{fig:unity}, ce descrie secțiunile importante.
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.65\textwidth]{Figures/Editor-tool}}
+  \caption{Editorul Unity}\label{fig:unity}
+\end{figure}
+
+\-\hspace{1cm}Editorul Unity oferă un mediu \textit{drag and drop}. Pentru dezvoltarea unui joc nu e nevoie obligatoriu de scrierea uni cod într-un limbaj de programare, dar majoritatea proiectelor necesită deprinderi de programare. Unity oferă o diversitate de limbaje de codare precum C\# , JavaScript, sau Boo, pentru dezvoltatorii ce folosesc sintaxa Python. Mediul de dezvoltare este rulat în Mono, o versiune gratis de .NET Framework. Platforma Unity în sine este scrisă în C++,pentru că, din spusele lui Helgson "Animația trebuie să ruleze rapid precum un program C++, dar controlul animației trebuie făcut printr-un limbaj accesibil, oferit de platforma .NET" \cite{unity}.
+
+\subsection{Crearea unei animații în Unity3D}
+\-\hspace{1cm}Un joc în Unity este împărțit în mai multe obiecte ale jocului, obiecte ce sunt principalele entități ale animației și au proprietăți speciale, acesta putând fi un personaj, mediu înconjurător sau un efect special. Astfel anumite obiecte dintr-un joc sunt foarte diferite,fiind necesară o repartizare a acestora în containere ce înmagazinează obiecte de același tip.\\
+\textbf{Folosirea obiectelor}\\
+\-\hspace{1cm}Un obiect dintr-un joc are automat o poziție, rotație și scalare, componente definite de unelta \textit{Transform}, ce determină locația obiectului în spațiul real (3D).\\
+\-\hspace{1cm}Prin unelta \textit{Rigidbody}, îi putem adăuga obiectului creat anumite caracteristici ce influențează comportaea inerțială din lumea reală,  parametrii precum  masa sau gravitația, aceștia influnțând comportarea animației spre o comportare realistă.
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.65\textwidth]{Figures/EmptyGO}}
+  \caption{Uneltele \textit{Transform} și \textit{Rigidbody} }
+\end{figure}
+
+\subsection{Controlul unei animații în Unity}
+\-\hspace{1cm}Chiar și cele mai ușoare jocuri au nevoie de o secțiune de cod într-un limbaj de programare ce va răspunde la intrările venite de la utilizator și organizează evenimentele jocului într-o succesiune dorită de dezvoltator. Secțiunea de cod poate fi folosită pentru a crea efecte grafice sau chiar implementarea unui algoritm de inteligență artificială pentru personajele jocului.\\
+\-\hspace{1cm}Codul scris într-un limbaj compatibil .Net creează conexiunea dintre obiectele și acțiunile jocului, implementând  o clasă principală de tip \textit{MonoBehaviour}, ce va fi atșată unui obiect din joc. \\
+\-\hspace{1cm}În cadrul clasei $MonoBehavouir$  există două funcții principale. Funcția $Update$, în care se programează acțiunea obiectului în fiecare frame. În cadrul acestei funcții se programează acțiunile de răspuns la intrările introduse de utilizator. Practic, această funcție programează atitudinea obiectului, căreia este asociată, pe tot parcursul jocului. A doua funcție importantă în orice joc,  este funcția $Start$ ce este apelată înainte ca jocul să înceapă, realizând toate inițializările stărilor obiectului, parametrii inițiali cu care va rula jocul în cadrul primei rulării a funcției Update, practic a fiecărui frame al jocului \cite{unity}. 
+\begin{lstlisting}
+using UnityEngine;
+using System.Collections; 
+
+public class MainPlayer : MonoBehaviour {
+
+    // Use this for initialization
+    void Start () { 
+    
+    }
+    
+    // Update is called once per frame
+    void Update () {
+    
+    }
+}
+\end{lstlisting}
+\-\hspace{1cm}Atașarea comportării setate de codul scris este asignată foarte ușor în cadrul editorului Unity, prin tragerea link-ului scriptului scrs asupra link-ului obiectului din panoul $Hierarchy$. Astfel în cadrul panoului $Inspector$ se poate observa că obectului i-a fost atașat un script, precum în imaginea următoare:
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.45\textwidth]{Figures/ScriptInInspector}}
+  \caption{Confirmarea atașării scriptului }
+\end{figure}
+
+\section{Limbajul de programare specific plăcii de dezvoltare Arduino}
+\-\hspace{1cm}Pentru a programa microcontroller-ul trebuie să conectată placa Arduino la un computer pe care trebuie instalat mediul de dezvoltare şi driverele necesare. Mediul de dezvoltare este disponibil în mod gratuit pe site-ul producătorului pentru diverse sisteme de operare \cite{arduino}.\\
+\-\hspace{1cm}Pentru a configura mediul de dezvoltare arduino pentru sistemul de operare Windows se urmează pașii:
+\begin{itemize}
+		 \setlength\itemsep{0em}
+		 \item se descarcă aplicaţia de pe pagina producătorului şi se dezarhivează într-un director convenabil;
+		 \item se conectează placa Arduino la computer printr-un cablu USB asstfel cel puţin un LED ar trebui să se aprindă pe placă;
+		 \item se indică locaţia driverului, în general directorul C:/arduino-1.0/drivers;
+		 \item se pornește mediul de dezvoltare executând C:/arduino-1.0/arduino.exe;
+		 \item se indică modelul plăcii în meniul Tools > Board;
+		 \item se indică portul pe care s-a conectat placa Arduino în meniul Tools > Serial Port;
+		 \item se elaborează scriptul ce se dorește a fi încărcat pe microcontroller;
+		 \item se încarcă programul pe placă: File > Upload.
+ 		\end{itemize}
+
+\subsection{Structura limbajului arduino}
+\-\hspace{1cm}Limbajul folosit este o variantă simplificată de C/C++, ameliorată cu diverse biblioteci specifice platformei Arduino. Este foarte uşor de folosit pentru oricine are experienţă de programare în orice limbaj cât de cât structurat. De altfel, puteţi constata cât de simplu este analizând exemplul următor, care aprinde și stinge la anumite inervale un led:
+\begin{lstlisting}
+ 1. /*
+ 2.   Blink
+ 3.   Turns on an LED on for one second, then off for one second, repeatedly.
+ 5.   This example code is in the public domain.
+ 6.  */
+ 7. 
+ 8. void setup() {                
+ 9.   // initialize the digital pin as an output.
+10.   // Pin 13 has an LED connected on most Arduino boards:
+11.   pinMode(13, OUTPUT);     
+12. }
+13. 
+14. void loop() {
+15.   digitalWrite(13, HIGH);   // set the LED on
+16.   delay(1000);              // wait for a second
+17.   digitalWrite(13, LOW);    // set the LED off
+18.   delay(1000);              // wait for a second
+19. }
+\end{lstlisting}
+
+\-\hspace{1cm}Au fost definite două funcţii, $setup()$ (liniile 8-12) şi $loop()$ (liniile 14-19). Aceste două funcţii trebuie să fie prezente în orice program.\\
+Funcţia $setup()$ este executată o singură dată, la iniţializarea plăcii (de fiecare dată când este alimentată, de fiecare dată când încărcaţi un program nou şi de fiecare dată când resetaţi placa).În programul nostru, funcţia setup() face un singur lucru: declară pinul 13 (adică pinul digital 13) ca pin de ieşire. Dacă vă amintiţi de mai sus, pinul 13 este conectat şi la LED-ul de pe placă.\\
+\-\hspace{1cm}Funcţia $loop()$ se execută apoi la infinit, fără pauză. Dacă se doresc pauze sau încetiniri ale programului se pot scrie în acestă secțiune. În exemplul de mai sus funcţia $loop()$ realizează următoarele:
+\begin{itemize}
+		 \setlength\itemsep{0em}
+		 \item linia 15: scrie "1" la pinul 13 (adică din acest moment pinul respectiv va fi alimentat cu 5V);
+		 \item linia 16: aşteaptă 1000 de milisecunde, adică o secundă; nu uitaţi, pinul 13 este alimentat, deci LED-ul de pe placă este aprins;
+		 \item linia 17: scrie "0" la pinul 13 (adică din acest moment pinul respectiv nu va mai fi alimentat);
+		 \item linia 18: aşteaptă din nou o secundă (dar de data asta pinul 13 nu mai este alimentat, deci LED-ul este stins).
+ 		\end{itemize}
+ 		
+\subsection{Vizulaizarea datelor în ediorul arduino}
+\-\hspace{1cm}Arduino permite vizualizarea datelor procesate de mocrocontroller prin intermediul unui modul serial, care se sincronizează prin intermediul codului, unde se setează o viteză de transfer a datelor prin comunicație serială. Astfel utiliztorul poate avea acces la datele procesate de arduino pe calculatorul propriu, modalitate foarte eficientă de evaluare a comportării procesului.
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.8\textwidth]{Figures/serial_modul}}
+  \caption{Datele procesate de arduino și afișate prin modulul serial }
+\end{figure}
+\\ \\ \\
+\section{Platforma Matlab}\label{sec3_3}
+\-\hspace{1cm}MATLAB® (MATtrix LABoratory) este un pachet de programe de înaltă performanţă,
+interactiv, destinat calculului matematic, ştiinţific şi ingineresc. MATLAB integrează
+calcul, programare şi vizualizare, într-un mediu de lucru prietenos, soluţionarea problemelor
+presupunând folosirea notaţiilor matematice clasice. Utilizarea programului MATLAB
+include: \\
+\-\hspace{1cm}• Matematică şi calcul numeric\\
+\-\hspace{1cm}• Programare şi dezvoltare de algoritmi\\
+\-\hspace{1cm}• Modelare şi simulare\\
+\-\hspace{1cm}• Analiză de date, exploatarea rezultatelor şi vizualizare\\
+\-\hspace{1cm}• Grafică ştiinţifică şi inginerească\\
+\-\hspace{1cm}• Dezvoltare de aplicaţii software, incluzând construcţie de interfeţe grafice cu utilizatorul
+(GUI)\\
+\-\hspace{1cm}MATLAB este un produs al companiei americane The Mathworks, Inc.
+[http://www.mathworks.com] şi lucrează sub Windows, Unix, LINUX şi Machintosh.
+MATLAB include toate facilităţile unui limbaj complet de programare, admiţând interfeţe
+cu limbajul de programare C, C++ şi FORTRAN.
+
+\-\hspace{1cm}MATLAB a cunoscut o puternică evoluţie în decursul ultimilor ani, reprezentând astăzi
+în mediile universitare o unealtă standard de calcul, fiind asociată diverselor cursuri
+introductive sau avansate în matematică, ştiinţă şi inginerie. În industrie, MATLAB este
+recunoscut ca un mijloc de investigaţie numerică performant, utilizat în sprijinul unei
+activităţi de cercetare, dezvoltare şi analiză de înalt nivel. \\
+\-\hspace{1cm}Versiunea completă a pachetului de programe MATLAB conţine o întreagă familie de
+module specifice, denumite tool-box-uri, respectiv blockset-uri, care permit rezolvarea unor
+aplicaţii din diverse domenii cum ar fi: maşini, aparate şi acţionări electrice, control de
+sistem, aplicaţii DSP, procesarea materialelor şi electro-tehnologii, procesare de semnal,
+mecanică, industria aeronautică şi de automobile, statistică, finanţe şi multe altele. \\
+\-\hspace{1cm}Aceste module sunt colecţii de funcţii MATLAB (M-files), uşor de asimilat, care extind
+puterea de calcul a pachetului de programe MATLAB în vederea rezolvării unor clase
+particulare de probleme. Colecţia de module MATLAB conţine: Simulink, DSP, Control
+System, SimPowerSystems, SimMechanics, Data Acquisition, Fuzzy Logic, Image
+Processing, Partial Differential Equations, Neural Network, Optimization, System
+Identification, Financial, Statistics, Communications, Database, Virtual Reality  \cite{matlab}. 
+
+\subsection{Structura sistemului MATLAB }
+\textbf{Mediul de dezvoltare}
+
+\-\hspace{1cm}Acesta este alcătuit dintr-un set de unelte care facilitează
+folosirea funcţiilor şi fişierelor MATLAB. Multe dintre acestea reprezintă de fapt interfeţele grafice şi includ fereastra principală MATLAB sau MATLAB Desktop, fereastra de comenzi sau Command Window, fereastra ce memorează istoria comenzilor sau Command History, şi browser-ele de Help, Workspace, Files, Search Path.
+
+\textbf{Biblioteca de funcţii matematice MATLAB}
+
+\-\hspace{1cm} Aceasta constă într-o vastă colecţie de algoritmi de calcul, pornind de la funcţii elementare precum sumă, sinus, cosinus şi
+aritmetică complexă, pană la funcţii mai sofisticate precum inversare de matrici, calcul de
+valori proprii, funcţii Bessel, şi transformata Fourier.
+
+\textbf{Limbajul MATLAB} 
+
+\-\hspace{1cm}Limbajul MATLAB este un limbaj matrice/vector de înalt nivel
+ce include instrucţiuni de control al buclelor, funcţii, structuri de date, comenzi de
+intrare/ieşire şi instrucţiuni de programare orientată pe obiecte. Limbajul MATLAB permite
+atât ”programarea superficială” pentru crearea rapidă a unor mici programe de calcul
+specifice, cât şi "programarea în detaliu" în vederea dezvoltării unor programe complexe de
+nivel superior.
+
+\textbf{Handle Graphics®}.
+
+\-\hspace{1cm}Handle Graphics reprezintă sistemul de grafică MATLAB şi
+include atât comenzi de înalt nivel pentru vizualizarea 2D şi 3D a datelor, procesare de
+imagini, animaţie şi grafică, cât şi comenzi de jos nivel ce permit personalizarea completă a
+reprezentărilor grafice şi construirea integrală a interfeţelor grafice (GUI) pentru aplicaţiile
+MATLAB.
+
+\textbf{MATLAB Application Program Interface (API)}.
+
+\-\hspace{1cm}Aceasta este o bibliotecă ce permite
+scrierea programelor C şi Fortran ce interacţionează cu MATLAB. Biblioteca conţine
+facilitaţi de apel de subrutine din MATLAB (dynamic linking), de apelare a MATLAB-ul ca
+pe o maşină de calcul, şi de citire şi scriere de fişiere MAT-files \cite{matlab}. 
+
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.8\textwidth]{Figures/matlab1}}
+  \caption{Editorul Matlab}
+\end{figure}
+
+\section{Conexiunea dintre Arduino și calculator}
+\-\hspace{1cm}Placa de dezvoltare Arduino prezintă facilități gândite pentru utilizatorii care se simt mult mai confortabil programând într-un limbaj de nivel înalt  (Java, C\#, Phyton, Ruby, PHP) . Aceaste facilități sunt  realizate de comunicația serială , dintre plăcile Arduino și calculatoarele clasice, prin intermediul căreia datele captate de la senzori și/sau datele procesate de microcontroller-ul plăcii arduino vor fi transferate calculatorului unde, cu ajutorul unor limbaje de programare de nivel înalt, se pot realiza aplicații mult mai complexe, atât la nivel hardware cât și software. Tot aceași facilitate poate fi adusă prin realizarea unei comunicații de tip ethernet, dar această facilitate ridică costurile structurii hardware, și este dependentă de conexiunea la internet.
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.8\textwidth]{Figures/arduinoToPc}}
+  \caption{Conexiunea dintre placa Arduino și calculator}
+\end{figure}
+
+\-\hspace{1cm}Datele sunt transmise în flux continuu, într-un format de tip string separat printr-un caracter, în general virgulă.La nivelul limbajului de programare folosit pe calculator trebuie făcută citirea datelor și interpretarea acestora în funcție de semnificația acestora \cite{arduino}.
+
+\subsection{Conexiunea dintre placa de dezvolatre Arduino și Unity}\label{sec3_4_1}
+\-\hspace{1cm}Comunicarea dintre Arduino și Unity este realizată cu ajutorul librăriei CmdMessenger, ce face legătura între Arduino și limbajele .Net, implicit și editorul specific platformei Unity, Mono, editor ce e compatibil cu implementările C\# \cite{unity}.\\
+Această librărie facilitează:\\
+\-\hspace{1cm}1. Trimiterea și primirea comenzilor în ambele sensuri.\\
+\-\hspace{1cm}2. Adăugarea de argumente comenzilor.\\
+\-\hspace{1cm}3. Generarea de funcții de reacție ca răspuns la anumite comenzi primite.\\
+\-\hspace{1cm}4. Transferul datelor bidirectional.\\
+
+Formatul codului de citire a datelor prin intermediul portului serial, în cadrul editorului Mono, arată astfel:
+
+\begin{lstlisting}
+using System;
+using System.IO.Ports;
+
+class MainClass
+{	
+	public static void Main(string[] args)
+	{
+		SerialPort sport = new SerialPort("/dev/ttyUSB0", 9600);
+
+		if (sport != null)
+		{
+			if (sport.IsOpen)
+				{
+					sport.Close();
+				}
+		}
+
+		Console.WriteLine("Arduino Serial Test");
+
+		sport.Open();
+
+		while(true)
+		{		
+			Console.WriteLine(sport.ReadLine());
+		}
+	}
+}
+\end{lstlisting}
+
+\subsection{Conexiunea dintre placa de dezvolatre Arduino și Matlab}\label{sec3_4_2}
+\-\hspace{1cm}Pentru a facilita transferul dintre Arduino și platforma Matlab se folosește pachetul MATLAB Support Package.Acest pachet se bazează pe un program ce rulează pe placa Arduino, ce ascultă comenzi venite prin intermediul portului serial, execută comenzile și, la nevoie, returnează un răspuns.\\
+În imaginea următoare se poate vedea o parte din comenzile folosite în cadrul comunicației seriale \cite{matlab}.
+
+\begin{figure}[h!]
+  \centering
+    \centering{%
+      \includegraphics[width=0.7\textwidth]{Figures/MatlabToArduino}}
+  \caption{Conexiunea dintre placa Arduino și calculator}
+\end{figure}

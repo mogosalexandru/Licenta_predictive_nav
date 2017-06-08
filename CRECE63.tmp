@@ -1,0 +1,163 @@
+\documentclass[12pt,a4paper, oneside]{Thesis} 
+
+
+%\usepackage[left=35mm,right=35mm,top=50mm,bottom=25mm]{geometry}
+
+% The default font size and one-sided printing (no margin offsets)
+%[12pt, oneside]
+\input{settings/packages}
+%\input{settings/page}
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+
+%\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+%\hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
+%\title{\ttitle} % Defines the thesis title - don't touch this
+
+
+\begin{document}\thispagestyle{fancy}
+%\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\subsection}{\normalsize\normalfont}
+\titleformat*{\subsubsection}{\normalsize\normalfont}
+\titleformat*{\paragraph}{\normalsize\bfseries}
+\titleformat*{\subparagraph}{\normalsize\bfseries}
+
+  
+\pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
+
+\fancyhead[L]{\fontsize{10}{10}\selectfont\emph\bfseries\textcolor{black!70}{\textit{Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor \\ Departamentul Automatică şi Tehnologia Informaţiei \\}}}
+
+\fancyhead[R]{\fontsize{10}{10}\selectfont\emph\bfseries\textcolor{black!70}{\textit{Automatică şi Informatică Aplicată \\}}}
+
+ % Begin numeric (1,2,3...) page numbering
+\mainmatter
+
+\label{Cuprins}
+%\addcontentsline{toc}{chapter}{Cuprins}
+\tableofcontents
+
+
+
+%\addcontentsline{toc}{chapter}{Listă de figuri}
+\listoffigures
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+
+
+\pagestyle{fancy} % Return the page headers back to the "fancy" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\input{Chapters/Chapter1}
+\input{Chapters/Chapter2}\label{cap2}
+\input{Chapters/Chapter3}
+\input{Chapters/Chapter4} 
+\input{Chapters/Chapter5} 
+\input{Chapters/Chapter6} 
+\input{Chapters/Chapter7} 
+\input{Chapters/Chapter8}
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+%
+%\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+%
+%% Include the appendices of the thesis as separate files from the Appendices folder
+%% Uncomment the lines as you write the Appendices
+%
+%%\input{Appendices/AppendixA}
+%%\input{Appendices/AppendixB}
+%%\input{Appendices/AppendixC}
+%
+%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+%
+%\backmatter
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+%\label{Bibliography}
+
+\fancyhead[L]{\fontsize{10}{10}\selectfont\emph\bfseries\textcolor{black!70}{\textit{Facultatea de Inginerie Electrică şi Ştiinţa Calculatoarelor \\ Departamentul Automatică şi Tehnologia Informaţiei \\}}}
+
+\fancyhead[R]{\fontsize{10}{10}\selectfont\emph\bfseries\textcolor{black!70}{\textit{Automatică şi Informatică Aplicată \\}}}
+
+\begin{thebibliography}{}	% 9 = maximum expected references!
+
+\bibitem{Mad}Madgwick, S.O.H. "An Efficient Orientation Filter for Inertial and Inertial/Magnetic Sensor Arrays", 30 aprilie 2010. pp. 1-32
+
+\bibitem{quat}John J. Craig. "Introduction to Robotics Mechanics and Control", Pearson Education
+International, 2005.
+
+\bibitem{ahrs1}David R. Pratt, Robert B. McGhee, Joseph M. Cooke, Michael J. Zyda. "Flight simulation dynamic modelling using quaternions" Presence, Vol.1, No.4,1994,pp.404-420.
+
+\bibitem{humm5}Q. Laddeto, J. van Seeters, S. Sokolowski,  "Digital magnetic compass and gyroscope for dismounted soldier position and navigation". Proc.NATO-RTO Meetings, Istambul, 2002.
+
+\bibitem{hum6}M. J. Caruso, "Applications of magnetoresistive sensors in navigation systems,"
+Sens. Actuatiors,1997, pp. 15-21. 
+
+\bibitem{hum7}M. S. Grewal, L. R. Weill, and A. P. Andrews,
+"Global Positioning Systems, Inertial Navigation and Integration". 2007, pp. 525.
+
+\bibitem{human}Xi Chen."Human Motion Analysis with Wearable Inertial Sensors" , 2013, pp. 165.
+
+\bibitem{Htrack}Xiaoping Yun, Eric R. Bachmann."Design, Implementation, and Experimental Results
+of a Quaternion-Based Kalman Filter for
+Human Body Motion Tracking".IEEE TRANSACTIONS ON ROBOTICS, VOL. 22, NO. 6, Decembrie 2006, pp.12.
+
+\bibitem{ahrs2}Madgwick, S.O.H. , Harrison A.J.L., Vaidyanathan, R. "Estimation of IMU and MARG Orientation Using a Gradient Descent Algorithm", IEEE Inter. Conf. on Rehabilitation Robotics Rehab , Zurich , Swizerland,  29 iunie – 1 iulie, 2011, pp.179-185.
+
+\bibitem{ahrs3}Mahony R., Hamel T.,  Pimlin J.M. "Nonlinear Complementary Filters on the Special
+Orthogonal Group", IEEE Trans. on Automatic Control,  2008, pp.1203-1217
+
+\bibitem{ahrs4}Mark Euston, Paul Coote, Robert Mahony, Jonghyuk Kim, Tarek Hamel."A Complementary Filter for Attitude Estimation of a Fixed-Wing UAV"
+
+\bibitem{quatro}Matthew Watson."The Design and Implementation of a Robust AHRS for Integration into a Quadrotor Platform", mai 2013.
+
+\bibitem{quatTut}Nikolas Trawny ,Stergios I. Roumeliotis."A Tutorial for Quaternion Algebra",Multiple Autonomous Robotic Systems Laboratory, TR-2005-002, Rev. 57
+March 2005.
+
+\bibitem{inc}John Arthur Jacobs. "The earth's core", volume 37 of International geophysics series. Academic Press,ediția a 2-a, 1987.
+
+\bibitem{magi1}E. R. Bachmann, Xiaoping Yun, C. W. Peterson. "An investigation of the efects of magnetic variations on inertial/magnetic orientation sensors".IEEE Interna-
+tional Conference on Robotics and Automation ICRA '04, volume 2, aprilie 2004,pp. 1115-1122.
+
+\bibitem{magi2}J. F. Vasconcelos, G. Elkaim, C. Silvestre, P. Oliveira, B. Cardeira. "A geometric
+approach to strapdown magnetometer calibration in sensor frame. In Navigation, Guidance and Control of Underwater Vehicles", volume 2, 2008.
+
+\bibitem{kalman1}E. Foxlin."Inertial head-tracker sensor fusion by a complementary separate-bias kalman filter". In Proc. Virtual Reality Annual International Symposium the IEEE, 30 Martie -3 Aprilie 1996, pp.185-194,267.
+
+\bibitem{DCM}N.H.Q. Phuong, H.-J. Kang, Y.-S. Suh, and Y.-S. Ro. "A DCM based orientation estimation algorithm with an inertial measurement unit and a magnetic compass". Journal
+of Universal Computer Science, 2009, pp.859-876.
+
+
+\bibitem{humm1}Sarvenaz Salehi, Gabriele Bleser, Norbert Schmitz, Didier Stricker."A Low-cost and Light-weight Motion Tracking Suit".IEEE 10th International Conference on Autonomic and Trusted Computing, 2013, pp.474-479. 
+
+\bibitem{humm2}Saehoon Yi, Piotr Mirowski, Tin Kam Ho, Vladimir Pavlovicz."Pose Invariant Activity Classification for Multi-Floor
+Indoor Localization".
+
+\bibitem{humm3}Naghshineh, Golafsoun Ameri, Mazdak Zereshki, S.Krishnan,  M.Abdoli-Eramaki."Human Motion capture using Tri-Axial accelerometers".
+
+\bibitem{humm4}Nguyen Ho Quoc Phuong, Hee-Jun Kang, Young-Soo Suh."A DCM Based Orientation Estimation Algorithm with an Inertial Measurement Unit and a Magnetic Compass".Journal of Universal Computer Science, vol. 15, no. 4 (2009), pp.859-876.
+
+\bibitem{arduino}*** “Arduino”,  2008.  [Online]. Available:  http://www.arduino.cc.
+
+\bibitem{IMU}*** “Pololu”,  2010.  [Online]. Available:  https://www.pololu.com/product/2470
+
+\bibitem{unity}*** “Unity3D”,  2012.  [Online]. Available:  http://unity3d.com/
+
+\bibitem{matlab}*** “Matlab”,  2011.  [Online]. Available:  http://www.mathworks.com/products/matlab/
+
+\end{thebibliography}
+\bibliographystyle{plainnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+
+\end{document}  
