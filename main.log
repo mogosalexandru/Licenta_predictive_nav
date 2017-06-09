@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.8)  8 JUN 2017 23:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.12)  9 JUN 2017 13:06
 entering extended mode
 **./main.tex
 (main.tex
 LaTeX2e <2017-04-15>
-Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
+Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
 (Thesis.cls
 Document Class: Thesis 2007/22/02 v1.0 LaTeX document class
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
@@ -24,10 +24,10 @@ File: bk12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\vmargin\vmargin.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\vmargin\vmargin.sty"
 Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 
 Package: vmargin 2004/07/15 V2.5 set document margins (VK)
@@ -351,18 +351,17 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyhdr\fancyhdr.sty
-Package: fancyhdr 2016/10/11 v3.9 Extensive control of page headers and footers
-
-\f@nch@headwidth=\skip43
-\f@nch@O@elh=\skip44
-\f@nch@O@erh=\skip45
-\f@nch@O@olh=\skip46
-\f@nch@O@orh=\skip47
-\f@nch@O@elf=\skip48
-\f@nch@O@erf=\skip49
-\f@nch@O@olf=\skip50
-\f@nch@O@orf=\skip51
+("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
+Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
+\fancy@headwidth=\skip43
+\f@ncyO@elh=\skip44
+\f@ncyO@erh=\skip45
+\f@ncyO@olh=\skip46
+\f@ncyO@orh=\skip47
+\f@ncyO@elf=\skip48
+\f@ncyO@erf=\skip49
+\f@ncyO@olf=\skip50
+\f@ncyO@orf=\skip51
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2016/11/05 v2.16a AMS math features
@@ -457,10 +456,10 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 \c@example=\count100
 \c@theorem=\count101
 
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 
@@ -555,7 +554,7 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 ))
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\booktabs\booktabs.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \heavyrulewidth=\dimen126
 \lightrulewidth=\dimen127
@@ -587,7 +586,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \rot@float@box=\box28
 \rot@mess@toks=\toks29
 )
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
 \lst@mode=\count109
 \lst@gtempboxa=\box29
 \lst@token=\toks30
@@ -600,8 +599,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \lst@newlines=\count113
 \lst@lineno=\count114
 \lst@maxwidth=\dimen142
-
-(lstpatch.sty
+ (lstpatch.sty
 
 ***
 *** This is a patch for listings 1.3, but you're using
@@ -610,18 +608,17 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 *** Patch file not loaded.
 ***
 
-) (C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count115
 \lst@skipnumbers=\count116
 \lst@framebox=\box30
 )
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
-
-(lstpatch.sty
+ (lstpatch.sty
 
 ***
 *** This is a patch for listings 1.3, but you're using
@@ -710,7 +707,7 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4751.
 \c@Hy@tempcnt=\count120
 
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -788,19 +785,20 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
-Package: babel 2017/05/19 3.10 The Babel package
+Package: babel 2016/04/23 3.9r The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\arabi\bblopts.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\babel-romanian\romanian.ldf
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-romanian\romanian.ldf"
 Language: romanian 2005/03/31 v1.2l Romanian support from the babel system
+
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
-File: babel.def 2017/05/19 3.10 Babel common definitions
+File: babel.def 2016/04/23 3.9r Babel common definitions
 \babel@savecnt=\count135
 \U@D=\dimen150
 )))
@@ -840,7 +838,7 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pgfplots\pgfplots.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplots.revision.tex")
-Package: pgfplots 2017/06/05 v1.15 Data Visualization (1.15)
+Package: pgfplots 2016/08/10 v1.14 Data Visualization (1.14)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty"
@@ -1392,7 +1390,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: longtable package is loaded.
 
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\ltcaption.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\ltcaption.sty"
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: rotating package is loaded.
@@ -1459,7 +1457,7 @@ LaTeX Info: Redefining \selectfont on input line 126.
 ABD: EveryShipout initializing macros
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
-ick labels; missing features). Consider writing \pgfplotsset{compat=1.15} into 
+ick labels; missing features). Consider writing \pgfplotsset{compat=1.14} into 
 your preamble.
  on input line 15.
 
@@ -1532,7 +1530,19 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 
 ])
 (Chapters/Chapter2.tex [6]
-Overfull \hbox (5.8738pt too wide) in paragraph at lines 17--20
+<Figures/VerificareRuteDubleAsync.jpg, id=297, 622.57594pt x 636.12656pt>
+File: Figures/VerificareRuteDubleAsync.jpg Graphic file (type jpg)
+
+<use Figures/VerificareRuteDubleAsync.jpg>
+Package pdftex.def Info: Figures/VerificareRuteDubleAsync.jpg used on input lin
+e 19.
+(pdftex.def)             Requested size: 422.07245pt x 431.25966pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (5.8738pt too wide) in paragraph at lines 24--27
 \T1/ptm/m/n/12 Unitatea PNa-v-Ser-vi-ce-Impl im-ple-men-teaz  in-ter-faµa sin-c
 ron  ³i asin-cron , ³i îi ofer  tot-o-dat  dezvol-
  []
@@ -1540,25 +1550,17 @@ ron  ³i asin-cron , ³i îi ofer  tot-o-dat  dezvol-
 [7
 
 
-] [8]) (Chapters/Chapter4.tex [9]
-<Figures/baza_date.png, id=310, 573.64313pt x 252.19218pt>
+] [8 <./Figures/VerificareRuteDubleAsync.jpg>]) (Chapters/Chapter4.tex
+[9] [10] <Figures/baza_date.png, id=317, 573.64313pt x 252.19218pt>
 File: Figures/baza_date.png Graphic file (type png)
 
 <use Figures/baza_date.png>
 Package pdftex.def Info: Figures/baza_date.png used on input line 20.
 (pdftex.def)             Requested size: 422.07245pt x 185.56105pt.
-) (Chapters/Chapter4.tex [10
-
-
- <./Figures/baza_date.png>]
-File: Figures/baza_date.png Graphic file (type png)
- <use Figures/baza_date.png>
-Package pdftex.def Info: Figures/baza_date.png used on input line 20.
-(pdftex.def)             Requested size: 422.07245pt x 185.56105pt.
 ) (Chapters/Chapter5.tex [11
 
 
-] [12
+ <./Figures/baza_date.png>] [12
 
 
 ] [13]
@@ -1700,30 +1702,102 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 67.
  (main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 67.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 67.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A13BCB8A3DCC40F7574CEBC75B37C452;11301.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 571C34860B48BD50C7F282AF4061632A;11301
+(rerunfilecheck)             After:  4C9EBD1F7CADB7DE051DBAFD0A66647F;10882.
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 67.
  ) 
 Here is how much of TeX's memory you used:
- 34710 strings out of 493323
- 753455 string characters out of 3139070
- 1036729 words of memory out of 3000000
- 37530 multiletter control sequences out of 15000+200000
- 31479 words of font info for 47 fonts, out of 3000000 for 9000
+ 34637 strings out of 493328
+ 750088 string characters out of 3139115
+ 1031481 words of memory out of 3000000
+ 37428 multiletter control sequences out of 15000+200000
+ 35900 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,13n,96p,794b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
-r8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (17 pages, 161567 bytes).
+pdfTeX warning (dest): name{table.caption.60} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.58} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.56} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.33} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.68} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.67} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.66} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.65} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.64} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{section.63} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.62} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.61} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.59} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.57} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.55} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.53} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.49} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.48} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{section.47} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.39} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.35} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.34} has been referenced but does not exist
+, replaced by a fixed one
+
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8
+a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (17 pages, 257135 bytes).
 PDF statistics:
- 399 PDF objects out of 1000 (max. 8388607)
- 85 named destinations out of 1000 (max. 500000)
- 394 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 424 PDF objects out of 1000 (max. 8388607)
+ 105 named destinations out of 1000 (max. 500000)
+ 399 words of extra memory for PDF output out of 10000 (max. 10000000)
 
