@@ -1,31 +1,59 @@
 % Chapter 1
 \stepcounter{cap}
 %\chapter{cap1}
-\label{cap2}
+\label{cap3}
 
-\mychapter{2}{Capitolul \arabic{cap} \\ ARHITECTURA SOFTWARE}
+\mychapter{3}{Capitolul \arabic{cap} \\ ARHITECTURA SOFTWARE}
 %\chapter{\arabic{cap}.Introducere} % Main chapter title
 
-\label{Chapter2} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+\label{Chapter3} % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
 \thispagestyle{fancy}
 
 %-----------------------------------------------------------------
 În acest capitol este prezentată partea structurală a modulului cât şi unităţile software din care acesta este format.
 
-\section{Unitatea software PNavServiceImpl} 
+\section{Deciderea asupra comportamentului sincron și asincron} 
+	Fiecare mod de executare a operațiilor are propriile sale avantaje și dezavantaje.
+	Există operaţii care ar putea necesita mai mult timp pentru a se termina de executat (>100ms) şi nu este direct vizibil faptul dacă acestea au fost declanşate de către o cerere (e.g. o  nouă poziţie este trimisă).
+	\vspace{6pt}
+    \\O cerere poate declanşată din fire de execuţie diferite.
+	Există posibilitatea ca acest lucru sa fie realizat sincron, în afara modului, între cereri şi răspunsuri, fapt ce poate duce la deadlock.
+
+	\subsection{Factori de decizie} 
+	\begin{itemize}
+	 \setlength\itemsep{0em}
+		\item Timpul în care firul de execuţie este blocat de cerere
+		\item Sincronizarea între operaţii
+	\end{itemize}
+
+	\subsection{Soluţii propuse}
+	\begin{itemize}
+	 \setlength\itemsep{0em}
+		\item Procesul se va executa asincron folosind un fir de execuţie de lucru
+		\item Procesul se va executa sincron, în interiorul cererilor
+	\end{itemize}
+
+
+	\subsection{Decizia}
+	Se vor furniza două interfeţe diferite. Funcţionalitatea va fi oferită printr-o interfaţă sincronă, ce va fi utilizată în cadrul operaţiilor ce au loc pe un singur fir de execuţie. O altă interfaţă va decupla firele de execuţie şi procesele din bucla de lucru.
+	Acest fapt ne oferă libertatea utilizării principiului de multithread-ing (execuţia mai multor thread-uri în acelaşi pipeline, fiecare având propria secţiune de timp în care este menit să lucreze).
+
+\section{Structura modulului din punctul de vedere al unităților software} 
+
+\subsection{Unitatea software PNavServiceImpl} 
 Unitatea PNavServiceImpl implementează interfaţa sincronă şi asincronă, şi îi oferă totodată dezvoltatorului posibilitatea de a alege ce interfaţă doreşte să folosească.
 \vspace{6pt}
 \\Cea asincronă are avantajul de a decupla firele de execuţie şi de a permite rularea activităţilor în paralel, însă are şi dezavantajul necesităţii de implementare unui mecanism de sincronizare în codul aplicaţiei în care va fi folosit modulul.
 
 
-\section{Unitatea software PNavImpl} 
+\subsection{Unitatea software PNavImpl} 
 Deşi funcţionalităţile de bază precum precum învăţarea şi predicţia sunt realizare de către unitatea PNavRecorder respectiv PNavPredictor, unitatea PNavImpl realizează funcţionalităţi suplimentare cum ar fi multiple profile de utilizatori, ştergerea bazelor de date.
 \vspace{6pt}
 \\Funcţionalitatea multiplelor profile de utilizatori permite gestionarea mai multor baze de date, ce pot fi selectate pe baza unui ID de profil.
 Acest ID poate cuprinde valori în intervalul 0-255. Pentru fiecare profil este creat un nou fişier în care vor fi stocate datele de utilizator. Unitatea PNavImpl implementează de asemenea şi funcţionalităţi de întreţinere a profilelor de utilizator precum ştergerea individuală, ştergerea totală, copierea, schimbarea între profile.
 
-\section{Unitatea software PNavRecorder} 
+\subsection{Unitatea software PNavRecorder} 
 NavRecorder-ul este unitate în care întreg procesul de învăţare are loc. 
 \vspace{6pt}
 \\Unitatea primeşte datele de geolocație şi de timp (oră - zi/lună/an) şi învaţă rutele parcurse de către dezvoltator într-un mod inteligent.
@@ -36,7 +64,7 @@ orientarea semnificativ (valoare standard: > 15$^{\circ}$) sau distanţa dintre 
 Totodată, unitatea are implementate funcţionalităţi de oprire-pornire, lucru ce-i acordă dezvoltatorului dreptul de opri şi porni oricând sesiunea de înregistrare.
 
 
-\section{Unitatea software PNavPredictor} 
+\subsection{Unitatea software PNavPredictor} 
 Rolul unităţii PNavPredictor este acela de a calcula predicţiile. 
 \vspace{6pt}
 \\Primul pas constă în încărcarea datelor prin unitatea PNavDataManager, care sunt mai departe prioritizate în funcţie de criterii specifice (descrise în tabela ~\ref{table:tabel_predictii}, ``Criterii de prioritizare pentru predicţia bazată pe rute''). Datele pot fi de asemenea filtrate pe baza aceloraşi criterii, rezultând astfel o cantitate mai mică de date şi un timp mai scurt de încărcare a acestora. 
@@ -46,24 +74,24 @@ Rolul unităţii PNavPredictor este acela de a calcula predicţiile.
 \\Ca şi unitatea PNavRecorder, unitatea PNavPredictor are implementate funcţionalităţi de oprire-pornire.
 
 
-\section{Unitatea software PNavConfiguration} 
+\subsection{Unitatea software PNavConfiguration} 
 Unitatea PNavConfiguration configurează unitatea NavPredictor, prin intermediul unor funcţii ce folosesc criteriile definite în unitatea PNavCriteria.
 
 
-\section{Unitatea software PNavCriteria} 
+\subsection{Unitatea software PNavCriteria} 
 Unitatea PNavCriteria conţine toate tipurile de criterii ce pot fi folosite la filtrarea sau prioritizarea datelor.
 \vspace{6pt}
 \\Fiecare criteriu în parte este folosit la procesarea datelor de către unitatea PNavPredictor.
 După procesarea tuturor criteriilor cea mai probabilă rută este creată.
 
 
-\section{Unitatea software PNavDataManager} 
+\subsection{Unitatea software PNavDataManager} 
 Unitatea PNavDataManager implementează logica necesară pentru a realiza comunicarea între unitatea PNavDataStorage şi restul unităţilor.
 \vspace{6pt}
 \\În general, obiectele sunt stocate separat (e.g. rutele sunt stocate separat faţă de destinaţiilor lor). Cum însă pentru predicţia unei rute este nevoie de toate informaţiile, unitatea PNavDataManager le comasează. Aceasta oferă de asemenea şi alte funcţionalităţi precum adăugarea, gruparea, căutarea sau ştergerea de obiecte.
 
 
-\section{Unitatea software PNavDataStorage} 
+\subsection{Unitatea software PNavDataStorage} 
 Unitatea PNavDataStorage este dezvoltată pe baza structurii bazei de date.
 \vspace{6pt}
 \\În afară de funcţionalitatea principală de a stoca sau încărca date, aceasta asigură şi accesarea selectivă a obiectelor. Pentru realizarea acestor funcţionalităţi se execută interogări prin intermediul SQLite.

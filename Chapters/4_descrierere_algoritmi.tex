@@ -1,12 +1,12 @@
 % Chapter 1
 \stepcounter{cap}
 %\chapter{cap1}
-\label{cap5}
+\label{cap4}
 
-\mychapter{5}{Capitolul \arabic{cap} \\ DESCRIEREA ALGORITMILOR}
+\mychapter{4}{Capitolul \arabic{cap} \\ DESCRIEREA ALGORITMILOR}
 %\chapter{\arabic{cap}.Introducere} % Main chapter title
 
-\label{Chapter5} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+\label{Chapter4} % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
 \thispagestyle{fancy}
 
@@ -27,6 +27,14 @@ Rutele sunt învăţate printr-un mecanism inteligent. Acest lucru are avantajul
 	
 	
 	\subsection{Verificarea rutelor duble} 
+	
+	\begin{figure}[h!]
+   \centering
+    \centering{%
+      \includegraphics[width=0.9\textwidth]{Figures/rute_duble_sinc.png}}
+   \caption{Procesul de verificarea al rutelor duble (sincron)}
+   \end{figure}	
+	
 	În cazul în care ruta curentă are o secţiune similară cu o rută deja învăţată, unitatea software PNavDataManager va detecta secţiune respectivă şi va stoca numai waypoint-urile situate după aceasta. În schimb, toate destinaţiile sunt memorate. Criteriile pentru a detecta o astfel de rută sunt:
 	
 		\begin{enumerate}
@@ -52,8 +60,17 @@ Pragurile pot fi configurate înaintea procesului de compilare.
 	\vspace{6pt}
   \\Pragurile pot fi configurate înaintea procesului de compilare.
 	
-\section{Eliberarea de spaţiu} 
+\section{Eliberarea de spaţiu}   
 Dacă pragul setat iniţial pentru dimensiunea maximă a bazei de date este atins, se va activa funcţia de eliberare a spaţiului. Aceasta va şterge obiectele cele mai vechi pentru a crea loc pentru obiectele noi.
+
+
+	\begin{figure}[h!]
+   \centering
+    \centering{%
+      \includegraphics[width=0.9\textwidth]{Figures/sterge_ruta_sinc.png}}
+   \caption{Procesul de ștergere a uneia sau mai multor rute (sincron)}
+   \end{figure}	
+
 
 \section{Furnizarea predicţiilor} 
 Pentru ca predicţiile să fie disponibile sunt necesari doi paşi.
@@ -82,7 +99,32 @@ Pentru ca predicţiile să fie disponibile sunt necesari doi paşi.
 		Pentru a putea suporta multiple platforme, modulul permite setarea numărului maxim de rute prezise ce apar deodată. Acestă setare se poate efectua chiar în timpul rulării.
 		
 		\subsection{Prioritizarea predicţiilor}
-		Există mai multe criterii pentru a stabili prioritatea unei rute. 
+		Prioritatea unei rute reprezintă de fapt de probabilitatea ca această rută să fie ce pe care utilizatorul ar fi ales-o în mod uzual. Aceasta este exprimată sub formă de procente și se încadrează în intervalul 0\%-100\%.
+		\vspace{6pt}
+		\\Există mai multe criterii pentru a stabili prioritatea unei rute, fiecare dintre acestea fiind raportat la intervalul 0 (minimul) - 100 (maximul).  
+		\vspace{6pt}
+	    \\Pentru calcularea probabilității unei rute sunt necesari trei pași: 
+	    
+	    \begin{enumerate}
+	     \setlength\itemsep{0em}
+		 \item Pentru fiecare criteriu, se înmulțește ponderea cu probabilitatea sa 
+		 \begin{equation}\label{qoat1}
+		  SC = \sum_{i=1}^{n} p_{i}*c_{i}
+		 \end{equation}
+	     \item Se însumează toate criteriile  
+		  \begin{equation}\label{qoat2}	      
+	       SP = \sum_{i=1}^{n} p_{i}
+	      \end{equation}
+	     \item În urma raportului dintre suma de la pasul 1 și suma de la pasul 2,se obține probabilitatea rutei
+	    \begin{equation}\label{qoat}	   
+	     P = \frac{SC}{SP}
+	    \end{equation}
+    	\end{enumerate}
+    	
+		unde, \textit{P} = probabilitatea rutei, \textit{SC} = suma criteriilor, \textit{SP} = suma ponderilor, \textit{p} = ponderea criteriului, \textit{c} = probabilitatea criteriului (0\%-100\%), \textit{n} = numărul total de criterii	
+		
+		\vspace{6pt}
+	    Metoda de definire a fiecărui criteriu depinde de criteriile însăși, după cum se observă în tabelele următoare.
 		
 		\begin{table}[!h]
 		\caption{Criterii de prioritizare pentru predicţia bazată pe rute}

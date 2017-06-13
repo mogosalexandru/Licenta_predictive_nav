@@ -1,4 +1,5 @@
 \select@language {romanian}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Modelul asincron de \IeC {\^\i }nv\IeC {\u a}\cb {t}are a rutelor\relax }}{8}{figure.caption.19}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Structura tabelelor de date \IeC {\c s}i rela\IeC {\c t}iile dintre ele\relax }}{11}{figure.caption.30}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Structura tabelelor de date \IeC {\c s}i rela\IeC {\c t}iile dintre ele\relax }}{7}{figure.caption.24}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Procesul de verificarea al rutelor duble (varianta sincron\IeC {\u a})\relax }}{13}{figure.caption.45}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Procesul de \cb {s}tergere a uneia sau mai multor rute (varianta sincron\IeC {\u a})\relax }}{14}{figure.caption.54}
 \contentsfinish 

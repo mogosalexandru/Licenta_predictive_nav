@@ -1,47 +1,53 @@
 \select@language {romanian}
 \contentsline {chapter}{List\IeC {\u a} de figuri}{3}{dummy.2}
 \contentsline {chapter}{List\IeC {\u a} de tabele}{4}{dummy.4}
-\contentsline {chapter}{Capitolul 1 \\ DECIZII DE DESIGN}{5}{chapter*.6}
-\contentsline {section}{\numberline {1.1}Deciderea asupra modului de stocare a datelor}{5}{section.7}
-\contentsline {subsection}{\numberline {1.1.1}Subiectul problemei}{5}{subsection.8}
-\contentsline {subsection}{\numberline {1.1.2}Factori de decizie}{5}{subsection.9}
-\contentsline {subsection}{\numberline {1.1.3}Solu\IeC {\c t}ii propuse}{5}{subsection.10}
-\contentsline {subsection}{\numberline {1.1.4}Decizia}{5}{subsection.12}
-\contentsline {section}{\numberline {1.2}Deciderea asupra comportamentului sincron/asincron}{6}{section.13}
-\contentsline {subsection}{\numberline {1.2.1}Subiectul problemei}{6}{subsection.14}
-\contentsline {subsection}{\numberline {1.2.2}Factori de decizie}{6}{subsection.15}
-\contentsline {subsection}{\numberline {1.2.3}Solu\IeC {\c t}ii propuse}{6}{subsection.16}
-\contentsline {subsection}{\numberline {1.2.4}Decizia}{6}{subsection.17}
-\contentsline {chapter}{Capitolul 2 \\ ARHITECTURA SOFTWARE}{7}{chapter*.18}
-\contentsline {section}{\numberline {2.1}Unitatea software PNavServiceImpl}{7}{section.20}
-\contentsline {section}{\numberline {2.2}Unitatea software PNavImpl}{7}{section.21}
-\contentsline {section}{\numberline {2.3}Unitatea software PNavRecorder}{7}{section.22}
-\contentsline {section}{\numberline {2.4}Unitatea software PNavPredictor}{9}{section.23}
-\contentsline {section}{\numberline {2.5}Unitatea software PNavConfiguration}{9}{section.24}
-\contentsline {section}{\numberline {2.6}Unitatea software PNavCriteria}{9}{section.25}
-\contentsline {section}{\numberline {2.7}Unitatea software PNavDataManager}{9}{section.26}
-\contentsline {section}{\numberline {2.8}Unitatea software PNavDataStorage}{10}{section.27}
-\contentsline {chapter}{Capitolul 3 \\ STRUCTURA BAZEI DE DATE}{11}{chapter*.28}
-\contentsline {section}{\numberline {4.1}Tabelele de date}{11}{section.29}
-\contentsline {chapter}{Capitolul 4 \\ DESCRIEREA ALGORITMILOR}{12}{chapter*.31}
-\contentsline {section}{\numberline {5.1}\IeC {\^I}nv\IeC {\u a}\IeC {\c t}area rutelor}{12}{section.32}
-\contentsline {subsection}{\numberline {5.1.1}Reducerea waypoint-urilor}{12}{subsection.33}
-\contentsline {subsection}{\numberline {5.1.2}Verificarea rutelor duble}{12}{subsection.36}
-\contentsline {subsection}{\numberline {5.1.3}Filtrarea rutelor inutile}{13}{subsection.43}
-\contentsline {section}{\numberline {5.2}Eliberarea de spa\IeC {\c t}iu}{13}{section.44}
-\contentsline {section}{\numberline {5.3}Furnizarea predic\IeC {\c t}iilor}{13}{section.45}
-\contentsline {subsection}{\numberline {5.3.1}Filtrarea datelor}{13}{subsection.46}
-\contentsline {subsection}{\numberline {5.3.2}Frecven\IeC {\c t}a predic\IeC {\c t}iei de rute}{14}{subsection.50}
-\contentsline {subsection}{\numberline {5.3.3}Num\IeC {\u a}rul maxim de predic\IeC {\c t}ii}{14}{subsection.51}
-\contentsline {subsection}{\numberline {5.3.4}Prioritizarea predic\IeC {\c t}iilor}{14}{subsection.52}
-\contentsline {subsection}{\numberline {5.3.5}Predic\IeC {\c t}ii bazate pe filtrarea rutei \IeC {\^\i }n func\IeC {\c t}ie de distan\IeC {\c t}a de la pozi\IeC {\c t}ia curent\IeC {\u a} la waypoint-urile rutelor}{15}{subsection.54}
-\contentsline {subsection}{\numberline {5.3.6}Predic\IeC {\c t}ii bazate pe filtrarea rutei \IeC {\^\i }n func\IeC {\c t}ie de distan\IeC {\c t}a de la pozi\IeC {\c t}ia curent\IeC {\u a} la punctele de start ale rutelor}{15}{subsection.56}
-\contentsline {subsection}{\numberline {5.3.7}Predic\IeC {\c t}ii bazate pe filtrarea rutei \IeC {\^\i }n func\IeC {\c t}ie de timpul scurs p\IeC {\^a}n\IeC {\u a} la ajungerea la destina\IeC {\c t}ie}{15}{subsection.58}
-\contentsline {chapter}{Capitolul 5 \\ MANAGEMENTUL ERORILOR}{16}{chapter*.59}
-\contentsline {section}{\numberline {6.1}Tipuri de erori}{16}{section.60}
-\contentsline {section}{\numberline {6.2}Detectarea erorilor}{16}{section.61}
-\contentsline {subsection}{\numberline {6.2.1}Erori de secven\IeC {\c t}\IeC {\u a}}{16}{subsection.62}
-\contentsline {subsection}{\numberline {6.2.2}Erori la accesarea bazei de date}{16}{subsection.63}
-\contentsline {subsection}{\numberline {6.2.3}Baz\IeC {\u a} de date corupt\IeC {\u a}}{16}{subsection.64}
-\contentsline {section}{\numberline {6.3}Tratarea erorilor}{16}{section.65}
+\contentsline {chapter}{Capitolul 1 \\ INTRODUCERE}{5}{chapter*.6}
+\contentsline {section}{\numberline {1.1}Actualitatea \cb {s}i necestitatea temei}{5}{section.7}
+\contentsline {section}{\numberline {1.2}Problema propus\IeC {\u a}}{5}{section.8}
+\contentsline {section}{\numberline {1.3}Obiectivele lucr\IeC {\u a}rii}{5}{section.9}
+\contentsline {section}{\numberline {1.4}Structura lucr\IeC {\u a}rii}{5}{section.10}
+\contentsline {chapter}{Capitolul 2 \\ BAZA DE DATE}{6}{chapter*.17}
+\contentsline {section}{\numberline {2.1}Alegerea tipului de baz\IeC {\u a} de date}{6}{section.18}
+\contentsline {subsection}{\numberline {2.1.1}Factori de decizie}{6}{subsection.19}
+\contentsline {subsection}{\numberline {2.1.2}Solu\IeC {\c t}ii propuse}{6}{subsection.20}
+\contentsline {subsection}{\numberline {2.1.3}Solu\cb {t}ia aleas\IeC {\u a}}{7}{subsection.22}
+\contentsline {section}{\numberline {2.2}Structura bazei de date}{7}{section.23}
+\contentsline {chapter}{Capitolul 3 \\ ARHITECTURA SOFTWARE}{8}{chapter*.25}
+\contentsline {section}{\numberline {3.1}Deciderea asupra comportamentului sincron \cb {s}i asincron}{8}{section.26}
+\contentsline {subsection}{\numberline {3.1.1}Factori de decizie}{8}{subsection.27}
+\contentsline {subsection}{\numberline {3.1.2}Solu\IeC {\c t}ii propuse}{8}{subsection.28}
+\contentsline {subsection}{\numberline {3.1.3}Decizia}{8}{subsection.29}
+\contentsline {section}{\numberline {3.2}Structura modulului din punctul de vedere al unit\IeC {\u a}\cb {t}ilor software}{9}{section.30}
+\contentsline {subsection}{\numberline {3.2.1}Unitatea software PNavServiceImpl}{9}{subsection.31}
+\contentsline {subsection}{\numberline {3.2.2}Unitatea software PNavImpl}{9}{subsection.32}
+\contentsline {subsection}{\numberline {3.2.3}Unitatea software PNavRecorder}{9}{subsection.33}
+\contentsline {subsection}{\numberline {3.2.4}Unitatea software PNavPredictor}{9}{subsection.34}
+\contentsline {subsection}{\numberline {3.2.5}Unitatea software PNavConfiguration}{10}{subsection.35}
+\contentsline {subsection}{\numberline {3.2.6}Unitatea software PNavCriteria}{10}{subsection.36}
+\contentsline {subsection}{\numberline {3.2.7}Unitatea software PNavDataManager}{10}{subsection.37}
+\contentsline {subsection}{\numberline {3.2.8}Unitatea software PNavDataStorage}{10}{subsection.38}
+\contentsline {chapter}{Capitolul 4 \\ DESCRIEREA ALGORITMILOR}{12}{chapter*.39}
+\contentsline {section}{\numberline {4.1}\IeC {\^I}nv\IeC {\u a}\IeC {\c t}area rutelor}{12}{section.40}
+\contentsline {subsection}{\numberline {4.1.1}Reducerea waypoint-urilor}{12}{subsection.41}
+\contentsline {subsection}{\numberline {4.1.2}Verificarea rutelor duble}{12}{subsection.44}
+\contentsline {subsection}{\numberline {4.1.3}Filtrarea rutelor inutile}{13}{subsection.52}
+\contentsline {section}{\numberline {4.2}Eliberarea de spa\IeC {\c t}iu}{14}{section.53}
+\contentsline {section}{\numberline {4.3}Furnizarea predic\IeC {\c t}iilor}{14}{section.55}
+\contentsline {subsection}{\numberline {4.3.1}Filtrarea datelor}{15}{subsection.56}
+\contentsline {subsection}{\numberline {4.3.2}Frecven\IeC {\c t}a predic\IeC {\c t}iei de rute}{15}{subsection.60}
+\contentsline {subsection}{\numberline {4.3.3}Num\IeC {\u a}rul maxim de predic\IeC {\c t}ii}{15}{subsection.61}
+\contentsline {subsection}{\numberline {4.3.4}Prioritizarea predic\IeC {\c t}iilor}{15}{subsection.62}
+\contentsline {subsection}{\numberline {4.3.5}Predic\IeC {\c t}ii bazate pe filtrarea rutei \IeC {\^\i }n func\IeC {\c t}ie de distan\IeC {\c t}a de la pozi\IeC {\c t}ia curent\IeC {\u a} la waypoint-urile rutelor}{16}{subsection.70}
+\contentsline {subsection}{\numberline {4.3.6}Predic\IeC {\c t}ii bazate pe filtrarea rutei \IeC {\^\i }n func\IeC {\c t}ie de distan\IeC {\c t}a de la pozi\IeC {\c t}ia curent\IeC {\u a} la punctele de start ale rutelor}{16}{subsection.72}
+\contentsline {subsection}{\numberline {4.3.7}Predic\IeC {\c t}ii bazate pe filtrarea rutei \IeC {\^\i }n func\IeC {\c t}ie de timpul scurs p\IeC {\^a}n\IeC {\u a} la ajungerea la destina\IeC {\c t}ie}{16}{subsection.74}
+\contentsline {chapter}{Capitolul 5 \\ MANAGEMENTUL ERORILOR}{19}{chapter*.75}
+\contentsline {section}{\numberline {5.1}Tipuri de erori}{19}{section.76}
+\contentsline {section}{\numberline {5.2}Detectarea erorilor}{19}{section.77}
+\contentsline {subsection}{\numberline {5.2.1}Erori de secven\IeC {\c t}\IeC {\u a}}{19}{subsection.78}
+\contentsline {subsection}{\numberline {5.2.2}Erori la accesarea bazei de date}{19}{subsection.79}
+\contentsline {subsection}{\numberline {5.2.3}Baz\IeC {\u a} de date corupt\IeC {\u a}}{19}{subsection.80}
+\contentsline {section}{\numberline {5.3}Tratarea erorilor}{19}{section.81}
+\contentsline {chapter}{Capitolul 6 \\ CONCLUZII \cb {S}I DIREC\cb {T}II VIITOARE}{21}{chapter*.82}
+\contentsline {section}{\numberline {6.1}Concluzii generale}{21}{section.83}
+\contentsline {section}{\numberline {6.2}Posibilit\IeC {\u a}\cb {t}i de dezvoltare ulterioar\IeC {\u a}}{21}{section.84}
 \contentsfinish 
