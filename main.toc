@@ -33,21 +33,21 @@
 \contentsline {subsection}{\numberline {4.1.3}Filtrarea rutelor inutile}{13}{subsection.52}
 \contentsline {section}{\numberline {4.2}Eliberarea de spa\IeC {\c t}iu}{14}{section.53}
 \contentsline {section}{\numberline {4.3}Furnizarea predic\IeC {\c t}iilor}{14}{section.55}
-\contentsline {subsection}{\numberline {4.3.1}Filtrarea datelor}{15}{subsection.56}
-\contentsline {subsection}{\numberline {4.3.2}Frecven\IeC {\c t}a predic\IeC {\c t}iei de rute}{15}{subsection.60}
-\contentsline {subsection}{\numberline {4.3.3}Num\IeC {\u a}rul maxim de predic\IeC {\c t}ii}{15}{subsection.61}
-\contentsline {subsection}{\numberline {4.3.4}Prioritizarea predic\IeC {\c t}iilor}{15}{subsection.62}
-\contentsline {subsection}{\numberline {4.3.5}Predic\IeC {\c t}ii bazate pe filtrarea rutei \IeC {\^\i }n func\IeC {\c t}ie de distan\IeC {\c t}a de la pozi\IeC {\c t}ia curent\IeC {\u a} la waypoint-urile rutelor}{16}{subsection.70}
-\contentsline {subsection}{\numberline {4.3.6}Predic\IeC {\c t}ii bazate pe filtrarea rutei \IeC {\^\i }n func\IeC {\c t}ie de distan\IeC {\c t}a de la pozi\IeC {\c t}ia curent\IeC {\u a} la punctele de start ale rutelor}{16}{subsection.72}
-\contentsline {subsection}{\numberline {4.3.7}Predic\IeC {\c t}ii bazate pe filtrarea rutei \IeC {\^\i }n func\IeC {\c t}ie de timpul scurs p\IeC {\^a}n\IeC {\u a} la ajungerea la destina\IeC {\c t}ie}{16}{subsection.74}
-\contentsline {chapter}{Capitolul 5 \\ MANAGEMENTUL ERORILOR}{19}{chapter*.75}
-\contentsline {section}{\numberline {5.1}Tipuri de erori}{19}{section.76}
-\contentsline {section}{\numberline {5.2}Detectarea erorilor}{19}{section.77}
-\contentsline {subsection}{\numberline {5.2.1}Erori de secven\IeC {\c t}\IeC {\u a}}{19}{subsection.78}
-\contentsline {subsection}{\numberline {5.2.2}Erori la accesarea bazei de date}{19}{subsection.79}
-\contentsline {subsection}{\numberline {5.2.3}Baz\IeC {\u a} de date corupt\IeC {\u a}}{19}{subsection.80}
-\contentsline {section}{\numberline {5.3}Tratarea erorilor}{19}{section.81}
-\contentsline {chapter}{Capitolul 6 \\ CONCLUZII \cb {S}I DIREC\cb {T}II VIITOARE}{21}{chapter*.82}
-\contentsline {section}{\numberline {6.1}Concluzii generale}{21}{section.83}
-\contentsline {section}{\numberline {6.2}Posibilit\IeC {\u a}\cb {t}i de dezvoltare ulterioar\IeC {\u a}}{21}{section.84}
+\contentsline {subsection}{\numberline {4.3.1}Filtrarea datelor}{15}{subsection.57}
+\contentsline {subsection}{\numberline {4.3.2}Frecven\IeC {\c t}a predic\IeC {\c t}iei de rute}{16}{subsection.61}
+\contentsline {subsection}{\numberline {4.3.3}Num\IeC {\u a}rul maxim de predic\IeC {\c t}ii}{16}{subsection.62}
+\contentsline {subsection}{\numberline {4.3.4}Prioritizarea predic\IeC {\c t}iilor}{16}{subsection.63}
+\contentsline {subsection}{\numberline {4.3.5}Predic\IeC {\c t}ii bazate pe filtrarea rutei \IeC {\^\i }n func\IeC {\c t}ie de distan\IeC {\c t}a de la pozi\IeC {\c t}ia curent\IeC {\u a} la waypoint-urile rutelor}{17}{subsection.71}
+\contentsline {subsection}{\numberline {4.3.6}Predic\IeC {\c t}ii bazate pe filtrarea rutei \IeC {\^\i }n func\IeC {\c t}ie de distan\IeC {\c t}a de la pozi\IeC {\c t}ia curent\IeC {\u a} la punctele de start ale rutelor}{18}{subsection.73}
+\contentsline {subsection}{\numberline {4.3.7}Predic\IeC {\c t}ii bazate pe filtrarea rutei \IeC {\^\i }n func\IeC {\c t}ie de timpul scurs p\IeC {\^a}n\IeC {\u a} la ajungerea la destina\IeC {\c t}ie}{18}{subsection.75}
+\contentsline {chapter}{Capitolul 5 \\ MANAGEMENTUL ERORILOR}{19}{chapter*.76}
+\contentsline {section}{\numberline {5.1}Tipuri de erori}{19}{section.77}
+\contentsline {section}{\numberline {5.2}Detectarea erorilor}{19}{section.78}
+\contentsline {subsection}{\numberline {5.2.1}Erori de secven\IeC {\c t}\IeC {\u a}}{19}{subsection.79}
+\contentsline {subsection}{\numberline {5.2.2}Erori la accesarea bazei de date}{19}{subsection.80}
+\contentsline {subsection}{\numberline {5.2.3}Baz\IeC {\u a} de date corupt\IeC {\u a}}{19}{subsection.81}
+\contentsline {section}{\numberline {5.3}Tratarea erorilor}{19}{section.82}
+\contentsline {chapter}{Capitolul 6 \\ CONCLUZII \cb {S}I DIREC\cb {T}II VIITOARE}{21}{chapter*.83}
+\contentsline {section}{\numberline {6.1}Concluzii generale}{21}{section.84}
+\contentsline {section}{\numberline {6.2}Posibilit\IeC {\u a}\cb {t}i de dezvoltare ulterioar\IeC {\u a}}{21}{section.85}
 \contentsfinish 

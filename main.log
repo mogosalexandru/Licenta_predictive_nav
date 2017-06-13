@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.8)  10 JUN 2017 00:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.12)  13 JUN 2017 14:18
 entering extended mode
 **./main.tex
 (main.tex
 LaTeX2e <2017-04-15>
-Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
+Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
 (Thesis.cls
 Document Class: Thesis 2007/22/02 v1.0 LaTeX document class
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
@@ -24,10 +24,10 @@ File: bk12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\vmargin\vmargin.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\vmargin\vmargin.sty"
 Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 
 Package: vmargin 2004/07/15 V2.5 set document margins (VK)
@@ -351,18 +351,17 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyhdr\fancyhdr.sty
-Package: fancyhdr 2016/10/11 v3.9 Extensive control of page headers and footers
-
-\f@nch@headwidth=\skip43
-\f@nch@O@elh=\skip44
-\f@nch@O@erh=\skip45
-\f@nch@O@olh=\skip46
-\f@nch@O@orh=\skip47
-\f@nch@O@elf=\skip48
-\f@nch@O@erf=\skip49
-\f@nch@O@olf=\skip50
-\f@nch@O@orf=\skip51
+("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
+Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
+\fancy@headwidth=\skip43
+\f@ncyO@elh=\skip44
+\f@ncyO@erh=\skip45
+\f@ncyO@olh=\skip46
+\f@ncyO@orh=\skip47
+\f@ncyO@elf=\skip48
+\f@ncyO@erf=\skip49
+\f@ncyO@olf=\skip50
+\f@ncyO@orf=\skip51
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2016/11/05 v2.16a AMS math features
@@ -457,10 +456,10 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 \c@example=\count100
 \c@theorem=\count101
 
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 
@@ -555,7 +554,7 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 ))
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\booktabs\booktabs.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \heavyrulewidth=\dimen126
 \lightrulewidth=\dimen127
@@ -587,7 +586,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \rot@float@box=\box28
 \rot@mess@toks=\toks29
 )
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
 \lst@mode=\count109
 \lst@gtempboxa=\box29
 \lst@token=\toks30
@@ -600,8 +599,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \lst@newlines=\count113
 \lst@lineno=\count114
 \lst@maxwidth=\dimen142
-
-(lstpatch.sty
+ (lstpatch.sty
 
 ***
 *** This is a patch for listings 1.3, but you're using
@@ -610,18 +608,17 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 *** Patch file not loaded.
 ***
 
-) (C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count115
 \lst@skipnumbers=\count116
 \lst@framebox=\box30
 )
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
-
-(lstpatch.sty
+ (lstpatch.sty
 
 ***
 *** This is a patch for listings 1.3, but you're using
@@ -710,7 +707,7 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4751.
 \c@Hy@tempcnt=\count120
 
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -788,19 +785,20 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
-Package: babel 2017/05/19 3.10 The Babel package
+Package: babel 2016/04/23 3.9r The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\arabi\bblopts.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\babel-romanian\romanian.ldf
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-romanian\romanian.ldf"
 Language: romanian 2005/03/31 v1.2l Romanian support from the babel system
+
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
-File: babel.def 2017/05/19 3.10 Babel common definitions
+File: babel.def 2016/04/23 3.9r Babel common definitions
 \babel@savecnt=\count135
 \U@D=\dimen150
 )))
@@ -840,7 +838,7 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pgfplots\pgfplots.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplots.revision.tex")
-Package: pgfplots 2017/06/05 v1.15 Data Visualization (1.15)
+Package: pgfplots 2016/08/10 v1.14 Data Visualization (1.14)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty"
@@ -1386,7 +1384,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: longtable package is loaded.
 
-(C:\Users\Alex\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\ltcaption.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\ltcaption.sty"
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: rotating package is loaded.
@@ -1453,7 +1451,7 @@ LaTeX Info: Redefining \selectfont on input line 126.
 ABD: EveryShipout initializing macros
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
-ick labels; missing features). Consider writing \pgfplotsset{compat=1.15} into 
+ick labels; missing features). Consider writing \pgfplotsset{compat=1.14} into 
 your preamble.
  on input line 15.
 
@@ -1567,127 +1565,136 @@ File: Figures/sterge_ruta_sinc.png Graphic file (type png)
 <use Figures/sterge_ruta_sinc.png>
 Package pdftex.def Info: Figures/sterge_ruta_sinc.png used on input line 70.
 (pdftex.def)             Requested size: 422.07245pt x 335.53664pt.
- [14 <./Figures/sterge_ruta_sinc.png>]
-[15]
-Underfull \hbox (badness 1028) in paragraph at lines 134--134
-[]|\T1/ptm/b/n/12 Min (0% pro-ba-
- []
 
+<Figures/calculare_predictii_asinc.png, id=369, 675.52374pt x 591.20876pt>
+File: Figures/calculare_predictii_asinc.png Graphic file (type png)
 
-Overfull \hbox (2.37006pt too wide) in paragraph at lines 134--135
-[]|\T1/ptm/b/n/12 Pondere| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 136--136
-[]|\T1/ptm/m/n/12 Folosit  de mai
- []
-
-
-Underfull \hbox (badness 1769) in paragraph at lines 138--138
-[]|\T1/ptm/m/n/12 Frecvenµa ru-tei
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 138--138
-\T1/ptm/m/n/12 într-un anu-mit
- []
-
-
-Underfull \hbox (badness 1400) in paragraph at lines 138--138
-\T1/ptm/m/n/12 al unei rute într-un
- []
-
-
-Underfull \hbox (badness 7832) in paragraph at lines 138--138
-\T1/ptm/m/n/12 anu-mit in-ter-val de
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 138--138
-[]|\T1/ptm/m/n/12 Folosit  de mai
- []
-
-
-Underfull \hbox (badness 1769) in paragraph at lines 140--140
-[]|\T1/ptm/m/n/12 Frecvenµa ru-tei
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 140--140
-\T1/ptm/m/n/12 într-o anu-mit 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 140--140
-[]|\T1/ptm/m/n/12 Num rul de uti-li-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 140--140
-\T1/ptm/m/n/12 ziua cu-rent  din
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 140--140
-[]|\T1/ptm/m/n/12 Folosit  de mai
- []
-
-
-Underfull \hbox (badness 1769) in paragraph at lines 142--142
-[]|\T1/ptm/m/n/12 Frecvenµa ru-tei
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
-\T1/ptm/m/n/12 într-un anu-mit
- []
-
-
-Underfull \hbox (badness 1400) in paragraph at lines 142--142
-\T1/ptm/m/n/12 al unei rute într-un
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
-[]|\T1/ptm/m/n/12 Folosit  de mai
- []
-
-
-Underfull \hbox (badness 2005) in paragraph at lines 144--144
-[]|\T1/ptm/m/n/12 Diferenµa din-tre ul-
- []
+<use Figures/calculare_predictii_asinc.png>
+Package pdftex.def Info: Figures/calculare_predictii_asinc.png used on input li
+ne 83.
+(pdftex.def)             Requested size: 422.07245pt x 369.3963pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Underfull \hbox (badness 1028) in paragraph at lines 161--161
+[14 <./Figures/sterge_ruta_sinc.png>] [15 <./Figures/calculare_predictii_asinc.
+png (PNG copy)>] [16]
+Underfull \hbox (badness 1028) in paragraph at lines 141--141
 []|\T1/ptm/b/n/12 Min (0% pro-ba-
  []
 
 
-Overfull \hbox (2.37006pt too wide) in paragraph at lines 161--162
+Overfull \hbox (2.37006pt too wide) in paragraph at lines 141--142
 []|\T1/ptm/b/n/12 Pondere| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--163
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
+[]|\T1/ptm/m/n/12 Folosit  de mai
+ []
+
+
+Underfull \hbox (badness 1769) in paragraph at lines 145--145
+[]|\T1/ptm/m/n/12 Frecvenµa ru-tei
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
+\T1/ptm/m/n/12 într-un anu-mit
+ []
+
+
+Underfull \hbox (badness 1400) in paragraph at lines 145--145
+\T1/ptm/m/n/12 al unei rute într-un
+ []
+
+
+Underfull \hbox (badness 7832) in paragraph at lines 145--145
+\T1/ptm/m/n/12 anu-mit in-ter-val de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
+[]|\T1/ptm/m/n/12 Folosit  de mai
+ []
+
+
+Underfull \hbox (badness 1769) in paragraph at lines 147--147
+[]|\T1/ptm/m/n/12 Frecvenµa ru-tei
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--147
+\T1/ptm/m/n/12 într-o anu-mit 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--147
+[]|\T1/ptm/m/n/12 Num rul de uti-li-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--147
+\T1/ptm/m/n/12 ziua cu-rent  din
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--147
+[]|\T1/ptm/m/n/12 Folosit  de mai
+ []
+
+
+Underfull \hbox (badness 1769) in paragraph at lines 149--149
+[]|\T1/ptm/m/n/12 Frecvenµa ru-tei
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--149
+\T1/ptm/m/n/12 într-un anu-mit
+ []
+
+
+Underfull \hbox (badness 1400) in paragraph at lines 149--149
+\T1/ptm/m/n/12 al unei rute într-un
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--149
+[]|\T1/ptm/m/n/12 Folosit  de mai
+ []
+
+
+Underfull \hbox (badness 2005) in paragraph at lines 151--151
+[]|\T1/ptm/m/n/12 Diferenµa din-tre ul-
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 168--168
+[]|\T1/ptm/b/n/12 Min (0% pro-ba-
+ []
+
+
+Overfull \hbox (2.37006pt too wide) in paragraph at lines 168--169
+[]|\T1/ptm/b/n/12 Pondere| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--170
 []|\T1/ptm/m/n/12 Distanµa din-tre
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--163
+Underfull \hbox (badness 10000) in paragraph at lines 170--170
 \T1/ptm/m/n/12 po-zi-µia ac-tu-al  ³i
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--165
+Underfull \hbox (badness 10000) in paragraph at lines 172--172
 []|\T1/ptm/m/n/12 Direcµia c -tre
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--165
+Underfull \hbox (badness 10000) in paragraph at lines 172--172
 []|\T1/ptm/m/n/12 Diferenµa din-tre
  []
 
@@ -1695,23 +1702,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--165
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 179--179
+Underfull \hbox (badness 1028) in paragraph at lines 186--186
 []|\T1/ptm/b/n/12 Min (0% pro-ba-
  []
 
 
-Overfull \hbox (2.37006pt too wide) in paragraph at lines 179--180
+Overfull \hbox (2.37006pt too wide) in paragraph at lines 186--187
 []|\T1/ptm/b/n/12 Pondere| 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) (Chapters/5_management_erori.tex [16] [17] [18] [19
+[17]) (Chapters/5_management_erori.tex [18] [19
 
 
-])
-(Chapters/6_concluzii.tex [20]
+]) (Chapters/6_concluzii.tex
+[20]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 6.
 ) [21
@@ -1723,31 +1727,83 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 65.
  (main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 65.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 65.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D755E7936A769EB7E9545ECEB372353C;12517.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: D755E7936A769EB7E9545ECEB372353C;12517
+(rerunfilecheck)             After:  9C8A5D597F1C4AD2E606DB8E48C1C152;12517.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 65.
  ) 
 Here is how much of TeX's memory you used:
- 34780 strings out of 493323
- 754738 string characters out of 3139070
- 1039986 words of memory out of 3000000
- 37570 multiletter control sequences out of 15000+200000
+ 34690 strings out of 493328
+ 751212 string characters out of 3139115
+ 1032740 words of memory out of 3000000
+ 37459 multiletter control sequences out of 15000+200000
  45899 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,13n,96p,794b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/urw/times/utmri8a.pfb>
-Output written on main.pdf (21 pages, 406840 bytes).
+pdfTeX warning (dest): name{table.caption.73} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.71} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.69} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.83} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.82} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.81} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.78} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.76} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.75} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.74} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.72} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.70} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.60} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.56} has been referenced but does not exi
+st, replaced by a fixed one
+
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/urw/times/utmri8a.pfb>
+Output written on main.pdf (21 pages, 433489 bytes).
 PDF statistics:
- 477 PDF objects out of 1000 (max. 8388607)
- 106 named destinations out of 1000 (max. 500000)
- 436 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 497 PDF objects out of 1000 (max. 8388607)
+ 121 named destinations out of 1000 (max. 500000)
+ 441 words of extra memory for PDF output out of 10000 (max. 10000000)
 

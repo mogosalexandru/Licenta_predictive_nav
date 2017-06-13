@@ -77,6 +77,13 @@ Pentru ca predicţiile să fie disponibile sunt necesari doi paşi.
 \vspace{6pt}
 \\Primul pas reprezintă încărcarea datelor relevante, în timp de al doilea constă în prioritizarea lor.
 
+	\begin{figure}[h!]
+   \centering
+    \centering{%
+      \includegraphics[width=0.9\textwidth]{Figures/calculare_predictii_asinc.png}}
+   \caption{Procesul de calculare al predicțiilor(asincron)}
+   \end{figure}	
+
 	\subsection{Filtrarea datelor}
 	Pentru o încărcare selectivă şi mai rapidă a datelor din unitatea PNavDataStorage, sunt create interogări. Sunt definiţi trei paşi în filtrare, unde pasul următor se excută doar în cazul în care cel curent nu a returnat destule rezultate:
 		\begin{enumerate}
