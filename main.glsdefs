@@ -1,0 +1,30 @@
+\ifglsentryexists{ny}{}%
+{%
+\gls@defglossaryentry{ny}%
+{%
+name={NY},%
+sort={NY},%
+type={acronym},%
+first={New York\glsspace (NY)},%
+firstplural={New Yorks\glsspace (NYs)},%
+text={NY},%
+plural={NYs},%
+description={New York},%
+descriptionplural={New York\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={New York},%
+longplural={New Yorks},%
+short={NY},%
+shortplural={NYs},%
+counter={page},%
+parent={},%
+%
+}%
+}%

@@ -12,6 +12,16 @@
 %\hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 %\title{\ttitle} % Defines the thesis title - don't touch this
 
+\makeglossaries
+\newacronym{api}{API}{Application Programming Interface}
+\newacronym{dll}{DLL}{Dynamic-link library}
+\newacronym{xml}{XML}{Extensible Markup Language}
+\newacronym{json}{JSON}{JavaScript Object Notation}
+\newacronym{sql}{SQL}{Structured Query Language}
+\newacronym{ip}{IP}{Internet Protocol}
+\newacronym{tcp}{TCP}{Transmission Control Protocol}
+\newacronym{ansi}{ANSI}{American National Standards Institute}
+
 \begin{document}\thispagestyle{fancy}
 %\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 
@@ -35,12 +45,14 @@
 %\addcontentsline{toc}{chapter}{Cuprins}
 \tableofcontents
 
-
-
 %\addcontentsline{toc}{chapter}{Listă de figuri}
 \listoffigures
 
 \listoftables
+
+\renewcommand*{\acronymname}{Listă de acronime}
+\printglossaries
+
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
@@ -52,6 +64,9 @@
 
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
+
+% abbreviations:
+
 
 \input{Chapters/1_introducere}
 \input{Chapters/2_baza_date}

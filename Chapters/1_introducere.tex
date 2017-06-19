@@ -11,20 +11,61 @@
 \thispagestyle{fancy}
 
 %-----------------------------------------------------------------
+ 
+\section{Tema de proiectare} 
 
-\section{Actualitatea și necestitatea temei} 
+\section{Stadiul actual al problemei abordate} 
+În momentul actual există diverse companii precum Google, General Motors sau Volkswagen care dezvoltă propriile sale soluții de navigare predictivă.
+\vspace{6pt}
+\\Google furnizează alerte predictive de mai mult de 5 ani ca parte a funcționalității Google Now de pe dispozitivele Android.
+\vspace{6pt}
+\\La un atelier de inovare de la sfârșitul anului 2014, Volkswagen și-a prezentat la sediul său din Wolfsburg, Germania, propria sa soluție in-car de oferire de sugestii de rute alternative chiar și în cazul în care utilizatorii nu folosesc sistemul de navigație pentru o destinație uzuală. 
+\vspace{6pt}
+\\Alți producători de automobile, precum General Motors, au testat soluții pentru autovehiculele electrice de tip plug-in, cum ar fi modelul Chevrolet Volt, care va păstra automat alimentarea electrică pentru ultima porțiune a unei rute dacă destinație se află într-o zonă rezidențială, sau chiar să folosească o parte din bateria de rezervă pentru cazul în care sistemul prezice că autovehiculul va fi alimentat în curând.
+\vspace{6pt}
+\\Se poate spune deci, că fiecare producător preferă să-și dezvolte propriile soluții ce au un scop limitat și strict aplicat nevoilor lor, din motive clare de marketing și vânzare.
 
-\section{Problema propusă} 
+\section{Scopul şi obiectivele proiectului} 
+Obiectivul principal este să se dezvolte un modul de navigare ce are ca scop estimarea rutelor posibile ale unui autovehicul.
+\vspace{6pt}
+\\Acest modul va fi împachetat sub forma unei biblioteci cu legare dinamică (\acrshort{dll} ) și va fi destinat utilizării de către orice aplicație de navigație.
+\vspace{6pt}
+\\Având ca scop obiectivul principal, s-au definit și câteva obiective intermediare:
 
-\section{Obiectivele lucrării} 
+\begin{itemize}
+ \setlength\itemsep{0em}
+	\item Deciderea asupra funcționalităților oferite de modul
+	\item Deciderea asupra modului de stocare al datelor
+	\item Împărțirea pe unității software de lucru
+	\item Crearea diagramei de arhitectură
+	\item Finalizarea scrierii codului
+	\item Testarea modulului realizat
+	\item Evindențierea posibilelor erori și oferirea de soluții
+\end{itemize}
 
-\section{Structura lucrării} 
+\section{Domeniul de aplicabilitate} 
+Domeniul în care proiectul dezvoltat ar avea cea mai mare aplicabilitate este industria automobilistică, mai specific în cadrul aplicațiilor de navigare. În momentul de față acest domeniu este unul în plină ascensiune, tocmai de aceea se caută constant noi modalități  de a satisface nevoile utilizatorului, da a rezolva cerințele noi apărute, de a ușura condusul unui autovehicul și chiar de a face un pas înainte către dezvoltarea vehiculelor autonome.
+
+\section{Structura pe capitole} 
 	\begin{enumerate}
 	 \setlength\itemsep{0em}
-		\item Introducere
-	    \item Baza de date
-		\item Arhitectura software
-		\item Descrierea algoritmilor
-		\item Gestionarea erorilor
-		\item Concluzii și dezvoltări ulterioare
+		\item Introducere\\
+		Primul capitol începe cu o introducere în domeniul automobilisticii, prezentându-se câteva utilizări ale principiului și actualitatea sa în ziua de azi.
+		
+	    \item Baza de date\\
+	    În acest capitol sunt prezentați factorii de decizie cu cea mai mare semnificație asupra tipului de date de baze ales. Totodată, capitolul 2 face și o scurtă introducere în cadrul SQLite pentru o mai bună înțelegere a scopului și structurii acesteia în cadrul proiectului.
+	    
+		\item Arhitectura software\\
+		Capitolul 3 descrie structura software folosită în scopul dezvoltării algoritmului de predicție, explicând în detaliu legatura dintre unitățile software și rolul pe care acestea îl
+îndeplinesc.
+
+		\item Descrierea algoritmilor\\
+		Acest capitol se axează pe logica din spatele funcțiilor principale îndeplinite de fiecare unitate software în parte.
+		
+		\item Gestionarea erorilor\\
+		Scopul capitolului 5 este de a face cunoscute erorile ce sunt predispuse să apară în urma utilizării modulului de predicție, dar și a unor eventuale soluții.
+		
+		\item Concluzii și dezvoltări ulterioare\\
+		Ultimul capitol al proiectului concluzionează dezvoltarea și rezultatele obținute. \\
+		În urma realizării acestui proiect, a studierii necesităților și așteptărilor utilizatorului comun de la un sistem de navigație, dar și a analizei soluțiilor deja existente se prezintă posibile direcții de dezvoltare.
 	\end{enumerate}

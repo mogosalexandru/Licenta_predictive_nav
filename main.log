@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.12)  13 JUN 2017 14:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.12)  19 JUN 2017 17:03
 entering extended mode
 **./main.tex
 (main.tex
@@ -1232,6 +1232,165 @@ File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
 ))) ("C:\Program Files\MiKTeX 2.9\tex\latex\leftidx\leftidx.sty"
 Package: leftidx 2003/09/24 v1.03 Left indices
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\glossaries\base\glossaries.sty"
+Package: glossaries 2017/06/11 v4.30 (NLCT)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkvutils.tex"
+\XKV@toks=\toks50
+\XKV@tempa@toks=\toks51
+)
+\XKV@depth=\count164
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\mfirstuc\mfirstuc.sty"
+Package: mfirstuc 2016/07/31 v2.04 (NLCT)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
+Package: etoolbox 2017/01/02 v2.4 e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count165
+)
+\@glsmfirst=\toks52
+\@glsmrest=\toks53
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\textcase\textcase.sty"
+Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\xfor\xfor.sty"
+Package: xfor 2009/02/05 v1.05 (NLCT)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\datatool\datatool-base.sty"
+Package: datatool-base 2016/07/28 v2.27 (NLCT)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\substr\substr.sty"
+Package: substr 2009/10/20 v1.2 Handle substrings
+\c@su@anzahl=\count166
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\datatool\datatool-fp.sty"
+Package: datatool-fp 2016/07/28 v2.27 (NLCT)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp.sty"
+Package: fp 1995/04/02
+
+`Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
+("C:\Program Files\MiKTeX 2.9\tex\latex\fp\defpattern.sty"
+Package: defpattern 1994/10/12
+\actioncount=\count167
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-basic.sty"
+Package: fp-basic 1996/05/13
+\FP@xs=\count168
+\FP@xia=\count169
+\FP@xib=\count170
+\FP@xfa=\count171
+\FP@xfb=\count172
+\FP@rega=\count173
+\FP@regb=\count174
+\FP@regs=\count175
+\FP@times=\count176
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-addons.sty"
+Package: fp-addons 1995/03/15
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-snap.sty"
+Package: fp-snap 1995/04/05
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-exp.sty"
+Package: fp-exp 1995/04/03
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-trigo.sty"
+Package: fp-trigo 1995/04/14
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-pas.sty"
+Package: fp-pas 1994/08/29
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-random.sty"
+Package: fp-random 1995/02/23
+\FPseed=\count177
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-eqn.sty"
+Package: fp-eqn 1995/04/03
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-upn.sty"
+Package: fp-upn 1996/10/21
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-eval.sty"
+Package: fp-eval 1995/04/03
+)))
+\@dtl@toks=\toks54
+\@dtl@tmpcount=\count178
+\dtl@tmplength=\skip69
+\dtl@sortresult=\count179
+\@dtl@numgrpsepcount=\count180
+\@dtl@datatype=\count181
+\dtl@codeA=\count182
+\dtl@codeB=\count183
+\@dtl@foreach@level=\count184
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\glossaries\base\glossaries-compatible-3
+07.sty"
+Package: glossaries-compatible-307 2017/06/11 v4.30 (NLCT)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\tracklang\tracklang.sty"
+Package: tracklang 2017/03/25 v1.3.4 (NLCT) Track Languages
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\tracklang\tracklang.tex"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\translator\translator.sty"
+Package: translator 2010/06/12 ver 1.10
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\translator\translator-language-m
+appings.tex"))
+
+Package glossaries Warning: No language module detected for `romanian'.
+(glossaries)                Language modules need to be installed separately.
+(glossaries)                Please check on CTAN for a bundle called
+(glossaries)                `glossaries-romanian' or similar.
+
+\gls@level=\count185
+\@gls@tmpb=\toks55
+\gls@tmplen=\skip70
+\glskeylisttok=\toks56
+\glslabeltok=\toks57
+\glsshorttok=\toks58
+\glslongtok=\toks59
+("C:\Program Files\MiKTeX 2.9\tex\latex\glossaries\styles\glossary-hypernav.sty
+"
+Package: glossary-hypernav 2017/06/11 v4.30 (NLCT)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\glossaries\styles\glossary-list.sty"
+Package: glossary-list 2017/06/11 v4.30 (NLCT)
+\glslistdottedwidth=\skip71
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\glossaries\styles\glossary-long.sty"
+Package: glossary-long 2017/06/11 v4.30 (NLCT)
+\glsdescwidth=\skip72
+\glspagelistwidth=\skip73
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\glossaries\styles\glossary-super.sty"
+Package: glossary-super 2017/06/11 v4.30 (NLCT)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\supertabular\supertabular.sty"
+Package: supertabular 2004/02/20 v4.1e the supertabular environment
+\c@tracingst=\count186
+\ST@wd=\dimen276
+\ST@rightskip=\skip74
+\ST@leftskip=\skip75
+\ST@parfillskip=\skip76
+\ST@pageleft=\dimen277
+\ST@headht=\dimen278
+\ST@tailht=\dimen279
+\ST@pagesofar=\dimen280
+\ST@pboxht=\dimen281
+\ST@lineht=\dimen282
+\ST@stretchht=\dimen283
+\ST@prevht=\dimen284
+\ST@toadd=\dimen285
+\ST@dimen=\dimen286
+\ST@pbox=\box49
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\glossaries\styles\glossary-tree.sty"
+Package: glossary-tree 2017/06/11 v4.30 (NLCT)
+\glstreeindent=\skip77
+))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
 Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 
@@ -1241,64 +1400,68 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\blindtext\blindtext.sty"
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
-\c@blindtext=\count164
-\c@Blindtext=\count165
-\c@blind@countparstart=\count166
-\blind@countxx=\count167
-\blindtext@numBlindtext=\count168
-\blind@countyy=\count169
-\c@blindlist=\count170
-\c@blindlistlevel=\count171
-\c@blindlist@level=\count172
-\blind@listitem=\count173
-\c@blind@listcount=\count174
-\c@blind@levelcount=\count175
-\blind@mathformula=\count176
-\blind@Mathformula=\count177
-\c@blind@randomcount=\count178
-\c@blind@randommax=\count179
-\c@blind@pangramcount=\count180
-\c@blind@pangrammax=\count181
+\c@blindtext=\count187
+\c@Blindtext=\count188
+\c@blind@countparstart=\count189
+\blind@countxx=\count190
+\blindtext@numBlindtext=\count191
+\blind@countyy=\count192
+\c@blindlist=\count193
+\c@blindlistlevel=\count194
+\c@blindlist@level=\count195
+\blind@listitem=\count196
+\c@blind@listcount=\count197
+\c@blind@levelcount=\count198
+\blind@mathformula=\count199
+\blind@Mathformula=\count266
+\c@blind@randomcount=\count267
+\c@blind@randommax=\count268
+\c@blind@pangramcount=\count269
+\c@blind@pangrammax=\count270
 )
-
-Package newunicodechar Warning: Redefining Unicode character on input line 36.
-
-
-Package newunicodechar Warning: Redefining Unicode character on input line 37.
-
 
 Package newunicodechar Warning: Redefining Unicode character on input line 38.
 
 
 Package newunicodechar Warning: Redefining Unicode character on input line 39.
 
+
+Package newunicodechar Warning: Redefining Unicode character on input line 40.
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 41.
+
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\hhline.sty"
 Package: hhline 2014/10/28 v2.03 Table rule package (DPC)
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\flafter.sty"
+Package: flafter 2017/04/11 v1.4a Standard LaTeX floats after reference (FMi)
+Applying: [2015/01/01] float order in 2-column on input line 49.
+Already applied: [0000/00/00] float order in 2-column on input line 151.
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
 Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
-\c@tracingmulticols=\count182
-\mult@box=\box49
-\multicol@leftmargin=\dimen276
-\c@unbalance=\count183
-\c@collectmore=\count184
-\doublecol@number=\count185
-\multicoltolerance=\count186
-\multicolpretolerance=\count187
-\full@width=\dimen277
-\page@free=\dimen278
-\premulticols=\dimen279
-\postmulticols=\dimen280
-\multicolsep=\skip69
-\multicolbaselineskip=\skip70
-\partial@page=\box50
-\last@line=\box51
-\maxbalancingoverflow=\dimen281
-\mult@rightbox=\box52
-\mult@grightbox=\box53
-\mult@gfirstbox=\box54
-\mult@firstbox=\box55
-\@tempa=\box56
+\c@tracingmulticols=\count271
+\mult@box=\box50
+\multicol@leftmargin=\dimen287
+\c@unbalance=\count272
+\c@collectmore=\count273
+\doublecol@number=\count274
+\multicoltolerance=\count275
+\multicolpretolerance=\count276
+\full@width=\dimen288
+\page@free=\dimen289
+\premulticols=\dimen290
+\postmulticols=\dimen291
+\multicolsep=\skip78
+\multicolbaselineskip=\skip79
+\partial@page=\box51
+\last@line=\box52
+\maxbalancingoverflow=\dimen292
+\mult@rightbox=\box53
+\mult@grightbox=\box54
+\mult@gfirstbox=\box55
+\mult@firstbox=\box56
 \@tempa=\box57
 \@tempa=\box58
 \@tempa=\box59
@@ -1315,14 +1478,15 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \@tempa=\box70
 \@tempa=\box71
 \@tempa=\box72
-\c@columnbadness=\count188
-\c@finalcolumnbadness=\count189
-\last@try=\dimen282
-\multicolovershoot=\dimen283
-\multicolundershoot=\dimen284
-\mult@nat@firstbox=\box73
-\colbreak@box=\box74
-\mc@col@check@num=\count190
+\@tempa=\box73
+\c@columnbadness=\count277
+\c@finalcolumnbadness=\count278
+\last@try=\dimen293
+\multicolovershoot=\dimen294
+\multicolundershoot=\dimen295
+\mult@nat@firstbox=\box74
+\colbreak@box=\box75
+\mc@col@check@num=\count279
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrextend.sty"
 Package: scrextend 2017/04/13 v3.23 KOMA-Script package (extend other classes w
@@ -1350,31 +1514,41 @@ LaTeX Warning: Command \@footnotemark  has changed.
 LaTeX Info: Redefining \textsubscript on input line 1298.
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\lipsum\lipsum.sty"
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count191
+\c@lips@count=\count280
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titletoc.sty"
 Package: titletoc 2011/12/15 v1.6 TOC entries
-\ttl@leftsep=\dimen285
-)) (main.aux)
+\ttl@leftsep=\dimen296
+))
+\glswrite=\write4
+\glo@main@file=\write5
+\openout5 = `main.glo'.
+
+Package glossaries Info: Writing glossary file main.glo on input line 15.
+\glo@acronym@file=\write6
+\openout6 = `main.acn'.
+
+Package glossaries Info: Writing glossary file main.acn on input line 15.
+ (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 25.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -1389,40 +1563,41 @@ Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: rotating package is loaded.
 Package caption Info: sidecap package is loaded.
+Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count192
-\scratchdimen=\dimen286
-\scratchbox=\box75
-\nofMPsegments=\count193
-\nofMParguments=\count194
-\everyMPshowfont=\toks50
-\MPscratchCnt=\count195
-\MPscratchDim=\dimen287
-\MPnumerator=\count196
-\makeMPintoPDFobject=\count197
-\everyMPtoPDFconversion=\toks51
+\scratchcounter=\count281
+\scratchdimen=\dimen297
+\scratchbox=\box76
+\nofMPsegments=\count282
+\nofMParguments=\count283
+\everyMPshowfont=\toks60
+\MPscratchCnt=\count284
+\MPscratchDim=\dimen298
+\MPnumerator=\count285
+\makeMPintoPDFobject=\count286
+\everyMPtoPDFconversion=\toks61
 )
-\c@lstlisting=\count198
-\AtBeginShipoutBox=\box76
-Package hyperref Info: Link coloring ON on input line 15.
+\c@lstlisting=\count287
+\AtBeginShipoutBox=\box77
+Package hyperref Info: Link coloring ON on input line 25.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count199
+\c@section@level=\count288
 )
-LaTeX Info: Redefining \ref on input line 15.
-LaTeX Info: Redefining \pageref on input line 15.
-LaTeX Info: Redefining \nameref on input line 15.
+LaTeX Info: Redefining \ref on input line 25.
+LaTeX Info: Redefining \pageref on input line 25.
+LaTeX Info: Redefining \nameref on input line 25.
 
 (main.out) (main.out)
-\@outlinefile=\write4
-\openout4 = `main.out'.
+\@outlinefile=\write7
+\openout7 = `main.out'.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\ms\ragged2e.sty"
 Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
@@ -1433,66 +1608,66 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 126.
 )
-\CenteringLeftskip=\skip71
-\RaggedLeftLeftskip=\skip72
-\RaggedRightLeftskip=\skip73
-\CenteringRightskip=\skip74
-\RaggedLeftRightskip=\skip75
-\RaggedRightRightskip=\skip76
-\CenteringParfillskip=\skip77
-\RaggedLeftParfillskip=\skip78
-\RaggedRightParfillskip=\skip79
-\JustifyingParfillskip=\skip80
-\CenteringParindent=\skip81
-\RaggedLeftParindent=\skip82
-\RaggedRightParindent=\skip83
-\JustifyingParindent=\skip84
+\CenteringLeftskip=\skip80
+\RaggedLeftLeftskip=\skip81
+\RaggedRightLeftskip=\skip82
+\CenteringRightskip=\skip83
+\RaggedLeftRightskip=\skip84
+\RaggedRightRightskip=\skip85
+\CenteringParfillskip=\skip86
+\RaggedLeftParfillskip=\skip87
+\RaggedRightParfillskip=\skip88
+\JustifyingParfillskip=\skip89
+\CenteringParindent=\skip90
+\RaggedLeftParindent=\skip91
+\RaggedRightParindent=\skip92
+\JustifyingParindent=\skip93
 )
 ABD: EveryShipout initializing macros
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.14} into 
 your preamble.
- on input line 15.
+ on input line 25.
 
+(main.glsdefs)
 ------------------------------------------------------------------------------
  Table of Contents
 ------------------------------------------------------------------------------
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 36.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 46.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 36.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 46.
 (main.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+LaTeX Font Info:    Try loading font information for U+msa on input line 6.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+LaTeX Font Info:    Try loading font information for U+msb on input line 6.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
+\openout4 = `main.ist'.
 
 
 
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 50.
-)
-\tf@toc=\write5
-\openout5 = `main.toc'.
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}])
+\tf@toc=\write8
+\openout8 = `main.toc'.
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 36.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 46.
  [2]
 ------------------------------------------------------------------------------
  List\IeC {\u a} de figuri
 ------------------------------------------------------------------------------
 (main.lof)
-\tf@lof=\write6
-\openout6 = `main.lof'.
+\tf@lof=\write9
+\openout9 = `main.lof'.
 
  [3
 
@@ -1504,292 +1679,325 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
  List\IeC {\u a} de tabele
 ------------------------------------------------------------------------------
 (main.lot)
-\tf@lot=\write7
-\openout7 = `main.lot'.
+\tf@lot=\write10
+\openout10 = `main.lot'.
 
  [4
 
 
 
 
-] (Chapters/1_introducere.tex) (Chapters/2_baza_date.tex [5
+] (main.gls) (main.acr) (Chapters/1_introducere.tex [5
+
+
 
 
 
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 20.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 37.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 20.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
  [6
 
 
+])
+(Chapters/2_baza_date.tex [7] [8
+
+
 ]
-<Figures/baza_date.png, id=323, 573.64313pt x 252.19218pt>
+Overfull \hbox (8.7184pt too wide) in paragraph at lines 58--63
+\T1/ptm/m/n/12 SQLite are ur-m -toa-rele ca-rac-te-ris-tici no-ta-bile: indepen
+den[] , nu ne-ce-sit  un ser-ver, zero-configurare,
+ []
+
+<Figures/client_server.jpg, id=456, 454.69875pt x 179.16937pt>
+File: Figures/client_server.jpg Graphic file (type jpg)
+
+<use Figures/client_server.jpg>
+Package pdftex.def Info: Figures/client_server.jpg used on input line 70.
+(pdftex.def)             Requested size: 422.07245pt x 166.31685pt.
+
+<Figures/sqlite.jpg, id=457, 306.39468pt x 84.315pt>
+File: Figures/sqlite.jpg Graphic file (type jpg)
+ <use Figures/sqlite.jpg>
+Package pdftex.def Info: Figures/sqlite.jpg used on input line 81.
+(pdftex.def)             Requested size: 328.27937pt x 90.34221pt.
+
+[9
+
+ <./Figures/client_server.jpg> <./Figures/sqlite.jpg>]
+<Figures/baza_date.png, id=462, 573.64313pt x 252.19218pt>
 File: Figures/baza_date.png Graphic file (type png)
 
 <use Figures/baza_date.png>
-Package pdftex.def Info: Figures/baza_date.png used on input line 62.
+Package pdftex.def Info: Figures/baza_date.png used on input line 111.
 (pdftex.def)             Requested size: 422.07245pt x 185.56105pt.
-) (Chapters/3_arhitectura_software.tex [7 <./Figures/baza_date.png>]
-Overfull \hbox (5.8738pt too wide) in paragraph at lines 45--48
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[10]) (Chapters/3_arhitectura_software.tex [11 <./Figures/baza_date.png>]
+[12
+
+
+] <Figures/ea.png, id=476, 1445.4pt x 903.375pt>
+File: Figures/ea.png Graphic file (type png)
+ <use Figures/ea.png>
+Package pdftex.def Info: Figures/ea.png used on input line 63.
+(pdftex.def)             Requested size: 422.07245pt x 263.79158pt.
+
+[13] [14 <./Figures/ea.png>]
+<Figures/diagrama_uml.jpg, id=486, 288.3272pt x 427.5975pt>
+File: Figures/diagrama_uml.jpg Graphic file (type jpg)
+
+<use Figures/diagrama_uml.jpg>
+Package pdftex.def Info: Figures/diagrama_uml.jpg used on input line 98.
+(pdftex.def)             Requested size: 234.48628pt x 347.76138pt.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 102.
+ [15 <./Figures/diagrama_uml.jpg>] [16]
+<Figures/pnav.png, id=495, 962.59625pt x 1430.34375pt>
+File: Figures/pnav.png Graphic file (type png)
+ <use Figures/pnav.png>
+Package pdftex.def Info: Figures/pnav.png used on input line 133.
+(pdftex.def)             Requested size: 375.17949pt x 557.48262pt.
+
+Overfull \hbox (21.76146pt too wide) in paragraph at lines 141--142
+\T1/ptm/m/n/12 Unitatea PNa-v-Co-re-Impl are rol de dis-pe-cer, uti-li-zând res
+-tul unit []ilor pen-tru re-a-li-za-rea func[]ionalit []ilor
+ []
+
+[17
+
+ <./Figures/pnav.png (PNG copy)>]
+Overfull \hbox (5.8738pt too wide) in paragraph at lines 144--147
 \T1/ptm/m/n/12 Unitatea PNa-v-Ser-vi-ce-Impl im-ple-men-teaz  in-ter-faµa sin-c
 ron  ³i asin-cron , ³i îi ofer  tot-o-dat  dezvol-
  []
 
-[8
-
-
-] [9]) (Chapters/4_descrierere_algoritmi.tex [10] [11]
-<Figures/rute_duble_sinc.png, id=349, 480.3546pt x 535.5207pt>
+[18]) (Chapters/4_descrierere_algoritmi.tex [19]
+<Figures/rute_duble_sinc.png, id=512, 437.83575pt x 440.847pt>
 File: Figures/rute_duble_sinc.png Graphic file (type png)
 
 <use Figures/rute_duble_sinc.png>
 Package pdftex.def Info: Figures/rute_duble_sinc.png used on input line 34.
-(pdftex.def)             Requested size: 422.07245pt x 470.54877pt.
+(pdftex.def)             Requested size: 422.07245pt x 424.9909pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12
+[20
 
 
-] [13 <./Figures/rute_duble_sinc.png>]
-<Figures/sterge_ruta_sinc.png, id=368, 421.8159pt x 335.3328pt>
-File: Figures/sterge_ruta_sinc.png Graphic file (type png)
-
-<use Figures/sterge_ruta_sinc.png>
-Package pdftex.def Info: Figures/sterge_ruta_sinc.png used on input line 70.
-(pdftex.def)             Requested size: 422.07245pt x 335.53664pt.
-
-<Figures/calculare_predictii_asinc.png, id=369, 675.52374pt x 591.20876pt>
+] [21 <./Figures/rute_duble_sinc.png>]
+<Figures/calculare_predictii_asinc.png, id=530, 675.52374pt x 591.20876pt>
 File: Figures/calculare_predictii_asinc.png Graphic file (type png)
 
 <use Figures/calculare_predictii_asinc.png>
 Package pdftex.def Info: Figures/calculare_predictii_asinc.png used on input li
-ne 83.
+ne 73.
 (pdftex.def)             Requested size: 422.07245pt x 369.3963pt.
+ [22
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[14 <./Figures/sterge_ruta_sinc.png>] [15 <./Figures/calculare_predictii_asinc.
-png (PNG copy)>] [16]
-Underfull \hbox (badness 1028) in paragraph at lines 141--141
+ <./Figures/calculare_predictii_asinc.png (PNG copy)>]
+Underfull \hbox (badness 1028) in paragraph at lines 131--131
 []|\T1/ptm/b/n/12 Min (0% pro-ba-
  []
 
 
-Overfull \hbox (2.37006pt too wide) in paragraph at lines 141--142
+Overfull \hbox (2.37006pt too wide) in paragraph at lines 131--132
 []|\T1/ptm/b/n/12 Pondere| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
+Underfull \hbox (badness 10000) in paragraph at lines 133--133
 []|\T1/ptm/m/n/12 Folosit  de mai
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 145--145
+Underfull \hbox (badness 1769) in paragraph at lines 135--135
 []|\T1/ptm/m/n/12 Frecvenµa ru-tei
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
+Underfull \hbox (badness 10000) in paragraph at lines 135--135
 \T1/ptm/m/n/12 într-un anu-mit
  []
 
 
-Underfull \hbox (badness 1400) in paragraph at lines 145--145
+Underfull \hbox (badness 1400) in paragraph at lines 135--135
 \T1/ptm/m/n/12 al unei rute într-un
  []
 
 
-Underfull \hbox (badness 7832) in paragraph at lines 145--145
+Underfull \hbox (badness 7832) in paragraph at lines 135--135
 \T1/ptm/m/n/12 anu-mit in-ter-val de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
+Underfull \hbox (badness 10000) in paragraph at lines 135--135
 []|\T1/ptm/m/n/12 Folosit  de mai
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 147--147
+Underfull \hbox (badness 1769) in paragraph at lines 137--137
 []|\T1/ptm/m/n/12 Frecvenµa ru-tei
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
 \T1/ptm/m/n/12 într-o anu-mit 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
 []|\T1/ptm/m/n/12 Num rul de uti-li-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
 \T1/ptm/m/n/12 ziua cu-rent  din
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
 []|\T1/ptm/m/n/12 Folosit  de mai
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 149--149
+Underfull \hbox (badness 1769) in paragraph at lines 139--139
 []|\T1/ptm/m/n/12 Frecvenµa ru-tei
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--149
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
 \T1/ptm/m/n/12 într-un anu-mit
  []
 
 
-Underfull \hbox (badness 1400) in paragraph at lines 149--149
+Underfull \hbox (badness 1400) in paragraph at lines 139--139
 \T1/ptm/m/n/12 al unei rute într-un
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--149
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
 []|\T1/ptm/m/n/12 Folosit  de mai
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 151--151
+Underfull \hbox (badness 2005) in paragraph at lines 141--141
 []|\T1/ptm/m/n/12 Diferenµa din-tre ul-
- []
-
-
-Underfull \hbox (badness 1028) in paragraph at lines 168--168
-[]|\T1/ptm/b/n/12 Min (0% pro-ba-
- []
-
-
-Overfull \hbox (2.37006pt too wide) in paragraph at lines 168--169
-[]|\T1/ptm/b/n/12 Pondere| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 170--170
-[]|\T1/ptm/m/n/12 Distanµa din-tre
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 170--170
-\T1/ptm/m/n/12 po-zi-µia ac-tu-al  ³i
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--172
-[]|\T1/ptm/m/n/12 Direcµia c -tre
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--172
-[]|\T1/ptm/m/n/12 Diferenµa din-tre
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 186--186
+Underfull \hbox (badness 1028) in paragraph at lines 158--158
 []|\T1/ptm/b/n/12 Min (0% pro-ba-
  []
 
 
-Overfull \hbox (2.37006pt too wide) in paragraph at lines 186--187
+Overfull \hbox (2.37006pt too wide) in paragraph at lines 158--159
 []|\T1/ptm/b/n/12 Pondere| 
  []
 
-[17]) (Chapters/5_management_erori.tex [18] [19
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--160
+[]|\T1/ptm/m/n/12 Distanµa din-tre
+ []
 
 
-]) (Chapters/6_concluzii.tex
-[20]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 6.
-) [21
+Underfull \hbox (badness 10000) in paragraph at lines 160--160
+\T1/ptm/m/n/12 po-zi-µia ac-tu-al  ³i
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+[]|\T1/ptm/m/n/12 Direcµia c -tre
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
+[]|\T1/ptm/m/n/12 Diferenµa din-tre
+ []
+
+[23]
+Underfull \hbox (badness 1028) in paragraph at lines 176--176
+[]|\T1/ptm/b/n/12 Min (0% pro-ba-
+ []
+
+
+Overfull \hbox (2.37006pt too wide) in paragraph at lines 176--177
+[]|\T1/ptm/b/n/12 Pondere| 
+ []
+
+[24] <Figures/sterge_ruta_sinc.png, id=560, 571.13374pt x 451.6875pt>
+File: Figures/sterge_ruta_sinc.png Graphic file (type png)
+
+<use Figures/sterge_ruta_sinc.png>
+Package pdftex.def Info: Figures/sterge_ruta_sinc.png used on input line 193.
+(pdftex.def)             Requested size: 328.27937pt x 259.6218pt.
+) (Chapters/5_management_erori.tex [25 <./Figures/sterge_ruta_sinc.png (PNG cop
+y)>]
+<Figures/masina_stare.png, id=566, 1202.4925pt x 408.52625pt>
+File: Figures/masina_stare.png Graphic file (type png)
+
+<use Figures/masina_stare.png>
+Package pdftex.def Info: Figures/masina_stare.png used on input line 39.
+(pdftex.def)             Requested size: 375.17949pt x 127.45842pt.
+ [26
+
+
+ <./Figures/masina_stare.png (PNG copy)>])
+(Chapters/6_concluzii.tex [27] [28
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 65.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 65.
+<Figures/mol.png, id=580, 1084.05pt x 1927.2pt>
+File: Figures/mol.png Graphic file (type png)
+ <use Figures/mol.png>
+Package pdftex.def Info: Figures/mol.png used on input line 43.
+(pdftex.def)             Requested size: 187.58617pt x 333.4716pt.
+ [29 <./Figures/mol.png (PNG copy)>]
+<Figures/ford_sinc.jpg, id=584, 707.64375pt x 466.74374pt>
+File: Figures/ford_sinc.jpg Graphic file (type jpg)
+
+<use Figures/ford_sinc.jpg>
+Package pdftex.def Info: Figures/ford_sinc.jpg used on input line 54.
+(pdftex.def)             Requested size: 281.3864pt x 185.59741pt.
+) [30
+runsystem(makeindex -s main.ist -t main.glg -o main.gls main.glo)...executed (a
+llowed).
+
+runsystem(makeindex -s main.ist -t main.alg -o main.acr main.acn)...executed (a
+llowed).
+
+ <./Figures/ford_sinc.jpg>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 80.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 80.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 65.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 65.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: D755E7936A769EB7E9545ECEB372353C;12517
-(rerunfilecheck)             After:  9C8A5D597F1C4AD2E606DB8E48C1C152;12517.
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 65.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 80.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 80.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 84CC641144494F2349441AB97EA4759D;15488.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 80.
  ) 
 Here is how much of TeX's memory you used:
- 34690 strings out of 493328
- 751212 string characters out of 3139115
- 1032740 words of memory out of 3000000
- 37459 multiletter control sequences out of 15000+200000
- 45899 words of font info for 69 fonts, out of 3000000 for 9000
+ 40820 strings out of 493328
+ 864818 string characters out of 3139115
+ 1187630 words of memory out of 3000000
+ 43421 multiletter control sequences out of 15000+200000
+ 41551 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,13n,96p,794b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{table.caption.73} has been referenced but does no
-t exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.71} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.69} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.83} has been referenced but does not exist,
+ 64i,13n,96p,1946b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{glo:json} has been referenced but does not exist,
  replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.82} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.81} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.78} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.76} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.75} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.74} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.72} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.70} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.60} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.56} has been referenced but does not exi
-st, replaced by a fixed one
 
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/f
@@ -1801,9 +2009,9 @@ e1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/urw/times/utmri8a.pfb>
-Output written on main.pdf (21 pages, 433489 bytes).
+Output written on main.pdf (30 pages, 1086473 bytes).
 PDF statistics:
- 497 PDF objects out of 1000 (max. 8388607)
- 121 named destinations out of 1000 (max. 500000)
- 441 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 655 PDF objects out of 1000 (max. 8388607)
+ 148 named destinations out of 1000 (max. 500000)
+ 609 words of extra memory for PDF output out of 10000 (max. 10000000)
 

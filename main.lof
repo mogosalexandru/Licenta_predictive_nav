@@ -1,6 +1,14 @@
 \select@language {romanian}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Structura tabelelor de date \IeC {\c s}i rela\IeC {\c t}iile dintre ele\relax }}{7}{figure.caption.24}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Procesul de verificarea al rutelor duble (sincron)\relax }}{13}{figure.caption.45}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Procesul de \cb {s}tergere a uneia sau mai multor rute (sincron)\relax }}{14}{figure.caption.54}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Procesul de calculare al predic\cb {t}iilor(asincron)\relax }}{15}{figure.caption.56}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Arhitectura client-server a sistemelor de gestiune a bazelor de date rela\cb {t}ionale\relax }}{9}{figure.caption.28}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Arhitectura server-less SQLite\relax }}{9}{figure.caption.29}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Structura tabelelor de date \IeC {\c s}i rela\IeC {\c t}iile dintre ele\relax }}{11}{figure.caption.35}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Captur\IeC {\u a} de ecran din Enterprise Architect\relax }}{14}{figure.caption.42}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagram\IeC {\u a} de tip statechart pentru cazul realiz\IeC {\u a}rii unei comenzi\relax }}{15}{figure.caption.44}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama componentelor\relax }}{17}{figure.caption.50}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Procesul de verificarea al rutelor duble (sincron)\relax }}{21}{figure.caption.67}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Procesul de calculare al predic\cb {t}iilor(asincron)\relax }}{22}{figure.caption.76}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Procesul de \cb {s}tergere a uneia sau mai multor rute (sincron)\relax }}{25}{figure.caption.97}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Ma\cb {s}in\IeC {\u a} de stare pentru mecanismul \IeC {\^\i }nv\IeC {\u a}\cb {t}are-predic\cb {t}ie\relax }}{26}{figure.caption.104}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Captur\IeC {\u a} de ecran din aplica\cb {t}ia Google Maps\relax }}{29}{figure.caption.109}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Sincronizarea \IeC {\^\i }ntre un sistem de navigare de pe Ford XL 2014 \cb {s}i un telefon inteligent\relax }}{30}{figure.caption.110}
 \contentsfinish 

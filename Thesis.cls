@@ -75,9 +75,9 @@
 %	MARGINS
 %----------------------------------------------------------------------------------------
 \setmarginsrb  { 25,4mm}  % left margin
-                        { 25,4mm}  % top margin
+                        { 12,7mm}  % top margin
                         { 20mm}  % right margin
-                        { 25,4mm}  % bottom margin
+                        { 12,7mm}  % bottom margin
                         {12,7mm}  % head height
                         {2,5mm}  % head sep
                         {12,7mm}  % foot height
